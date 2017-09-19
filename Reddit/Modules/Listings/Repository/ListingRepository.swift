@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ListingUseCase {
-	func fetchHotListing(subreddit: String, after: String?, before: String?, completion: @escaping (Listing) -> Void)
+	func fetchHotListing(subreddit: String,
+	                     after: String?,
+	                     before: String?) -> Observable<Listing>
 }

@@ -9,48 +9,52 @@
 import Foundation
 import AlamofireObjectMapper
 import Alamofire
+import RxSwift
 
 struct ListingServices: ListingUseCase {
 	func fetchHotListing(subreddit: String,
 	                     after: String? = nil,
-	                     before: String? = nil,
-	                     completion: @escaping (Listing) -> Void
-		) {
-		debugPrint("Called Repository")
-		let url = "https://www.reddit.com/r/\(subreddit)/.json"
+	                     before: String? = nil
+		) -> Observable<Listing> {
 
-		let afterHash: String
-		let beforeHash: String
+		return Observable.create({ (observer) -> Disposable in
+			let url = "https://www.reddit.com/r/\(subreddit)/.json"
 
-		if let after = after {
-			afterHash = after
-		} else {
-			afterHash = ""
-		}
+			let afterHash: String
+			let beforeHash: String
 
-		if let before = before {
-			beforeHash = before
-		} else {
-			beforeHash = ""
-		}
-
-		let parameters: [String: Any
-			] = [
-			"raw_json": 1,
-			"after": afterHash,
-			"before": beforeHash
-		]
-
-		let request = Alamofire.request(url, method: .get, parameters: parameters)
-
-		request.responseObject { (response: DataResponse<Listing>) in
-			guard let value = response.result.value else {
-				return
+			if let after = after {
+				afterHash = after
+			} else {
+				afterHash = ""
 			}
 
-			DispatchQueue.main.async {
-				completion(value)
+			if let before = before {
+				beforeHash = before
+			} else {
+				beforeHash = ""
 			}
-		}
+
+			let parameters: [String: Any
+				] = [
+					"raw_json": 1,
+					"after": afterHash,
+					"before": beforeHash
+			]
+
+			let request = Alamofire.request(url, method: .get, parameters: parameters)
+
+			request.responseObject { (response: DataResponse<Listing>) in
+				guard let value = response.result.value else {
+					return
+				}
+
+				observer.onNext(value)
+				observer.onCompleted()
+			}
+
+			return Disposables.create()
+		})
+
     }
 }

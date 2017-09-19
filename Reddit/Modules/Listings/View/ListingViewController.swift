@@ -23,6 +23,8 @@ class ListingViewController: UIViewController {
 
 	var loadingAlert: UIAlertController?
 
+	let disposeBag = DisposeBag()
+
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
@@ -38,6 +40,7 @@ class ListingViewController: UIViewController {
         return tableView
     }()
 
+	// MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,16 +52,14 @@ class ListingViewController: UIViewController {
         listingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         listingTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         listingTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+		viewModel
+			.getListing(subreddit: "all")
+			.drive(onCompleted: { _ in
+				self.dismissLoadingView()
+				self.listingTableView.reloadData()
+
+			})
+			.disposed(by: disposeBag)
     }
-
-	// MARK: - VC Lifecycle
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-
-		viewModel.getListing(subreddit: "all") {
-			self.dismissLoadingView()
-
-			self.listingTableView.reloadData()
-		}
-	}
 }

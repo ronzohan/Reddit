@@ -21,9 +21,9 @@ extension ListingViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		loadNextPage(withCurrentIndexpath: indexPath)
 
-		switch viewModel.listingSections[indexPath.section].type {
+		switch viewModel.listingSections.value[indexPath.section].type {
 			case .link:
-				if let linkSection = viewModel.listingSections[indexPath.section] as? LinkSection,
+				if let linkSection = viewModel.listingSections.value[indexPath.section] as? LinkSection,
 					let cell = tableView.dequeueReusableCell(
 						withIdentifier: String(describing: LinkCellTableViewCell.identifier),
 						for: indexPath) as? LinkCellTableViewCell {
@@ -42,20 +42,20 @@ extension ListingViewController: UITableViewDataSource {
 
 	func loadNextPage(withCurrentIndexpath indexPath: IndexPath) {
 		if viewModel.isNextPageLoadable(withIndexPath: indexPath) {
-			viewModel.getListingNextPage(onLoadingBlock: {
+			viewModel.getListingNextPage()
+				.drive(onNext: { (_) in
+					let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+					loadingIndicator.hidesWhenStopped = true
+					loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+					loadingIndicator.startAnimating()
 
-				let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-				loadingIndicator.hidesWhenStopped = true
-				loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-				loadingIndicator.startAnimating()
+					self.listingTableView.tableFooterView = loadingIndicator
+				}, onCompleted: {
+					self.dismissLoadingView()
 
-				self.listingTableView.tableFooterView = loadingIndicator
-			}, completion: {
-
-				self.dismissLoadingView()
-
-				self.listingTableView.reloadData()
-			})
+					self.listingTableView.reloadData()
+				})
+				.addDisposableTo(disposeBag)
 		}
 	}
 }

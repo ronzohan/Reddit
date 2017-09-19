@@ -13,7 +13,7 @@ class LinkCellTableViewCell: UITableViewCell {
 	// MARK: - UX
 	private struct LinkCellUX {
 		static let ContentStackViewTopOffset: CGFloat = 8
-		static let ContentStackViewBottomOffset: CGFloat = 8
+		static let ContentStackViewBottomOffset: CGFloat = 10
 		static let LineViewHeight: CGFloat = 2
 	}
 
@@ -114,6 +114,7 @@ class LinkCellTableViewCell: UITableViewCell {
 		lineView.translatesAutoresizingMaskIntoConstraints = false
 		lineView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
 		lineView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+		lineView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
 
 		selectionStyle = .none
 	}

@@ -17,5 +17,5 @@ enum VotableKeys: String {
 protocol Votable {
 	var ups: Int { get }
 	var downs: Int { get }
-	var likes: Bool { get }
+	var likes: Bool? { get }
 }

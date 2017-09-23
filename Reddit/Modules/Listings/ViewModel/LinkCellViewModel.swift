@@ -9,8 +9,19 @@
 import Foundation
 
 class LinkCellViewModel {
+	var meta: String {
+		guard let date = Date(timeInterval: link.createdUTC),
+			  let timeIntervalString = Date.timeIntervalString(fromDate: date, toDate: Date()) else {
+			return ""
+		}
+
+		let cleanDomain = link.domain.replacingOccurrences(of: ".com", with: "")
+
+		return "\(link.subredditNamePrefixed) • \(timeIntervalString) • \(cleanDomain)"
+	}
+
 	var title: String {
-		return link.title
+		return "\(link.title)"
 	}
 
 	var imageUrl: String? {

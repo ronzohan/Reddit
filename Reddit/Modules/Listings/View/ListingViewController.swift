@@ -33,7 +33,7 @@ class ListingViewController: UIViewController {
         let tableView = UITableView()
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 100
-		tableView.register(LinkCellTableViewCell.self, forCellReuseIdentifier: LinkCellTableViewCell.identifier)
+		tableView.register(LinkViewTableViewCell.self, forCellReuseIdentifier: LinkViewTableViewCell.identifier)
 		tableView.dataSource = self
 		tableView.separatorStyle = .none
 
@@ -55,7 +55,7 @@ class ListingViewController: UIViewController {
 
 		viewModel
 			.getListing(subreddit: "all")
-			.drive(onCompleted: { _ in
+			.drive(onCompleted: {
 				self.dismissLoadingView()
 				self.listingTableView.reloadData()
 

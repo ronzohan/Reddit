@@ -10,7 +10,7 @@ import Foundation
 
 enum CreatedKeys: String {
 	case created
-	case createdUTC
+	case createdUTC = "created_utc"
 }
 
 protocol Created {

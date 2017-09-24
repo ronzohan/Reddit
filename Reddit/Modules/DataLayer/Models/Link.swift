@@ -24,6 +24,7 @@ enum LinkKeys: String {
 	case numComments = "num_comments"
 	case over18 = "over_18"
 	case permalink
+	case postHint = "post_hint"
 	case preview
 	case saved
 	case score
@@ -57,6 +58,7 @@ class Link: Votable, Created, Thing, Mappable {
 	var numComments: Int = 0
 	var over18: Bool = false
 	var permalink: String = ""
+	var postHint: PostHint = .link
 	var preview: PreviewImage = PreviewImage()
 	var saved: Bool = false
 	var score: Int = 0
@@ -106,6 +108,11 @@ class Link: Votable, Created, Thing, Mappable {
 		numComments <- map[LinkKeys.numComments.rawValue]
 		over18 <- map[LinkKeys.over18.rawValue]
 		permalink <- map[LinkKeys.permalink.rawValue]
+
+		if let hint = map.JSON[LinkKeys.postHint.rawValue] as? String {
+			postHint = PostHint(rawValue: hint) ?? .link
+		}
+
 		preview <- map[LinkKeys.preview.rawValue]
 		saved <- map[LinkKeys.saved.rawValue]
 		score <- map[LinkKeys.score.rawValue]

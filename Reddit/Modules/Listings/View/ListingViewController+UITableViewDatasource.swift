@@ -25,8 +25,8 @@ extension ListingViewController: UITableViewDataSource {
 			case .link:
 				if let linkSection = viewModel.listingSections.value[indexPath.section] as? LinkSection,
 					let cell = tableView.dequeueReusableCell(
-						withIdentifier: String(describing: LinkCellTableViewCell.identifier),
-						for: indexPath) as? LinkCellTableViewCell {
+						withIdentifier: String(describing: LinkTableViewCell.identifier),
+						for: indexPath) as? LinkTableViewCell {
 
 					let link = linkSection.links[indexPath.row]
 					let linkCellViewModel = LinkCellViewModel(link: link)

@@ -23,6 +23,6 @@ extension RedditEndpoint {
 	}
 
 	func url() -> String {
-		return "\(baseUrl)/\(urlLocation)/\(urlParameters)"
+		return "\(baseUrl)/\(urlLocation)/\(String(describing: urlParameters))"
 	}
 }

@@ -10,19 +10,19 @@
 		EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */; };
 		EE04AD0D1F4B322A00DAD0C6 /* LinkSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD0C1F4B322A00DAD0C6 /* LinkSection.swift */; };
 		EE04AD0F1F4B326800DAD0C6 /* ListingSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD0E1F4B326800DAD0C6 /* ListingSections.swift */; };
-		EE04AD131F4B32B400DAD0C6 /* ILinkCellMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD121F4B32B400DAD0C6 /* ILinkCellMock.swift */; };
-		EE18DBEA1F509220009AEDF5 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE18DBE91F509220009AEDF5 /* ReSwift.framework */; };
-		EE18DBEB1F509220009AEDF5 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE18DBE91F509220009AEDF5 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE18DBEF1F509291009AEDF5 /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18DBEE1F509291009AEDF5 /* MainStore.swift */; };
-		EE18DBF31F509351009AEDF5 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18DBF21F509351009AEDF5 /* AppReducer.swift */; };
-		EE18DBF61F5093CB009AEDF5 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18DBF51F5093CB009AEDF5 /* AppState.swift */; };
+		EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; };
+		EE19BA431F73F88A00F99974 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE19BA711F73FE9000F99974 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19BA701F73FE9000F99974 /* LinkView.swift */; };
+		EE2127711F74099000AE3910 /* LinkViewTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2127701F74099000AE3910 /* LinkViewTableViewCellTest.swift */; };
 		EE2258311F45F9A1002B1968 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2258301F45F9A1002B1968 /* Parser.swift */; };
+		EE2541531F74044F007DFF61 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2541521F74044F007DFF61 /* Date+Extensions.swift */; };
+		EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */; };
 		EE299CB81F434DF700733426 /* LinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB41F434DF700733426 /* LinkTest.swift */; };
 		EE299CB91F434DF700733426 /* ListingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB51F434DF700733426 /* ListingTest.swift */; };
 		EE299CBC1F434E1F00733426 /* ListingServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CBB1F434E1F00733426 /* ListingServicesTest.swift */; };
 		EE299CBE1F43538800733426 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */; };
 		EE299CBF1F43538800733426 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE2D3AF81F48AE1F00CCDAC2 /* LinkCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D3AF71F48AE1F00CCDAC2 /* LinkCellTableViewCell.swift */; };
+		EE2D3AF81F48AE1F00CCDAC2 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2D3AF71F48AE1F00CCDAC2 /* LinkTableViewCell.swift */; };
 		EE3999E81F44B22700AF003D /* ListingEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999E71F44B22700AF003D /* ListingEndpoints.swift */; };
 		EE3999EA1F44B30D00AF003D /* RedditEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999E91F44B30D00AF003D /* RedditEndpoint.swift */; };
 		EE3999F41F44B68400AF003D /* ListingEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999F31F44B68400AF003D /* ListingEndpointTest.swift */; };
@@ -31,25 +31,18 @@
 		EE4B971F1F4937AD00FAEECA /* PreviewImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */; };
 		EE4EEA9D1F5337820060866D /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EEA9C1F5337820060866D /* ListingViewModel.swift */; };
 		EE4EEA9F1F533B800060866D /* ListingViewController+Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4EEA9E1F533B800060866D /* ListingViewController+Progressable.swift */; };
-		EE6D84681F5187B500508361 /* ListingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6D84671F5187B500508361 /* ListingState.swift */; };
-		EE6D846D1F51890200508361 /* ListingReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6D846C1F51890200508361 /* ListingReducer.swift */; };
-		EE6D84701F518A0900508361 /* ListingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6D846F1F518A0900508361 /* ListingActions.swift */; };
 		EE6D84731F519A9800508361 /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6D84721F519A9800508361 /* Progressable.swift */; };
 		EE701E3F1F5EE74700BAAC97 /* LinkCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE701E3E1F5EE74700BAAC97 /* LinkCellViewModel.swift */; };
 		EE7662A61F5C3FB1006987BC /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A31F5C3FB1006987BC /* RxBlocking.framework */; };
 		EE7662A71F5C3FB1006987BC /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A31F5C3FB1006987BC /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE7662A81F5C3FB1006987BC /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A41F5C3FB1006987BC /* RxCocoa.framework */; };
 		EE7662A91F5C3FB1006987BC /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A41F5C3FB1006987BC /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE7662AA1F5C3FB2006987BC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; };
-		EE7662AB1F5C3FB2006987BC /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE7662B11F5C4722006987BC /* ListingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7662B01F5C4722006987BC /* ListingCoordinator.swift */; };
 		EE7662B41F5C51F9006987BC /* ListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7662B31F5C51F9006987BC /* ListingRepository.swift */; };
 		EE7E74831F4AFEA700C9B623 /* ImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E74821F4AFEA700C9B623 /* ImageTest.swift */; };
 		EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */; };
 		EE9D4B1A1F4358E500E7038A /* ListingViewController+UITableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9D4B191F4358E500E7038A /* ListingViewController+UITableViewDatasource.swift */; };
-		EEB67CB21F406DF80088646C /* ListigViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB67CAF1F406DF80088646C /* ListigViewMock.swift */; };
-		EEB67CB31F406DF80088646C /* ListingPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB67CB01F406DF80088646C /* ListingPresenterTest.swift */; };
-		EEB67CB41F406DF80088646C /* ListingRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB67CB11F406DF80088646C /* ListingRepositoryMock.swift */; };
+		EEB5F2881F76EA83003F4054 /* ImageLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB5F2871F76EA83003F4054 /* ImageLinkTableViewCell.swift */; };
 		EED469791F3CCA08006759D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED469781F3CCA08006759D1 /* AppDelegate.swift */; };
 		EED4697B1F3CCA08006759D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED4697A1F3CCA08006759D1 /* ViewController.swift */; };
 		EED469801F3CCA08006759D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EED4697F1F3CCA08006759D1 /* Assets.xcassets */; };
@@ -100,11 +93,10 @@
 			files = (
 				EE7662A71F5C3FB1006987BC /* RxBlocking.framework in Embed Frameworks */,
 				EED6458A1F40A3AC00BA46B2 /* Alamofire.framework in Embed Frameworks */,
-				EE7662AB1F5C3FB2006987BC /* RxSwift.framework in Embed Frameworks */,
+				EE19BA431F73F88A00F99974 /* RxSwift.framework in Embed Frameworks */,
 				EED645A21F40AC4300BA46B2 /* ObjectMapper.framework in Embed Frameworks */,
 				EED6458C1F40A3AC00BA46B2 /* AlamofireImage.framework in Embed Frameworks */,
 				EE7662A91F5C3FB1006987BC /* RxCocoa.framework in Embed Frameworks */,
-				EE18DBEB1F509220009AEDF5 /* ReSwift.framework in Embed Frameworks */,
 				EE299CBF1F43538800733426 /* AlamofireObjectMapper.framework in Embed Frameworks */,
 				EED645921F40A3AC00BA46B2 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
@@ -117,17 +109,17 @@
 		EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
 		EE04AD0C1F4B322A00DAD0C6 /* LinkSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkSection.swift; sourceTree = "<group>"; };
 		EE04AD0E1F4B326800DAD0C6 /* ListingSections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingSections.swift; sourceTree = "<group>"; };
-		EE04AD121F4B32B400DAD0C6 /* ILinkCellMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILinkCellMock.swift; sourceTree = "<group>"; };
 		EE18DBE91F509220009AEDF5 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
-		EE18DBEE1F509291009AEDF5 /* MainStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
-		EE18DBF21F509351009AEDF5 /* AppReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		EE18DBF51F5093CB009AEDF5 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		EE19BA701F73FE9000F99974 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		EE2127701F74099000AE3910 /* LinkViewTableViewCellTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewTableViewCellTest.swift; sourceTree = "<group>"; };
 		EE2258301F45F9A1002B1968 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = ../Parser.swift; sourceTree = "<group>"; };
+		EE2541521F74044F007DFF61 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ExtensionsTest.swift"; sourceTree = "<group>"; };
 		EE299CB41F434DF700733426 /* LinkTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTest.swift; sourceTree = "<group>"; };
 		EE299CB51F434DF700733426 /* ListingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTest.swift; sourceTree = "<group>"; };
 		EE299CBB1F434E1F00733426 /* ListingServicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingServicesTest.swift; sourceTree = "<group>"; };
 		EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
-		EE2D3AF71F48AE1F00CCDAC2 /* LinkCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCellTableViewCell.swift; sourceTree = "<group>"; };
+		EE2D3AF71F48AE1F00CCDAC2 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		EE3999E71F44B22700AF003D /* ListingEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingEndpoints.swift; sourceTree = "<group>"; };
 		EE3999E91F44B30D00AF003D /* RedditEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditEndpoint.swift; sourceTree = "<group>"; };
 		EE3999F31F44B68400AF003D /* ListingEndpointTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingEndpointTest.swift; sourceTree = "<group>"; };
@@ -136,9 +128,6 @@
 		EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImages.swift; sourceTree = "<group>"; };
 		EE4EEA9C1F5337820060866D /* ListingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
 		EE4EEA9E1F533B800060866D /* ListingViewController+Progressable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListingViewController+Progressable.swift"; sourceTree = "<group>"; };
-		EE6D84671F5187B500508361 /* ListingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingState.swift; sourceTree = "<group>"; };
-		EE6D846C1F51890200508361 /* ListingReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingReducer.swift; sourceTree = "<group>"; };
-		EE6D846F1F518A0900508361 /* ListingActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingActions.swift; sourceTree = "<group>"; };
 		EE6D84721F519A9800508361 /* Progressable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
 		EE701E3E1F5EE74700BAAC97 /* LinkCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCellViewModel.swift; sourceTree = "<group>"; };
 		EE7662A31F5C3FB1006987BC /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -149,9 +138,7 @@
 		EE7E74821F4AFEA700C9B623 /* ImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
 		EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImageTest.swift; sourceTree = "<group>"; };
 		EE9D4B191F4358E500E7038A /* ListingViewController+UITableViewDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ListingViewController+UITableViewDatasource.swift"; sourceTree = "<group>"; };
-		EEB67CAF1F406DF80088646C /* ListigViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListigViewMock.swift; sourceTree = "<group>"; };
-		EEB67CB01F406DF80088646C /* ListingPresenterTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingPresenterTest.swift; sourceTree = "<group>"; };
-		EEB67CB11F406DF80088646C /* ListingRepositoryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingRepositoryMock.swift; sourceTree = "<group>"; };
+		EEB5F2871F76EA83003F4054 /* ImageLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EED469751F3CCA08006759D1 /* Reddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED469781F3CCA08006759D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EED4697A1F3CCA08006759D1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -185,11 +172,10 @@
 			files = (
 				EE7662A61F5C3FB1006987BC /* RxBlocking.framework in Frameworks */,
 				EED645891F40A3AC00BA46B2 /* Alamofire.framework in Frameworks */,
-				EE7662AA1F5C3FB2006987BC /* RxSwift.framework in Frameworks */,
+				EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */,
 				EED645A11F40AC4300BA46B2 /* ObjectMapper.framework in Frameworks */,
 				EED6458B1F40A3AC00BA46B2 /* AlamofireImage.framework in Frameworks */,
 				EE7662A81F5C3FB1006987BC /* RxCocoa.framework in Frameworks */,
-				EE18DBEA1F509220009AEDF5 /* ReSwift.framework in Frameworks */,
 				EE299CBE1F43538800733426 /* AlamofireObjectMapper.framework in Frameworks */,
 				EED645911F40A3AC00BA46B2 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -221,27 +207,12 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
-		EE18DBF01F50933E009AEDF5 /* Actions */ = {
+		EE2541541F740615007DFF61 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */,
 			);
-			path = Actions;
-			sourceTree = "<group>";
-		};
-		EE18DBF11F50933E009AEDF5 /* Reducers */ = {
-			isa = PBXGroup;
-			children = (
-				EE18DBF21F509351009AEDF5 /* AppReducer.swift */,
-			);
-			path = Reducers;
-			sourceTree = "<group>";
-		};
-		EE18DBF41F5093A4009AEDF5 /* States */ = {
-			isa = PBXGroup;
-			children = (
-				EE18DBF51F5093CB009AEDF5 /* AppState.swift */,
-			);
-			path = States;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		EE299CB21F4349CE00733426 /* Endpoints */ = {
@@ -300,34 +271,11 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EE6D84661F51879D00508361 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				EE6D84671F5187B500508361 /* ListingState.swift */,
-			);
-			path = State;
-			sourceTree = "<group>";
-		};
-		EE6D84691F5187C100508361 /* Reducer */ = {
-			isa = PBXGroup;
-			children = (
-				EE6D846C1F51890200508361 /* ListingReducer.swift */,
-			);
-			path = Reducer;
-			sourceTree = "<group>";
-		};
-		EE6D846E1F518A0100508361 /* Action */ = {
-			isa = PBXGroup;
-			children = (
-				EE6D846F1F518A0900508361 /* ListingActions.swift */,
-			);
-			path = Action;
-			sourceTree = "<group>";
-		};
 		EE6D84711F519A8F00508361 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				EE6D84721F519A9800508361 /* Progressable.swift */,
+				EE2541521F74044F007DFF61 /* Date+Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -362,6 +310,7 @@
 		EEB67CAD1F406DF80088646C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EE2541541F740615007DFF61 /* Common */,
 				EE2A661F1F41CA4A00A8F9BF /* DataLayer */,
 				EEB67CAE1F406DF80088646C /* Listing */,
 			);
@@ -371,10 +320,7 @@
 		EEB67CAE1F406DF80088646C /* Listing */ = {
 			isa = PBXGroup;
 			children = (
-				EEB67CAF1F406DF80088646C /* ListigViewMock.swift */,
-				EEB67CB01F406DF80088646C /* ListingPresenterTest.swift */,
-				EEB67CB11F406DF80088646C /* ListingRepositoryMock.swift */,
-				EE04AD121F4B32B400DAD0C6 /* ILinkCellMock.swift */,
+				EE2127701F74099000AE3910 /* LinkViewTableViewCellTest.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -405,14 +351,10 @@
 			children = (
 				EED469841F3CCA08006759D1 /* Info.plist */,
 				EED469781F3CCA08006759D1 /* AppDelegate.swift */,
-				EE18DBEE1F509291009AEDF5 /* MainStore.swift */,
 				EED4697A1F3CCA08006759D1 /* ViewController.swift */,
 				EED4697F1F3CCA08006759D1 /* Assets.xcassets */,
 				EED469811F3CCA08006759D1 /* LaunchScreen.storyboard */,
-				EE18DBF01F50933E009AEDF5 /* Actions */,
 				EEB67C9F1F406D7F0088646C /* Modules */,
-				EE18DBF11F50933E009AEDF5 /* Reducers */,
-				EE18DBF41F5093A4009AEDF5 /* States */,
 			);
 			path = Reddit;
 			sourceTree = "<group>";
@@ -455,7 +397,9 @@
 		EED5793E1F481A42006AA6C7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EE2D3AF71F48AE1F00CCDAC2 /* LinkCellTableViewCell.swift */,
+				EEB5F2871F76EA83003F4054 /* ImageLinkTableViewCell.swift */,
+				EE2D3AF71F48AE1F00CCDAC2 /* LinkTableViewCell.swift */,
+				EE19BA701F73FE9000F99974 /* LinkView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -499,10 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				EE7662B21F5C51F2006987BC /* Repository */,
-				EE6D84691F5187C100508361 /* Reducer */,
 				EE4EEA9B1F53377B0060866D /* ViewModel */,
-				EE6D846E1F518A0100508361 /* Action */,
-				EE6D84661F51879D00508361 /* State */,
 				EE04AD0B1F4B321900DAD0C6 /* Sections */,
 				EED645771F40A09500BA46B2 /* View */,
 			);
@@ -585,24 +526,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Ron Daryl Magno";
 				TargetAttributes = {
 					EED469741F3CCA08006759D1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4529XPL542;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					EED469881F3CCA08006759D1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EED469741F3CCA08006759D1;
 					};
 					EED469931F3CCA08006759D1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = EED469741F3CCA08006759D1;
 					};
@@ -675,36 +616,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE2D3AF81F48AE1F00CCDAC2 /* LinkCellTableViewCell.swift in Sources */,
+				EE2541531F74044F007DFF61 /* Date+Extensions.swift in Sources */,
+				EE2D3AF81F48AE1F00CCDAC2 /* LinkTableViewCell.swift in Sources */,
 				EE4EEA9D1F5337820060866D /* ListingViewModel.swift in Sources */,
 				EE7662B11F5C4722006987BC /* ListingCoordinator.swift in Sources */,
 				EED4697B1F3CCA08006759D1 /* ViewController.swift in Sources */,
 				EE3999EA1F44B30D00AF003D /* RedditEndpoint.swift in Sources */,
 				EE4B971B1F4936EC00FAEECA /* ImageInfo.swift in Sources */,
-				EE18DBEF1F509291009AEDF5 /* MainStore.swift in Sources */,
 				EE4B971F1F4937AD00FAEECA /* PreviewImages.swift in Sources */,
 				EE04AD0F1F4B326800DAD0C6 /* ListingSections.swift in Sources */,
 				EE6D84731F519A9800508361 /* Progressable.swift in Sources */,
 				EED469791F3CCA08006759D1 /* AppDelegate.swift in Sources */,
 				EED645831F40A09500BA46B2 /* ListingViewController.swift in Sources */,
 				EE701E3F1F5EE74700BAAC97 /* LinkCellViewModel.swift in Sources */,
+				EEB5F2881F76EA83003F4054 /* ImageLinkTableViewCell.swift in Sources */,
 				EE7662B41F5C51F9006987BC /* ListingRepository.swift in Sources */,
 				EE3999E81F44B22700AF003D /* ListingEndpoints.swift in Sources */,
 				EED6457D1F40A09500BA46B2 /* Listing.swift in Sources */,
 				EED6457B1F40A09500BA46B2 /* Kind.swift in Sources */,
-				EE6D84681F5187B500508361 /* ListingState.swift in Sources */,
+				EE19BA711F73FE9000F99974 /* LinkView.swift in Sources */,
 				EE4EEA9F1F533B800060866D /* ListingViewController+Progressable.swift in Sources */,
 				EE9D4B1A1F4358E500E7038A /* ListingViewController+UITableViewDatasource.swift in Sources */,
-				EE6D846D1F51890200508361 /* ListingReducer.swift in Sources */,
 				EE04AD0D1F4B322A00DAD0C6 /* LinkSection.swift in Sources */,
 				EED5793D1F48163A006AA6C7 /* Created.swift in Sources */,
 				EE2258311F45F9A1002B1968 /* Parser.swift in Sources */,
-				EE18DBF31F509351009AEDF5 /* AppReducer.swift in Sources */,
 				EED6457E1F40A09500BA46B2 /* Thing.swift in Sources */,
-				EE6D84701F518A0900508361 /* ListingActions.swift in Sources */,
 				EED5793B1F481601006AA6C7 /* Votable.swift in Sources */,
 				EE4B97191F4936BB00FAEECA /* Image.swift in Sources */,
-				EE18DBF61F5093CB009AEDF5 /* AppState.swift in Sources */,
 				EED6457C1F40A09500BA46B2 /* Link.swift in Sources */,
 				EED6457F1F40A09500BA46B2 /* ListingServices.swift in Sources */,
 			);
@@ -714,18 +652,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEB67CB21F406DF80088646C /* ListigViewMock.swift in Sources */,
 				EED4698E1F3CCA08006759D1 /* RedditTests.swift in Sources */,
 				EE299CBC1F434E1F00733426 /* ListingServicesTest.swift in Sources */,
+				EE2127711F74099000AE3910 /* LinkViewTableViewCellTest.swift in Sources */,
 				EE7E74831F4AFEA700C9B623 /* ImageTest.swift in Sources */,
+				EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */,
 				EE299CB91F434DF700733426 /* ListingTest.swift in Sources */,
 				EE3999F41F44B68400AF003D /* ListingEndpointTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,
 				EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */,
-				EE04AD131F4B32B400DAD0C6 /* ILinkCellMock.swift in Sources */,
-				EEB67CB41F406DF80088646C /* ListingRepositoryMock.swift in Sources */,
-				EEB67CB31F406DF80088646C /* ListingPresenterTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +710,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -782,7 +720,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -825,7 +767,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -833,7 +777,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -872,7 +820,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.Reddit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -889,7 +838,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.Reddit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -906,7 +856,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.RedditTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reddit.app/Reddit";
 			};
 			name = Debug;
@@ -924,7 +875,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR)/Carthage/Build/iOS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.RedditTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reddit.app/Reddit";
 			};
 			name = Release;
@@ -937,7 +889,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.RedditUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Reddit;
 			};
 			name = Debug;
@@ -950,7 +903,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.RedditUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Reddit;
 			};
 			name = Release;

@@ -32,8 +32,8 @@ class ListingViewController: UIViewController {
     lazy var listingTableView: UITableView = {
         let tableView = UITableView()
 		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 100
-		tableView.register(LinkViewTableViewCell.self, forCellReuseIdentifier: LinkViewTableViewCell.identifier)
+		tableView.estimatedRowHeight = 120
+		tableView.register(LinkTableViewCell.self, forCellReuseIdentifier: LinkTableViewCell.identifier)
 		tableView.dataSource = self
 		tableView.separatorStyle = .none
 

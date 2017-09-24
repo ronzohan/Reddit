@@ -8,13 +8,11 @@
 
 import UIKit
 
-class LinkView: UIView {
+class LinkView<T: UIView>: UIView {
 	// MARK: - Init
-	private struct LinkViewUX {
-		static let ContentStackViewTopOffset: CGFloat = 8
-		static let ContentStackViewBottomOffset: CGFloat = 10
-		static let LineViewHeight: CGFloat = 2
-	}
+	let contentStackViewTopOffset: CGFloat = 8
+	let contentStackViewBottomOffset: CGFloat = 10
+	let lineViewHeight: CGFloat = 2
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -27,7 +25,7 @@ class LinkView: UIView {
 	}
 
 	// MARK: - Properties
-	var contentImageViewHeightConst: NSLayoutConstraint?
+	var contentViewHeightConst: NSLayoutConstraint?
 
 	// MARK: - Subviews
 	lazy var titleLabel: UILabel = {
@@ -42,12 +40,10 @@ class LinkView: UIView {
 		return label
 	}()
 
-	lazy var contentImageView: UIImageView = {
-		let imageView = UIImageView()
-		imageView.contentMode = .scaleAspectFill
-		imageView.layer.masksToBounds = true
+	lazy var contentView: T = {
+		let contentView = T()
 
-		return imageView
+		return contentView
 	}()
 
 	lazy private var contentStackView: UIStackView = {
@@ -69,10 +65,10 @@ class LinkView: UIView {
 		return stackView
 	}()
 
-	private var lineView: UIView = {
+	lazy private var lineView: UIView = {
 		let view = UIView()
 		view.backgroundColor = UIColor.lightGray
-		view.heightAnchor.constraint(equalToConstant: LinkViewUX.LineViewHeight).isActive = true
+		view.heightAnchor.constraint(equalToConstant: lineViewHeight).isActive = true
 
 		return view
 	}()
@@ -81,26 +77,26 @@ class LinkView: UIView {
 		contentStackView.translatesAutoresizingMaskIntoConstraints = false
 
 		contentStackView.addArrangedSubview(titleStackView)
-		contentStackView.addArrangedSubview(contentImageView)
+		contentStackView.addArrangedSubview(contentView)
 
 		addSubview(contentStackView)
 
 		contentStackView.topAnchor.constraint(
 			equalTo: topAnchor,
-			constant: LinkViewUX.ContentStackViewTopOffset
+			constant: contentStackViewTopOffset
 			).isActive = true
 
 		contentStackView.bottomAnchor.constraint(
 			equalTo: bottomAnchor,
-			constant: -LinkViewUX.ContentStackViewBottomOffset
+			constant: -contentStackViewBottomOffset
 			).isActive = true
 
 		contentStackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
 		contentStackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 
-		contentImageViewHeightConst = contentImageView.heightAnchor.constraint(equalToConstant: 0)
-		contentImageViewHeightConst?.priority = UILayoutPriority(rawValue: 999)
-		contentImageViewHeightConst?.isActive = true
+		contentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 0)
+		contentViewHeightConst?.priority = UILayoutPriority(rawValue: 999)
+		contentViewHeightConst?.isActive = true
 
 		addSubview(lineView)
 		lineView.translatesAutoresizingMaskIntoConstraints = false

@@ -9,11 +9,8 @@
 import Foundation
 
 public extension Date {
-	public init?(timeInterval: UInt64) {
-		guard let interval = Double(exactly: timeInterval) else {
-			return nil
-		}
-
+	public init(timeInterval: UInt64) {
+		let interval = Double(timeInterval)
 		self.init(timeIntervalSince1970: interval)
 	}
 

@@ -10,14 +10,19 @@ import Foundation
 
 class LinkCellViewModel {
 	var meta: String {
-		guard let date = Date(timeInterval: link.createdUTC),
-			  let timeIntervalString = Date.timeIntervalString(fromDate: date, toDate: Date()) else {
-			return ""
+		let date = Date(timeInterval: link.createdUTC)
+
+		let timeIntervalString: String
+
+		if let interval = Date.timeIntervalString(fromDate: date, toDate: Date()) {
+			timeIntervalString = " • \(interval)"
+		} else {
+			timeIntervalString = ""
 		}
 
 		let cleanDomain = link.domain.replacingOccurrences(of: ".com", with: "")
 
-		return "\(link.subredditNamePrefixed) • \(timeIntervalString) • \(cleanDomain)"
+		return "\(link.subredditNamePrefixed)\(timeIntervalString) • \(cleanDomain)"
 	}
 
 	var title: String {
@@ -34,6 +39,10 @@ class LinkCellViewModel {
 		} else {
 			return nil
 		}
+	}
+
+	var postHint: PostHint {
+		return link.postHint
 	}
 
 	private var link: Link

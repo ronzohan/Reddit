@@ -75,7 +75,7 @@ class ListingViewModel: NSObject {
 		return sections
 	}
 
-	func isNextPageLoadable(withIndexPath indexPath: IndexPath) -> Bool {
+	func shouldLoadNextPage(withIndexPath indexPath: IndexPath) -> Bool {
 		if !listingSections.value.isEmpty &&
 			indexPath.section == listingSections.value.count - 1 &&
 			indexPath.row == listingSections.value[indexPath.section].rowCount - 1 &&

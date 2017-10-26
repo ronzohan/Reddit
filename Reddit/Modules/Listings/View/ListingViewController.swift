@@ -29,16 +29,25 @@ class ListingViewController: UIViewController {
 		super.init(coder: aDecoder)
 	}
 
+	// MARK: - Subviews
     lazy var listingTableView: UITableView = {
         let tableView = UITableView()
 		tableView.rowHeight = UITableViewAutomaticDimension
 		tableView.estimatedRowHeight = 120
-		tableView.register(LinkTableViewCell.self, forCellReuseIdentifier: LinkTableViewCell.identifier)
+		tableView.register(ImageLinkTableViewCell.self, forCellReuseIdentifier: ImageLinkTableViewCell.identifier)
+		tableView.register(UrlLinkTableViewCell.self, forCellReuseIdentifier: UrlLinkTableViewCell.identifier)
 		tableView.dataSource = self
 		tableView.separatorStyle = .none
 
         return tableView
     }()
+
+	lazy var loadingIndicator: UIActivityIndicatorView = {
+		let loader = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+		loader.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+
+		return loader
+	}()
 
 	// MARK: - VC Lifecycle
     override func viewDidLoad() {

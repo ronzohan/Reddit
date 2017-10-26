@@ -32,6 +32,7 @@ extension ListingViewController: Progressable {
 	}
 
 	func dismissLoadingView() {
+		self.listingTableView.tableFooterView = nil
 		loadingAlert?.dismiss(animated: true, completion: nil)
 	}
 }

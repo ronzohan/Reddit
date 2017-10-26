@@ -8,12 +8,18 @@
 
 import UIKit
 
+enum LayoutMode {
+	case horizontal
+	case vertical
+}
+
 class LinkView<T: UIView>: UIView {
-	// MARK: - Init
 	let contentStackViewTopOffset: CGFloat = 8
 	let contentStackViewBottomOffset: CGFloat = 10
 	let lineViewHeight: CGFloat = 2
+	let mediumSpacing: CGFloat = 12
 
+	// MARK: - Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setup()
@@ -25,7 +31,12 @@ class LinkView<T: UIView>: UIView {
 	}
 
 	// MARK: - Properties
-	var contentViewHeightConst: NSLayoutConstraint?
+	var mainContentViewHeightConst: NSLayoutConstraint?
+	var mode: LayoutMode = .vertical {
+		didSet {
+			updateLayoutMode(mode: mode)
+		}
+	}
 
 	// MARK: - Subviews
 	lazy var titleLabel: UILabel = {
@@ -35,8 +46,22 @@ class LinkView<T: UIView>: UIView {
 		return label
 	}()
 
+	lazy private var metaContainerView: UIView = {
+		let view = UIView()
+
+		view.addSubview(metaLabel)
+		metaLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		metaLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: mediumSpacing).isActive = true
+		metaLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: mediumSpacing).isActive = true
+		metaLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+		return view
+	}()
+
 	lazy var metaLabel: UILabel = {
 		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+
 		return label
 	}()
 
@@ -56,10 +81,11 @@ class LinkView<T: UIView>: UIView {
 
 	lazy private var titleStackView: UIStackView = {
 		let stackView = UIStackView()
-		stackView.addArrangedSubview(self.metaLabel)
 		stackView.addArrangedSubview(self.titleLabel)
-		stackView.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-		stackView.axis = .vertical
+		stackView.layoutMargins = UIEdgeInsets(top: 0, left: mediumSpacing, bottom: 0, right: 8)
+		stackView.axis = .horizontal
+		stackView.alignment = .top
+		stackView.spacing = mediumSpacing
 		stackView.isLayoutMarginsRelativeArrangement = true
 
 		return stackView
@@ -73,36 +99,58 @@ class LinkView<T: UIView>: UIView {
 		return view
 	}()
 
+	lazy private var mainContentView: UIStackView = {
+		let stackView = UIStackView()
+		stackView.axis = .vertical
+
+		return stackView
+	}()
+
 	func setup() {
-		contentStackView.translatesAutoresizingMaskIntoConstraints = false
+		mainContentView.translatesAutoresizingMaskIntoConstraints = false
 
-		contentStackView.addArrangedSubview(titleStackView)
-		contentStackView.addArrangedSubview(contentView)
+		mainContentView.addArrangedSubview(metaContainerView)
+		mainContentView.addArrangedSubview(titleStackView)
+		addSubview(mainContentView)
 
-		addSubview(contentStackView)
-
-		contentStackView.topAnchor.constraint(
+		mainContentView.topAnchor.constraint(
 			equalTo: topAnchor,
 			constant: contentStackViewTopOffset
 			).isActive = true
 
-		contentStackView.bottomAnchor.constraint(
+		mainContentView.bottomAnchor.constraint(
 			equalTo: bottomAnchor,
 			constant: -contentStackViewBottomOffset
 			).isActive = true
 
-		contentStackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-		contentStackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+		mainContentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+		mainContentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 
-		contentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 0)
-		contentViewHeightConst?.priority = UILayoutPriority(rawValue: 999)
-		contentViewHeightConst?.isActive = true
+		mainContentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 0)
+		mainContentViewHeightConst?.priority = UILayoutPriority(rawValue: 999)
+		mainContentViewHeightConst?.isActive = true
 
+		updateLayoutMode(mode: mode)
+
+		// Line view setup
 		addSubview(lineView)
 		lineView.translatesAutoresizingMaskIntoConstraints = false
 		lineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
 		lineView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 		lineView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+	}
 
+	func updateLayoutMode(mode: LayoutMode) {
+		switch mode {
+		case .horizontal:
+			mainContentView.removeArrangedSubview(contentView)
+			contentView.removeFromSuperview()
+			titleStackView.insertArrangedSubview(contentView, at: 0)
+			contentView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+		case .vertical:
+			titleStackView.removeArrangedSubview(contentView)
+			contentView.removeFromSuperview()
+			mainContentView.addArrangedSubview(contentView)
+		}
 	}
 }

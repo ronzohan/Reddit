@@ -81,10 +81,38 @@ class Date_ExtensionsTest: XCTestCase {
 	}
 	
 	func testSuffixForComponent() {
-		let component = Calendar.Component.weekdayOrdinal
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.second),
+			"s"
+		)
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.minute),
+			"m"
+		)
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.hour),
+			"h"
+		)
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.day),
+			"d"
+		)
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.weekOfYear),
+			"w"
+		)
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.month),
+			"mon"
+		)
+		XCTAssertEqual(
+			Date.suffix(forComponent: Calendar.Component.year),
+			"yr"
+		)
 		
-		let suffix = Date.suffix(forComponent: component)
 		
-		XCTAssertNil(suffix)
+		XCTAssertNil(Date.suffix(forComponent: Calendar.Component.weekdayOrdinal))
 	}
+	
+	
 }

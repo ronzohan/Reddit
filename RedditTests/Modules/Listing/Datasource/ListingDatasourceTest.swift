@@ -51,8 +51,8 @@ class ListingDatasourceTest: XCTestCase {
 
 		let sections: [LinkSectionModel] = [
 			LinkSectionModel.linkSection(items: [
-				SectionItem.urlLink(link: urlLink),
-				SectionItem.imageLink(link: imageLink)
+				LinkItem.urlLink(link: urlLink),
+				LinkItem.imageLink(link: imageLink)
 			])
 		]
 

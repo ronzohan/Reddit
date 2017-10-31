@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class ListingViewController: UIViewController {
 
@@ -32,11 +33,10 @@ class ListingViewController: UIViewController {
 	// MARK: - Subviews
     lazy var listingTableView: UITableView = {
         let tableView = UITableView()
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = 120
-		tableView.register(ImageLinkTableViewCell.self, forCellReuseIdentifier: ImageLinkTableViewCell.identifier)
-		tableView.register(UrlLinkTableViewCell.self, forCellReuseIdentifier: UrlLinkTableViewCell.identifier)
-		tableView.dataSource = self
+		tableView.register(ImageLinkTableViewCell.self,
+		                   forCellReuseIdentifier: ImageLinkTableViewCell.reuseIdentifier)
+		tableView.register(UrlLinkTableViewCell.self,
+		                   forCellReuseIdentifier: UrlLinkTableViewCell.reuseIdentifier)
 		tableView.separatorStyle = .none
 
         return tableView
@@ -62,13 +62,11 @@ class ListingViewController: UIViewController {
         listingTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         listingTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
+		let datasources = ListingDatasource.datasource()
+
 		viewModel
 			.getListing(subreddit: "all")
-			.drive(onCompleted: {
-				self.dismissLoadingView()
-				self.listingTableView.reloadData()
-
-			})
+			.bind(to: listingTableView.rx.items(dataSource: datasources))
 			.disposed(by: disposeBag)
     }
 }

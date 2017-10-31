@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 
 class ImageLinkTableViewCell: LinkTableViewCell<UIImageView> {
-	static var identifier: String {
-		return String(describing: self)
-	}
-
 	override func prepareForReuse() {
 		super.prepareForReuse()
 

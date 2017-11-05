@@ -9,16 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxDataSources
 
 class ListingViewController: UIViewController {
-
-	// MARK: - Init
-	init(viewModel: ListingViewModel) {
-		self.viewModel = viewModel
-		super.init(nibName: nil, bundle: nil)
-	}
-
 	// MARK: - Properties
 	var viewModel: ListingViewModel!
 
@@ -26,21 +18,23 @@ class ListingViewController: UIViewController {
 
 	let disposeBag = DisposeBag()
 
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
+	let datasources = ListingDatasource()
 
 	// MARK: - Subviews
-    lazy var listingTableView: UITableView = {
-        let tableView = UITableView()
+	lazy var listingTableView: UITableView = {
+		let tableView = UITableView()
 		tableView.register(ImageLinkTableViewCell.self,
 		                   forCellReuseIdentifier: ImageLinkTableViewCell.reuseIdentifier)
 		tableView.register(UrlLinkTableViewCell.self,
 		                   forCellReuseIdentifier: UrlLinkTableViewCell.reuseIdentifier)
 		tableView.separatorStyle = .none
+		tableView.rowHeight = UITableViewAutomaticDimension
 
-        return tableView
-    }()
+		tableView.delegate = self.datasources
+		tableView.dataSource = self.datasources
+
+		return tableView
+	}()
 
 	lazy var loadingIndicator: UIActivityIndicatorView = {
 		let loader = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
@@ -48,6 +42,16 @@ class ListingViewController: UIViewController {
 
 		return loader
 	}()
+
+	// MARK: - Init
+	init(viewModel: ListingViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
 
 	// MARK: - VC Lifecycle
     override func viewDidLoad() {
@@ -62,11 +66,21 @@ class ListingViewController: UIViewController {
         listingTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         listingTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
 
-		let datasources = ListingDatasource.datasource()
-
-		viewModel
-			.getListing(subreddit: "all")
-			.bind(to: listingTableView.rx.items(dataSource: datasources))
+		viewModel.getListing(subreddit: "all")
+			.subscribe(onNext: { (sections) in
+				self.datasources.dataSource.append(sections)
+				self.listingTableView.reloadData()
+			})
 			.disposed(by: disposeBag)
+
+		datasources.onLoadNextPage {
+			self.viewModel.getListingNextPage()
+				.subscribe(onNext: { (sections) in
+					self.datasources.dataSource.append(sections)
+					let index = IndexSet(integer: self.datasources.dataSource.count - 1)
+					self.listingTableView.insertSections(index, with: .bottom)
+				})
+				.addDisposableTo(self.disposeBag)
+		}
     }
 }

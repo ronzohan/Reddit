@@ -8,11 +8,6 @@
 
 import Foundation
 
-enum ListingSectionType {
-	case link
-}
-
-protocol ListingSection {
-	var type: ListingSectionType { get }
-	var rowCount: Int { get }
+enum ListingSection {
+	case linkRows(links: [Link])
 }

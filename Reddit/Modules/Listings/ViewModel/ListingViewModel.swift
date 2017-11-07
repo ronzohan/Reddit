@@ -11,33 +11,18 @@ import RxSwift
 import RxCocoa
 
 class ListingViewModel: NSObject {
-	private var after: String?
-	private var before: String?
-	private var subreddit: String = ""
+	var after: String?
+	var before: String?
+	var subreddit: String = ""
 
-	var useCase: ListingUseCase
+	private var useCase: ListingUseCase
 
 	init(useCase: ListingUseCase) {
 		self.useCase = useCase
 	}
 
-	func getListing(subreddit: String) -> Observable<ListingSection> {
-		return self.useCase.fetchHotListing(subreddit: subreddit, after: nil, before: nil)
-			.do(onNext: { (listing) in
-				// Update current after and before values for loading next page
-				self.after = listing.after
-				self.before = listing.before
-				self.subreddit = subreddit
-			})
-			.map({ (listing) -> ListingSection in
-				let section = self.sectionModels(forListing: listing)
-
-				return section
-			})
-	}
-
-	func getListingNextPage() -> Observable<ListingSection> {
-		return self.useCase.fetchHotListing(subreddit: subreddit, after: after, before: before)
+	func getListing() -> Observable<ListingSection> {
+		return self.useCase.fetchHotListing(subreddit: self.subreddit, after: after, before: before)
 			.do(onNext: { (listing) in
 				// Update current after and before values for loading next page
 				self.after = listing.after

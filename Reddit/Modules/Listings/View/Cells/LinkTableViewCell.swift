@@ -31,7 +31,7 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
         let view = LinkView<Content>()
 
         let metaLabelTapGesture = UITapGestureRecognizer(
-            target: self, 
+            target: self,
             action: #selector(onMetaLabelTappedHandler)
         )
         view.metaLabel.addGestureRecognizer(metaLabelTapGesture)

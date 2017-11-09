@@ -65,8 +65,10 @@ class ListingViewController: UIViewController {
         listingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         listingTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         listingTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+		listingTableView.backgroundColor = UIColor.lightGray
 
-		viewModel.getListing(subreddit: "all")
+		viewModel.subreddit = "all"
+		viewModel.getListing()
 			.subscribe(onNext: { (sections) in
 				self.datasources.dataSource.append(sections)
 				self.listingTableView.reloadData()
@@ -74,7 +76,7 @@ class ListingViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		datasources.onLoadNextPage {
-			self.viewModel.getListingNextPage()
+			self.viewModel.getListing()
 				.subscribe(onNext: { (sections) in
 					self.datasources.dataSource.append(sections)
 					let index = IndexSet(integer: self.datasources.dataSource.count - 1)

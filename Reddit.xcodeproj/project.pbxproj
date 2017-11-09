@@ -52,6 +52,8 @@
 		EE7662B41F5C51F9006987BC /* ListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7662B31F5C51F9006987BC /* ListingRepository.swift */; };
 		EE7E74831F4AFEA700C9B623 /* ImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E74821F4AFEA700C9B623 /* ImageTest.swift */; };
 		EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */; };
+		EE8B47ED1FB4B75100F4C0CB /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; };
+		EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */; };
 		EEB32C9B1FA229A600F414E8 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */; };
 		EEB32C9C1FA229A600F414E8 /* UrlLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */; };
@@ -116,6 +118,7 @@
 				EE7662A91F5C3FB1006987BC /* RxCocoa.framework in Embed Frameworks */,
 				EE299CBF1F43538800733426 /* AlamofireObjectMapper.framework in Embed Frameworks */,
 				EED645921F40A3AC00BA46B2 /* SwiftyJSON.framework in Embed Frameworks */,
+				EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +165,7 @@
 		EE7662B31F5C51F9006987BC /* ListingRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingRepository.swift; sourceTree = "<group>"; };
 		EE7E74821F4AFEA700C9B623 /* ImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
 		EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImageTest.swift; sourceTree = "<group>"; };
+		EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCell.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				EE4E8C421FA632AA0084CD33 /* RxDataSources.framework in Frameworks */,
 				EE4BCB591FA8953800C7BEC5 /* Differentiator.framework in Frameworks */,
 				EE7662A61F5C3FB1006987BC /* RxBlocking.framework in Frameworks */,
+				EE8B47ED1FB4B75100F4C0CB /* SnapKit.framework in Frameworks */,
 				EED645891F40A3AC00BA46B2 /* Alamofire.framework in Frameworks */,
 				EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */,
 				EED645A11F40AC4300BA46B2 /* ObjectMapper.framework in Frameworks */,
@@ -471,16 +476,17 @@
 		EED46A081F3CCB72006759D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EE4BCB571FA8952F00C7BEC5 /* Differentiator.framework */,
-				EE4E8C411FA632AA0084CD33 /* RxDataSources.framework */,
 				EED645841F40A3AC00BA46B2 /* Alamofire.framework */,
 				EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */,
 				EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */,
+				EE4BCB571FA8952F00C7BEC5 /* Differentiator.framework */,
 				EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */,
 				EE18DBE91F509220009AEDF5 /* ReSwift.framework */,
 				EE7662A31F5C3FB1006987BC /* RxBlocking.framework */,
 				EE7662A41F5C3FB1006987BC /* RxCocoa.framework */,
+				EE4E8C411FA632AA0084CD33 /* RxDataSources.framework */,
 				EE7662A51F5C3FB1006987BC /* RxSwift.framework */,
+				EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */,
 				EED645881F40A3AC00BA46B2 /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;

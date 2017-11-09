@@ -120,7 +120,7 @@ class LinkView<T: UIView>: UIView {
 
 		mainContentView.bottomAnchor.constraint(
 			equalTo: bottomAnchor,
-			constant: -contentStackViewBottomOffset
+			constant: 0
 			).isActive = true
 
 		mainContentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -132,12 +132,6 @@ class LinkView<T: UIView>: UIView {
 
 		updateLayoutMode(mode: mode)
 
-		// Line view setup
-		addSubview(lineView)
-		lineView.translatesAutoresizingMaskIntoConstraints = false
-		lineView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-		lineView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-		lineView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 	}
 
 	func updateLayoutMode(mode: LayoutMode) {

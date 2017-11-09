@@ -98,7 +98,7 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
     }
 
     private func setupSubviews() {
-				selectionStyle = .none
+        selectionStyle = .none
 
         let offset: CGFloat = 8
         contentView.backgroundColor = UIColor.lightGray
@@ -110,17 +110,17 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
             make.leading.equalTo(contentView).offset(offset)
             make.right.equalTo(contentView).offset(-offset)
             make.bottom.equalTo(contentView)
-		}
+        }
 
         containerView.layer.cornerRadius = 10
         containerView.layer.backgroundColor = UIColor.white.cgColor
 
         containerView.addSubview(linkView)
-		linkView.snp.makeConstraints { (make) in
-			make.top.equalTo(contentView).offset(offset)
-			make.leading.equalTo(contentView).offset(offset)
-			make.trailing.equalTo(contentView).offset(-offset)
-			make.bottom.equalTo(contentView).offset(-offset)
-		}
+        linkView.snp.makeConstraints { (make) in
+            make.top.equalTo(contentView).offset(offset)
+            make.leading.equalTo(contentView).offset(offset)    
+            make.trailing.equalTo(contentView).offset(-offset)
+            make.bottom.equalTo(contentView).offset(-offset)
+        }
     }
 }

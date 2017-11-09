@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import SnapKit
 
 protocol ILinkCell {
     var viewModel: LinkCellViewModel? { get set }
@@ -97,26 +98,29 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
     }
 
     private func setupSubviews() {
-        selectionStyle = .none
+				selectionStyle = .none
 
         let offset: CGFloat = 8
         contentView.backgroundColor = UIColor.lightGray
 
         let containerView = UIView()
         contentView.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
-        containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
-        containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+		containerView.snp.makeConstraints { (make) in
+			make.top.equalTo(contentView).offset(offset)
+			make.leading.equalTo(contentView).offset(offset)
+			make.right.equalTo(contentView).offset(-offset)
+			make.bottom.equalTo(contentView)
+		}
+
         containerView.layer.cornerRadius = 10
         containerView.layer.backgroundColor = UIColor.white.cgColor
 
         containerView.addSubview(linkView)
-        linkView.translatesAutoresizingMaskIntoConstraints = false
-        linkView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
-        linkView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
-        linkView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
-        linkView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -0).isActive = true
+		linkView.snp.makeConstraints { (make) in
+			make.top.equalTo(contentView).offset(offset)
+			make.leading.equalTo(contentView).offset(offset)
+			make.trailing.equalTo(contentView).offset(-offset)
+			make.bottom.equalTo(contentView).offset(-offset)
+		}
     }
 }

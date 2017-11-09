@@ -16,7 +16,7 @@ class ListingDatasource: NSObject {
 	private var onLoadNextPage: (() -> Void)?
 	private var isNextPageQueried: Bool = false
 
-	var estimatedHeightCache: [[CGFloat]] = []
+	var estimatedHeightCache: [IndexPath: CGFloat] = [:]
 
 	func onLoadNextPage(completion: (() -> Void)?) {
 		onLoadNextPage = completion
@@ -103,27 +103,12 @@ extension ListingDatasource: UITableViewDataSource {
 		if shouldLoadNextPage(withIndexPath: indexPath) {
 			onLoadNextPage?()
 		}
+
+		estimatedHeightCache[indexPath] = cell.frame.height
 	}
 
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-		if estimatedHeightCache.count > indexPath.section {
-			if estimatedHeightCache[indexPath.section].count > indexPath.row {
-				return estimatedHeightCache[indexPath.section][indexPath.row]
-			}
-		}
-		return 100
-	}
-
-	func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell,
-	               forRowAt indexPath: IndexPath) {
-
-		if estimatedHeightCache.count <= indexPath.section {
-			estimatedHeightCache.append([cell.frame.height])
-		} else if estimatedHeightCache[indexPath.section].count <= indexPath.row {
-			estimatedHeightCache[indexPath.section].append(cell.frame.height)
-		} else {
-			estimatedHeightCache[indexPath.section][indexPath.row] = cell.frame.height
-		}
+		return estimatedHeightCache[indexPath] ?? 100
 	}
 }
 

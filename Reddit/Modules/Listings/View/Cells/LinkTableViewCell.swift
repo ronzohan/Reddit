@@ -40,6 +40,42 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
         return view
     }()
 
+    lazy var upvoteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Upvote", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+
+        return button
+    }()
+
+    lazy var downvoteButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Downvote", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+
+        return button
+    }()
+
+    lazy var commentsButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Comments", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+
+        return button
+    }()
+
+    lazy private var actionsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+
+        stackView.addArrangedSubview(self.upvoteButton)
+        stackView.addArrangedSubview(self.downvoteButton)
+        stackView.addArrangedSubview(self.commentsButton)
+
+        return stackView
+    }()
+
     // Meta
     private var onMetaTapped: (() -> Void)?
     func onMetaTapped(_ completion: (() -> Void)?) {
@@ -121,9 +157,16 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
         containerView.addSubview(linkView)
         linkView.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).offset(offset)
-            make.leading.equalTo(contentView).offset(offset)    
+            make.leading.equalTo(contentView).offset(offset)
             make.trailing.equalTo(contentView).offset(-offset)
-            make.bottom.equalTo(contentView).offset(-offset)
+        }
+
+        containerView.addSubview(actionsStackView)
+        actionsStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(linkView.snp.bottom).offset(offset)
+            make.leading.equalTo(linkView.snp.leading)
+            make.trailing.equalTo(linkView.snp.trailing)
+            make.bottom.equalTo(containerView.snp.bottom)
         }
     }
 }

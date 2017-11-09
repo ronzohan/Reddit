@@ -105,11 +105,11 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
 
         let containerView = UIView()
         contentView.addSubview(containerView)
-		containerView.snp.makeConstraints { (make) in
-			make.top.equalTo(contentView).offset(offset)
-			make.leading.equalTo(contentView).offset(offset)
-			make.right.equalTo(contentView).offset(-offset)
-			make.bottom.equalTo(contentView)
+        containerView.snp.makeConstraints { (make) in
+            make.top.equalTo(contentView).offset(offset)
+            make.leading.equalTo(contentView).offset(offset)
+            make.right.equalTo(contentView).offset(-offset)
+            make.bottom.equalTo(contentView)
 		}
 
         containerView.layer.cornerRadius = 10

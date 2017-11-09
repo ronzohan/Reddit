@@ -10,25 +10,24 @@ import Foundation
 import ObjectMapper
 
 enum ImageInfoKeys: String {
-	case url
-	case width
-	case height
+    case url
+    case width
+    case height
 }
 
 class ImageInfo: Mappable {
-	var url: String = ""
-	var width: Double = 0
-	var height: Double = 0
+    var url: String = ""
+    var width: Double = 0
+    var height: Double = 0
 
-	init() {}
+    init() {}
 
-	required init?(map: Map) {
+    required init?(map _: Map) {
+    }
 
-	}
-
-	func mapping(map: Map) {
-		url <- map[ImageInfoKeys.url.rawValue]
-		width <- map[ImageInfoKeys.width.rawValue]
-		height <- map[ImageInfoKeys.height.rawValue]
-	}
+    func mapping(map: Map) {
+        url <- map[ImageInfoKeys.url.rawValue]
+        width <- map[ImageInfoKeys.width.rawValue]
+        height <- map[ImageInfoKeys.height.rawValue]
+    }
 }

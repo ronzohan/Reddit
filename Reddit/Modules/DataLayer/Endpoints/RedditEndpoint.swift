@@ -9,20 +9,20 @@
 import Foundation
 
 protocol RedditEndpoint {
-	var baseUrl: String { get }
-	var version: String? { get }
-	var urlLocation: String { get }
-	var urlParameters: [String: Any]? { get }
+    var baseUrl: String { get }
+    var version: String? { get }
+    var urlLocation: String { get }
+    var urlParameters: [String: Any]? { get }
 
-	func url() -> String
+    func url() -> String
 }
 
 extension RedditEndpoint {
-	var baseUrl: String {
-		return "https://www.reddit.com/"
-	}
+    var baseUrl: String {
+        return "https://www.reddit.com/"
+    }
 
-	func url() -> String {
-		return "\(baseUrl)/\(urlLocation)/\(String(describing: urlParameters))"
-	}
+    func url() -> String {
+        return "\(baseUrl)/\(urlLocation)/\(String(describing: urlParameters))"
+    }
 }

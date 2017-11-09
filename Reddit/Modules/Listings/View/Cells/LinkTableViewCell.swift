@@ -10,110 +10,113 @@ import UIKit
 import AlamofireImage
 
 protocol ILinkCell {
-	var viewModel: LinkCellViewModel? { get set }
+    var viewModel: LinkCellViewModel? { get set }
 
-	func configure()
+    func configure()
 }
 
 protocol IInteractionableCell {
-	func onMetaTapped(_: (() -> Void)?)
-	func onContentTapped(_: (() -> Void)?)
-	func onUpVoteTapped(_: (() -> Void)?)
-	func onDownVoteTapped(_: (() -> Void)?)
+    func onMetaTapped(_: (() -> Void)?)
+    func onContentTapped(_: (() -> Void)?)
+    func onUpVoteTapped(_: (() -> Void)?)
+    func onDownVoteTapped(_: (() -> Void)?)
 }
 
 class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell {
 
-	typealias Content = T
+    typealias Content = T
 
-	lazy var linkView: LinkView<Content> = {
-		let view = LinkView<Content>()
+    lazy var linkView: LinkView<Content> = {
+        let view = LinkView<Content>()
 
-		let metaLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(onMetaLabelTappedHandler))
-		view.metaLabel.addGestureRecognizer(metaLabelTapGesture)
-		view.metaLabel.isUserInteractionEnabled = true
+        let metaLabelTapGesture = UITapGestureRecognizer(target: self, action: #selector(onMetaLabelTappedHandler))
+        view.metaLabel.addGestureRecognizer(metaLabelTapGesture)
+        view.metaLabel.isUserInteractionEnabled = true
 
-		return view
-	}()
+        return view
+    }()
 
-	// Meta
-	private var onMetaTapped: (() -> Void)?
-	func onMetaTapped(_ completion: (() -> Void)?) {
-		onMetaTapped = completion
-	}
-	@objc func onMetaLabelTappedHandler(sender: AnyObject?) {
-		onMetaTapped?()
-	}
+    // Meta
+    private var onMetaTapped: (() -> Void)?
+    func onMetaTapped(_ completion: (() -> Void)?) {
+        onMetaTapped = completion
+    }
 
-	// Content
-	private var onContentTapped: (() -> Void)?
-	func onContentTapped(_ completion: (() -> Void)?) {
-		onContentTapped = completion
-	}
-	@objc func onContentTappedHandler(sender: AnyObject?) {
-		onContentTapped?()
-	}
+    @objc func onMetaLabelTappedHandler(sender _: AnyObject?) {
+        onMetaTapped?()
+    }
 
-	// Upvote
-	private var onUpVoteTapped: (() -> Void)?
-	func onUpVoteTapped(_ completion: (() -> Void)?) {
-		onUpVoteTapped = completion
-	}
-	@objc func onUpVoteTappedHandler(sender: AnyObject?) {
-		onUpVoteTapped?()
-	}
+    // Content
+    private var onContentTapped: (() -> Void)?
+    func onContentTapped(_ completion: (() -> Void)?) {
+        onContentTapped = completion
+    }
 
-	// Downvote
-	private var onDownVoteTapped: (() -> Void)?
-	func onDownVoteTapped(_ completion: (() -> Void)?) {
-		onDownVoteTapped = completion
-	}
-	@objc func onDownVoteTappedHandler(sender: AnyObject?) {
-		onDownVoteTapped?()
-	}
+    @objc func onContentTappedHandler(sender _: AnyObject?) {
+        onContentTapped?()
+    }
 
-	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-		super.init(style: style, reuseIdentifier: reuseIdentifier)
-		setupSubviews()
-	}
+    // Upvote
+    private var onUpVoteTapped: (() -> Void)?
+    func onUpVoteTapped(_ completion: (() -> Void)?) {
+        onUpVoteTapped = completion
+    }
 
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-		setupSubviews()
-	}
+    @objc func onUpVoteTappedHandler(sender _: AnyObject?) {
+        onUpVoteTapped?()
+    }
 
-	override func configure() {
-		super.configure()
+    // Downvote
+    private var onDownVoteTapped: (() -> Void)?
+    func onDownVoteTapped(_ completion: (() -> Void)?) {
+        onDownVoteTapped = completion
+    }
 
-		linkView.titleLabel.text = viewModel?.title
-		linkView.titleLabel.font = UIFont(name: "Avenir-Book", size: 16)
+    @objc func onDownVoteTappedHandler(sender _: AnyObject?) {
+        onDownVoteTapped?()
+    }
 
-		linkView.metaLabel.text = viewModel?.meta
-		linkView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
-	}
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupSubviews()
+    }
 
-	private func setupSubviews() {
-		selectionStyle = .none
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupSubviews()
+    }
 
-		let offset: CGFloat = 8
-		contentView.backgroundColor = UIColor.lightGray
+    override func configure() {
+        super.configure()
 
-		let containerView = UIView()
-		contentView.addSubview(containerView)
-		containerView.translatesAutoresizingMaskIntoConstraints = false
-		containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
-		containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
-		containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
-		containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-		containerView.layer.cornerRadius = 10
-		containerView.layer.backgroundColor = UIColor.white.cgColor
+        linkView.titleLabel.text = viewModel?.title
+        linkView.titleLabel.font = UIFont(name: "Avenir-Book", size: 16)
 
-		containerView.addSubview(linkView)
-		linkView.translatesAutoresizingMaskIntoConstraints = false
-		linkView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
-		linkView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
-		linkView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
-		linkView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -0).isActive = true
+        linkView.metaLabel.text = viewModel?.meta
+        linkView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
+    }
 
-	}
+    private func setupSubviews() {
+        selectionStyle = .none
+
+        let offset: CGFloat = 8
+        contentView.backgroundColor = UIColor.lightGray
+
+        let containerView = UIView()
+        contentView.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
+        containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
+        containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        containerView.layer.cornerRadius = 10
+        containerView.layer.backgroundColor = UIColor.white.cgColor
+
+        containerView.addSubview(linkView)
+        linkView.translatesAutoresizingMaskIntoConstraints = false
+        linkView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
+        linkView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
+        linkView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
+        linkView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -0).isActive = true
+    }
 }

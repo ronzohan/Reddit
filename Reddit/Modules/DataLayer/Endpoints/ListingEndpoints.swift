@@ -9,33 +9,32 @@
 import Foundation
 
 class ListingEndpoints {
-
 }
 
 class ListingHotEndpoint {
-	var parameters: [String: Any]? {
-		didSet {
-			buildUrl()
-		}
-	}
+    var parameters: [String: Any]? {
+        didSet {
+            buildUrl()
+        }
+    }
 
-	var url: String {
-		return _url
-	}
+    var url: String {
+        return _url
+    }
 
-	private var _url: String = "https://www.reddit.com/r/<subreddit>/hot"
+    private var _url: String = "https://www.reddit.com/r/<subreddit>/hot"
 
-	func buildUrl() {
-		if let params = parameters {
-			for (key, value) in params {
-				let pattern = "<" + key + ">"
+    func buildUrl() {
+        if let params = parameters {
+            for (key, value) in params {
+                let pattern = "<" + key + ">"
 
-				let replacement = value as? String ?? String(describing: value)
+                let replacement = value as? String ?? String(describing: value)
 
-				if _url.contains(pattern) {
-					_url = _url.replacingOccurrences(of: pattern, with: replacement)
-				}
-			}
-		}
-	}
+                if _url.contains(pattern) {
+                    _url = _url.replacingOccurrences(of: pattern, with: replacement)
+                }
+            }
+        }
+    }
 }

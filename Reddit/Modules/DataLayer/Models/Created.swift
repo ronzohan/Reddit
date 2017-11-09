@@ -9,11 +9,11 @@
 import Foundation
 
 enum CreatedKeys: String {
-	case created
-	case createdUTC = "created_utc"
+    case created
+    case createdUTC = "created_utc"
 }
 
 protocol Created {
-	var created: UInt64 { get }
-	var createdUTC: UInt64 { get }
+    var created: UInt64 { get }
+    var createdUTC: UInt64 { get }
 }

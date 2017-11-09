@@ -9,28 +9,28 @@
 import UIKit
 
 class UrlLinkTableViewCell: LinkTableViewCell<UIImageView> {
-	override func prepareForReuse() {
-		super.prepareForReuse()
+    override func prepareForReuse() {
+        super.prepareForReuse()
 
-		linkView.contentView.af_cancelImageRequest()
-		linkView.contentView.image = nil
+        linkView.contentView.af_cancelImageRequest()
+        linkView.contentView.image = nil
 
-		linkView.mainContentViewHeightConst?.constant = CGFloat(0)
-	}
+        linkView.mainContentViewHeightConst?.constant = CGFloat(0)
+    }
 
-	override func configure() {
-		super.configure()
+    override func configure() {
+        super.configure()
 
-		linkView.mode = .horizontal
+        linkView.mode = .horizontal
 
-		linkView.mainContentViewHeightConst?.constant = CGFloat(100)
+        linkView.mainContentViewHeightConst?.constant = CGFloat(100)
 
-		if let urlString = viewModel?.imageUrl, let url = URL(string: urlString) {
-			updateImage(withURLRequest: URLRequest(url: url))
-		}
-	}
+        if let urlString = viewModel?.imageUrl, let url = URL(string: urlString) {
+            updateImage(withURLRequest: URLRequest(url: url))
+        }
+    }
 
-	func updateImage(withURLRequest request: URLRequest) {
-		linkView.contentView.af_setImage(withURLRequest: request)
-	}
+    func updateImage(withURLRequest request: URLRequest) {
+        linkView.contentView.af_setImage(withURLRequest: request)
+    }
 }

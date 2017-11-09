@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(
-		_ application: UIApplication,
-		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        _: UIApplication,
+        didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-		let listingCoordinator = ListingCoordinator()
+        let listingCoordinator = ListingCoordinator()
 
         let rootVC = listingCoordinator.listingVC
 

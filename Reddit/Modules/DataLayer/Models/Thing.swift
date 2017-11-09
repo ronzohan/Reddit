@@ -11,14 +11,14 @@ import Foundation
 import ObjectMapper
 
 enum ThingKeys: String {
-	case id
-	case name
-	case kind
-	case data
+    case id
+    case name
+    case kind
+    case data
 }
 
 protocol Thing {
-	var id: String { get set }
-	var name: String { get set }
-	var kind: Kind { get set }
+    var id: String { get set }
+    var name: String { get set }
+    var kind: Kind { get set }
 }

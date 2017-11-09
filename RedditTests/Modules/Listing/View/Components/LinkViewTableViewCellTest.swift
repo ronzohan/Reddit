@@ -10,30 +10,30 @@ import XCTest
 @testable import Reddit
 
 class LinkViewTableViewCellTest: XCTestCase {
-	var viewModel: LinkCellViewModel!
-	var link: Link!
-	
+    var viewModel: LinkCellViewModel!
+    var link: Link!
+
     override func setUp() {
         super.setUp()
-		link = Link()
-		link.createdUTC = 1505958257
-		link.title = "[Gamersgate] Tekken 7 ($26.49/%47 OFF), Tekken 7 Deluxe Edition ($43.04/%43 OFF) New Historical Low on Tekken 7"
-		link.subredditNamePrefixed = "r/GameDeals"
-		link.author = "BigBossTheSnake"
-		link.domain = "loadingartist.com"
+        link = Link()
+        link.createdUTC = 1_505_958_257
+        link.title = "[Gamersgate] Tekken 7 ($26.49/%47 OFF), Tekken 7 Deluxe Edition ($43.04/%43 OFF) New Historical Low on Tekken 7"
+        link.subredditNamePrefixed = "r/GameDeals"
+        link.author = "BigBossTheSnake"
+        link.domain = "loadingartist.com"
 
-		viewModel = LinkCellViewModel(link: link)
+        viewModel = LinkCellViewModel(link: link)
     }
-	
-	func testViewModelMeta() {
-		let cleanDomain = link.domain.replacingOccurrences(of: ".com", with: "")
 
-		guard let date = Date.timeIntervalString(fromDate: Date(timeInterval: link.createdUTC), toDate: Date()) else {
-			XCTFail("No Date Found.")
-			return
-		}
+    func testViewModelMeta() {
+        let cleanDomain = link.domain.replacingOccurrences(of: ".com", with: "")
 
-		let expectedMeta = "\(link.subredditNamePrefixed) • \(date) • \(cleanDomain)"
-		XCTAssertEqual(viewModel.meta, expectedMeta)
-	}
+        guard let date = Date.timeIntervalString(fromDate: Date(timeInterval: link.createdUTC), toDate: Date()) else {
+            XCTFail("No Date Found.")
+            return
+        }
+
+        let expectedMeta = "\(link.subredditNamePrefixed) • \(date) • \(cleanDomain)"
+        XCTAssertEqual(viewModel.meta, expectedMeta)
+    }
 }

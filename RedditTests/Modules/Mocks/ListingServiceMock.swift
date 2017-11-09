@@ -11,23 +11,23 @@ import Foundation
 import RxSwift
 
 class ListingServiceMock: ListingUseCase {
-	var listing = Listing()
-	
-	var subreddit: String?
-	var after: String?
-	var before: String?
-	var didFetchHotListing = false
-	func fetchHotListing(subreddit: String, after: String?, before: String?) -> Observable<Listing> {
-		didFetchHotListing = true
-		self.subreddit = subreddit
-		self.after = after
-		self.before = before
+    var listing = Listing()
 
-		return Observable.create ({ (observer) -> Disposable in
+    var subreddit: String?
+    var after: String?
+    var before: String?
+    var didFetchHotListing = false
+    func fetchHotListing(subreddit: String, after: String?, before: String?) -> Observable<Listing> {
+        didFetchHotListing = true
+        self.subreddit = subreddit
+        self.after = after
+        self.before = before
 
-			observer.onNext(self.listing)
+        return Observable.create({ (observer) -> Disposable in
 
-			return Disposables.create()
-		})
-	}
+            observer.onNext(self.listing)
+
+            return Disposables.create()
+        })
+    }
 }

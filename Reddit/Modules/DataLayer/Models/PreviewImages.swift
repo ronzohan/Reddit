@@ -10,20 +10,20 @@ import Foundation
 import ObjectMapper
 
 enum PreviewImageKeys: String {
-	case images
-	case enabled
+    case images
+    case enabled
 }
 
 class PreviewImage: Mappable {
-	var images: [Image] = []
-	var enabled: Bool = false
+    var images: [Image] = []
+    var enabled: Bool = false
 
-	init() {}
+    init() {}
 
-	required init?(map: Map) {}
+    required init?(map _: Map) {}
 
-	func mapping(map: Map) {
-		images <- map[PreviewImageKeys.images.rawValue]
-		enabled <- map[PreviewImageKeys.enabled.rawValue]
-	}
+    func mapping(map: Map) {
+        images <- map[PreviewImageKeys.images.rawValue]
+        enabled <- map[PreviewImageKeys.enabled.rawValue]
+    }
 }

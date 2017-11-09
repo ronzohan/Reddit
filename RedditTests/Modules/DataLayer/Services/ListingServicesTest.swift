@@ -10,23 +10,23 @@ import XCTest
 @testable import Reddit
 
 class ListingServicesTest: XCTestCase {
-	
-	var listingService: ListingServices!
-	
+
+    var listingService: ListingServices!
+
     override func setUp() {
         super.setUp()
 
-		listingService = ListingServices()
+        listingService = ListingServices()
     }
-	
-	func testFetchListingFromApi() {
-		// Given I have a subreddit
-		let subreddit = "Dota2"
-		
-		// When I fetch the subreddit links
-		//let links = listingService.fetchSubredditListing(subreddit: subreddit)
-		
-		// Then the links should have fetched t he links
-		// TODO:
-	}
+
+    func testFetchListingFromApi() {
+        // Given I have a subreddit
+        let subreddit = "Dota2"
+
+        // When I fetch the subreddit links
+        // let links = listingService.fetchSubredditListing(subreddit: subreddit)
+
+        // Then the links should have fetched t he links
+        // TODO:
+    }
 }

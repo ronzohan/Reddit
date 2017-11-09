@@ -14,229 +14,229 @@ import RxDataSources
 
 class ListingDatasourceTest: XCTestCase {
 
-	lazy var tableView: UITableView = {
-		return UITableView()
-	}()
-	
-	var sut: ListingDatasource!
+    lazy var tableView: UITableView = {
+        UITableView()
+    }()
 
-	var disposeBag: DisposeBag!
+    var sut: ListingDatasource!
 
-	override func setUp() {
-		super.setUp()
+    var disposeBag: DisposeBag!
 
-		tableView.register(UrlLinkTableViewCell.self,
-		                   forCellReuseIdentifier: UrlLinkTableViewCell.reuseIdentifier)
-		tableView.register(ImageLinkTableViewCell.self,
-		                   forCellReuseIdentifier: ImageLinkTableViewCell.reuseIdentifier)
-		tableView.dataSource = self
-		
-		sut = ListingDatasource()
+    override func setUp() {
+        super.setUp()
 
-		disposeBag = DisposeBag()
-	}
+        tableView.register(UrlLinkTableViewCell.self,
+                           forCellReuseIdentifier: UrlLinkTableViewCell.reuseIdentifier)
+        tableView.register(ImageLinkTableViewCell.self,
+                           forCellReuseIdentifier: ImageLinkTableViewCell.reuseIdentifier)
+        tableView.dataSource = self
 
-	func testDatasource() {
-		class ListingDatasourceStub: ListingDatasource {
-			var didConfigureLinkTableViewCell = false
-			
-			override func configureLinkTableViewCell(cell: BaseLinkTableViewCell, link: Link) {
-				super.configureLinkTableViewCell(cell: cell, link: link)
-				didConfigureLinkTableViewCell = true
-			}
-		}
+        sut = ListingDatasource()
 
-		// Given
-		let sut = ListingDatasourceStub()
-		let urlLink = Link()
-		urlLink.postHint = .link
+        disposeBag = DisposeBag()
+    }
 
-		let imageLink = Link()
-		imageLink.postHint = .image
+    func testDatasource() {
+        class ListingDatasourceStub: ListingDatasource {
+            var didConfigureLinkTableViewCell = false
 
-		let sections: [ListingSection] = [
-			ListingSection.linkRows(links: [
-				urlLink,
-				imageLink
-			])
-		]
+            override func configureLinkTableViewCell(cell: BaseLinkTableViewCell, link: Link) {
+                super.configureLinkTableViewCell(cell: cell, link: link)
+                didConfigureLinkTableViewCell = true
+            }
+        }
 
-		let indexPath = IndexPath(row: 0, section: 0)
+        // Given
+        let sut = ListingDatasourceStub()
+        let urlLink = Link()
+        urlLink.postHint = .link
 
-		// When
-		sut.dataSource.append(contentsOf: sections)
-		tableView.dataSource = sut
-		tableView.delegate = sut
-		tableView.reloadData()
-		tableView.cellForRow(at: indexPath)
+        let imageLink = Link()
+        imageLink.postHint = .image
 
-		// Then
-		XCTAssertTrue(sut.didConfigureLinkTableViewCell)
-	}
+        let sections: [ListingSection] = [
+            ListingSection.linkRows(links: [
+                urlLink,
+                imageLink,
+            ]),
+        ]
 
-	func testLinkTableCellIsConfigured() {
-		class MockCell: BaseLinkTableViewCell {
-			var didConfigure = false
-			override func configure() {
-				didConfigure = true
-			}
-		}
+        let indexPath = IndexPath(row: 0, section: 0)
 
-		// Given
-		let cell = MockCell()
-		let link = Link()
+        // When
+        sut.dataSource.append(contentsOf: sections)
+        tableView.dataSource = sut
+        tableView.delegate = sut
+        tableView.reloadData()
+        tableView.cellForRow(at: indexPath)
 
-		// When
-		sut.dataSource.append(ListingSection.linkRows(links: [link]))
-		sut.configureLinkTableViewCell(cell: cell, link: link)
+        // Then
+        XCTAssertTrue(sut.didConfigureLinkTableViewCell)
+    }
 
-		// Then
-		XCTAssertTrue(cell.didConfigure)
-	}
+    func testLinkTableCellIsConfigured() {
+        class MockCell: BaseLinkTableViewCell {
+            var didConfigure = false
+            override func configure() {
+                didConfigure = true
+            }
+        }
 
-	func testUrlLinkTableViewCell() {
-		// Given
-		let indexPath = IndexPath(row: 0, section: 0)
-		let cell: UrlLinkTableViewCell?
+        // Given
+        let cell = MockCell()
+        let link = Link()
 
-		// When
-		cell = sut.urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
+        // When
+        sut.dataSource.append(ListingSection.linkRows(links: [link]))
+        sut.configureLinkTableViewCell(cell: cell, link: link)
 
-		// Then
-		XCTAssertNotNil(cell)
-	}
+        // Then
+        XCTAssertTrue(cell.didConfigure)
+    }
 
-	func testImageLinkTableViewCell() {
-		// Given
-		let indexPath = IndexPath(row: 0, section: 0)
-		let cell: ImageLinkTableViewCell?
+    func testUrlLinkTableViewCell() {
+        // Given
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell: UrlLinkTableViewCell?
 
-		// When
-		cell = sut.imageLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
+        // When
+        cell = sut.urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
 
-		// Then
-		XCTAssertNotNil(cell)
-	}
+        // Then
+        XCTAssertNotNil(cell)
+    }
 
-	// MARK: - Load Next Page
-	func testShouldLoadNextPage() {
-		// Given
-		let sections: [ListingSection] = [
-			ListingSection.linkRows(links: [
-					Link(),
-					Link(),
-					Link()
-				]
-			)
-		]
+    func testImageLinkTableViewCell() {
+        // Given
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell: ImageLinkTableViewCell?
 
-		sut.dataSource = sections
+        // When
+        cell = sut.imageLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
 
-		// When
-		let indexPath = IndexPath(row: 2, section: 0)
-		let shouldLoad = sut.shouldLoadNextPage(withIndexPath: indexPath)
-		
-		// Then
-		XCTAssertTrue(shouldLoad)
-	}
-	
-	func testShouldLoadNextPageWithManySection() {
-		// Given
-		let sections: [ListingSection] = [
-			ListingSection.linkRows(links: [Link()]),
-			ListingSection.linkRows(links: [Link()])
-		]
-		
-		sut.dataSource = sections
-		
-		// When
-		let indexPath = IndexPath(row: 0, section: 1)
-		let shouldLoad = sut.shouldLoadNextPage(withIndexPath: indexPath)
-		
-		// Then
-		XCTAssertTrue(shouldLoad)
-	}
-	
-	func testShouldNotLoadNextPage() {
-		// Given
-		let sections: [ListingSection] = [
-			ListingSection.linkRows(links: [
-				Link(),
-				Link(),
-				Link()
-				]
-			)
-		]
-		
-		sut.dataSource = sections
-		
-		// When
-		let indexPath = IndexPath(row: 0, section: 0)
-		let shouldLoad = sut.shouldLoadNextPage(withIndexPath: indexPath)
-		
-		// Then
-		XCTAssertFalse(shouldLoad)
-	}
-	
-	func testWillDisplayCellShouldLoadNextPage() {
-		// Given
-		let sections: [ListingSection] = [
-			ListingSection.linkRows(links: [
-				Link(),
-				Link(),
-				Link()
-				]
-			)
-		]
-		let indexPath = IndexPath(row: 2, section: 0)
-		var didLoadNextpage = false
+        // Then
+        XCTAssertNotNil(cell)
+    }
 
-		// When
-		sut.dataSource = sections
-		sut.tableView(tableView, willDisplay: UITableViewCell(), forRowAt: indexPath)
-		sut.onLoadNextPage { 
-			// Then
-			didLoadNextpage = true
-			XCTAssertTrue(didLoadNextpage)
-		}
-	}
-	
-	// MARK: - Estimated Height Caching
-	func testEstimatedHeightCache() {
-		// Given
-		let sections: [ListingSection] = [
-			ListingSection.linkRows(links: [
-				Link(),
-				Link(),
-				Link()
-				]
-			)
-		]
-		let indexPath = IndexPath(row: 0, section: 0)
-		let cell = UITableViewCell()
-		let cellHeight: CGFloat = 100
-		cell.frame = CGRect(x: 0, y: 0, width: 100, height: cellHeight)
-		
-		// When
-		sut.dataSource = sections
-		sut.tableView(tableView, willDisplay: cell, forRowAt: indexPath)
-		
-		// Then
-		XCTAssertEqual(sut.estimatedHeightCache[indexPath], cellHeight)
-	}
+    // MARK: - Load Next Page
+    func testShouldLoadNextPage() {
+        // Given
+        let sections: [ListingSection] = [
+            ListingSection.linkRows(links: [
+                Link(),
+                Link(),
+                Link(),
+            ]
+            ),
+        ]
+
+        sut.dataSource = sections
+
+        // When
+        let indexPath = IndexPath(row: 2, section: 0)
+        let shouldLoad = sut.shouldLoadNextPage(withIndexPath: indexPath)
+
+        // Then
+        XCTAssertTrue(shouldLoad)
+    }
+
+    func testShouldLoadNextPageWithManySection() {
+        // Given
+        let sections: [ListingSection] = [
+            ListingSection.linkRows(links: [Link()]),
+            ListingSection.linkRows(links: [Link()]),
+        ]
+
+        sut.dataSource = sections
+
+        // When
+        let indexPath = IndexPath(row: 0, section: 1)
+        let shouldLoad = sut.shouldLoadNextPage(withIndexPath: indexPath)
+
+        // Then
+        XCTAssertTrue(shouldLoad)
+    }
+
+    func testShouldNotLoadNextPage() {
+        // Given
+        let sections: [ListingSection] = [
+            ListingSection.linkRows(links: [
+                Link(),
+                Link(),
+                Link(),
+            ]
+            ),
+        ]
+
+        sut.dataSource = sections
+
+        // When
+        let indexPath = IndexPath(row: 0, section: 0)
+        let shouldLoad = sut.shouldLoadNextPage(withIndexPath: indexPath)
+
+        // Then
+        XCTAssertFalse(shouldLoad)
+    }
+
+    func testWillDisplayCellShouldLoadNextPage() {
+        // Given
+        let sections: [ListingSection] = [
+            ListingSection.linkRows(links: [
+                Link(),
+                Link(),
+                Link(),
+            ]
+            ),
+        ]
+        let indexPath = IndexPath(row: 2, section: 0)
+        var didLoadNextpage = false
+
+        // When
+        sut.dataSource = sections
+        sut.tableView(tableView, willDisplay: UITableViewCell(), forRowAt: indexPath)
+        sut.onLoadNextPage {
+            // Then
+            didLoadNextpage = true
+            XCTAssertTrue(didLoadNextpage)
+        }
+    }
+
+    // MARK: - Estimated Height Caching
+    func testEstimatedHeightCache() {
+        // Given
+        let sections: [ListingSection] = [
+            ListingSection.linkRows(links: [
+                Link(),
+                Link(),
+                Link(),
+            ]
+            ),
+        ]
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = UITableViewCell()
+        let cellHeight: CGFloat = 100
+        cell.frame = CGRect(x: 0, y: 0, width: 100, height: cellHeight)
+
+        // When
+        sut.dataSource = sections
+        sut.tableView(tableView, willDisplay: cell, forRowAt: indexPath)
+
+        // Then
+        XCTAssertEqual(sut.estimatedHeightCache[indexPath], cellHeight)
+    }
 }
 
 // MARK: - Datasource
 extension ListingDatasourceTest: UITableViewDataSource {
-	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
-	}
+    func numberOfSections(in _: UITableView) -> Int {
+        return 1
+    }
 
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
-	}
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return 1
+    }
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
-	}
+    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }

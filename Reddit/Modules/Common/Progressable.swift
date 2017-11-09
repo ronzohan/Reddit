@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Progressable {
-	func showLoadingView()
-	func dismissLoadingView()
+    func showLoadingView()
+    func dismissLoadingView()
 }

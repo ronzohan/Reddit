@@ -9,13 +9,13 @@
 import Foundation
 
 enum VotableKeys: String {
-	case ups
-	case downs
-	case likes
+    case ups
+    case downs
+    case likes
 }
 
 protocol Votable {
-	var ups: Int { get }
-	var downs: Int { get }
-	var likes: Bool? { get }
+    var ups: Int { get }
+    var downs: Int { get }
+    var likes: Bool? { get }
 }

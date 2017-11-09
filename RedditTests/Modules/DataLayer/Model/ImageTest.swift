@@ -10,39 +10,39 @@ import XCTest
 @testable import Reddit
 
 class ImageTest: XCTestCase {
-	func testImageParsing() {
-		// Given I have a json
-		let imageInfoURL = "https://i.redditmedia.com/E4hzETVQUOqY_G4V4rzjlokV8rP8u5zcYe29L5szwmM.gif?fm=jpg&s=09e53dd4ba18cd921ba7b375f02663a1"
-		let imageInfoWidth: Double = 250
-		let imageInfoHeight: Double = 444
-		
-		let imageInfo: [String : Any] = [
-			"url": imageInfoURL,
-			"width": imageInfoWidth,
-			"height": imageInfoHeight
-		]
-		
-		let id = "6x3asd"
-		
-		let resolutions = [imageInfo, imageInfo]
-		let variants = [imageInfo, imageInfo]
-		
-		let imageJSON: [String: Any] = [
-			"source": imageInfo,
-			"resolutions": resolutions,
-			"variants": variants,
-			"id": id
-		]
-		
-		// When i try to parse the json into an Image
-		let image = Image(JSON: imageJSON)
-		
-		// Then it should have these values
-		XCTAssertEqual(image?.id, id)
-		XCTAssertEqual(image?.resolutions.count, resolutions.count)
-		XCTAssertEqual(image?.variants.count, variants.count)
-		XCTAssertEqual(image?.source.url, imageInfoURL)
-		XCTAssertEqual(image?.source.width, imageInfoWidth)
-		XCTAssertEqual(image?.source.height, imageInfoHeight)
-	}
+    func testImageParsing() {
+        // Given I have a json
+        let imageInfoURL = "https://i.redditmedia.com/E4hzETVQUOqY_G4V4rzjlokV8rP8u5zcYe29L5szwmM.gif?fm=jpg&s=09e53dd4ba18cd921ba7b375f02663a1"
+        let imageInfoWidth: Double = 250
+        let imageInfoHeight: Double = 444
+
+        let imageInfo: [String: Any] = [
+            "url": imageInfoURL,
+            "width": imageInfoWidth,
+            "height": imageInfoHeight,
+        ]
+
+        let id = "6x3asd"
+
+        let resolutions = [imageInfo, imageInfo]
+        let variants = [imageInfo, imageInfo]
+
+        let imageJSON: [String: Any] = [
+            "source": imageInfo,
+            "resolutions": resolutions,
+            "variants": variants,
+            "id": id,
+        ]
+
+        // When i try to parse the json into an Image
+        let image = Image(JSON: imageJSON)
+
+        // Then it should have these values
+        XCTAssertEqual(image?.id, id)
+        XCTAssertEqual(image?.resolutions.count, resolutions.count)
+        XCTAssertEqual(image?.variants.count, variants.count)
+        XCTAssertEqual(image?.source.url, imageInfoURL)
+        XCTAssertEqual(image?.source.width, imageInfoWidth)
+        XCTAssertEqual(image?.source.height, imageInfoHeight)
+    }
 }

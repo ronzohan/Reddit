@@ -10,25 +10,25 @@ import Foundation
 import UIKit
 
 protocol ReusableView: class {
-	static var reuseIdentifier: String { get }
+    static var reuseIdentifier: String { get }
 }
 
 extension ReusableView {
-	static var reuseIdentifier: String {
-		return String(describing: self)
-	}
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
 }
 
 extension UITableViewCell: ReusableView {
 }
 
 extension UITableView {
-	func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T? {
-		guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-			debugPrint("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
-			return nil
-		}
+    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T? {
+        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+            debugPrint("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+            return nil
+        }
 
-		return cell
-	}
+        return cell
+    }
 }

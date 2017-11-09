@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseLinkTableViewCell: UITableViewCell, ILinkCell {
-	var viewModel: LinkCellViewModel?
+    var viewModel: LinkCellViewModel?
 
-	func configure() {}
+    func configure() {}
 }

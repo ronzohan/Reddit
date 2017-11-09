@@ -9,10 +9,10 @@
 import Foundation
 
 class ListingCoordinator {
-	var listingVC: ListingViewController
+    var listingVC: ListingViewController
 
-	init() {
-		let viewModel = ListingViewModel(useCase: ListingServices())
-		self.listingVC = ListingViewController(viewModel: viewModel)
-	}
+    init() {
+        let viewModel = ListingViewModel(useCase: ListingServices())
+        listingVC = ListingViewController(viewModel: viewModel)
+    }
 }

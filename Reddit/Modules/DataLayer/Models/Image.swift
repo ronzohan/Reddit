@@ -10,26 +10,26 @@ import Foundation
 import ObjectMapper
 
 enum ImageKeys: String {
-	case source
-	case resolutions
-	case variants
-	case id
+    case source
+    case resolutions
+    case variants
+    case id
 }
 
 class Image: Mappable {
-	var source: ImageInfo = ImageInfo()
-	var resolutions: [ImageInfo] = []
-	var variants: [ImageInfo] = []
-	var id: String = ""
+    var source: ImageInfo = ImageInfo()
+    var resolutions: [ImageInfo] = []
+    var variants: [ImageInfo] = []
+    var id: String = ""
 
-	init() {}
+    init() {}
 
-	required init?(map: Map) {}
+    required init?(map _: Map) {}
 
-	func mapping(map: Map) {
-		source <- map[ImageKeys.source.rawValue]
-		resolutions <- map[ImageKeys.resolutions.rawValue]
-		variants <- map[ImageKeys.variants.rawValue]
-		id <- map[ImageKeys.id.rawValue]
-	}
+    func mapping(map: Map) {
+        source <- map[ImageKeys.source.rawValue]
+        resolutions <- map[ImageKeys.resolutions.rawValue]
+        variants <- map[ImageKeys.variants.rawValue]
+        id <- map[ImageKeys.id.rawValue]
+    }
 }

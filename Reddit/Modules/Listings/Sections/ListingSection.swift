@@ -9,5 +9,5 @@
 import Foundation
 
 enum ListingSection {
-	case linkRows(links: [Link])
+    case linkRows(links: [Link])
 }

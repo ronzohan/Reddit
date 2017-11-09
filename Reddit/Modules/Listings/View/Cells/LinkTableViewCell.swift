@@ -95,14 +95,25 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
 	private func setupSubviews() {
 		selectionStyle = .none
 
-		contentView.addSubview(linkView)
-		linkView.translatesAutoresizingMaskIntoConstraints = false
-		linkView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-		linkView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-		linkView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-		linkView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+		let offset: CGFloat = 8
+		contentView.backgroundColor = UIColor.lightGray
 
-		linkView.contentView.contentMode = .scaleAspectFill
-		linkView.contentView.layer.masksToBounds = true
+		let containerView = UIView()
+		contentView.addSubview(containerView)
+		containerView.translatesAutoresizingMaskIntoConstraints = false
+		containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
+		containerView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
+		containerView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
+		containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+		containerView.layer.cornerRadius = 10
+		containerView.layer.backgroundColor = UIColor.white.cgColor
+
+		containerView.addSubview(linkView)
+		linkView.translatesAutoresizingMaskIntoConstraints = false
+		linkView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset).isActive = true
+		linkView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset).isActive = true
+		linkView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -offset).isActive = true
+		linkView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -0).isActive = true
+
 	}
 }

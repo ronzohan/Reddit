@@ -7,24 +7,24 @@
 //
 
 import UIKit
-import RxSwift
+import RIBs
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(
-        _: UIApplication,
-        didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    private var launchRouter: LaunchRouting?
 
-        let listingCoordinator = ListingCoordinator()
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
 
-        let rootVC = listingCoordinator.listingVC
+        let launchRouter = RootBuilder(dependency: AppComponent()).build()
+        self.launchRouter = launchRouter
 
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootVC
-        window?.makeKeyAndVisible()
+        launchRouter.launchFromWindow(window)
 
         return true
     }

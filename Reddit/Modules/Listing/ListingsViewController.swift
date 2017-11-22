@@ -12,11 +12,13 @@ import UIKit
 import SnapKit
 
 protocol ListingPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
+    // Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
-    func loadNextListingPage(withIndexPath indexPath: IndexPath)
     var sections: [ListingSection] { get }
+    
+    func loadNextListingPage(withIndexPath indexPath: IndexPath)
+    func didSelectItem(atIndexPath indexPath: IndexPath)
 }
 
 final class ListingViewController: UIViewController, ListingPresentable, ListingViewControllable {
@@ -61,38 +63,8 @@ final class ListingViewController: UIViewController, ListingPresentable, Listing
         listingTableView.backgroundColor = UIColor.lightGray
     }
 
-    func reloadListing() {
-        listingTableView.reloadData()
-    }
-
-    func updateListingNextPage() {
-        guard let listener = listener else {
-            return
-        }
-
-        let index = IndexSet(integer: listener.sections.count - 1)
-        listingTableView.insertSections(index, with: .bottom)
-    }
-    
-    func configureLinkTableViewCell(cell: BaseLinkTableViewCell, link: Link) {
-        let viewModel = LinkCellViewModel(link: link)
-        
-        cell.viewModel = viewModel
-        cell.configure()
-    }
-    
-    func urlLinkTableViewCellFor(tableView: UITableView,
-                                 indexPath: IndexPath) -> UrlLinkTableViewCell? {
-        let cell: UrlLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        
-        return cell
-    }
-    
-    func imageLinkTableViewCellFor(tableView: UITableView,
-                                   indexPath: IndexPath) -> ImageLinkTableViewCell? {
-        let cell: ImageLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        
-        return cell
+    func present(viewController: ViewControllable) {
+        present(viewController.uiviewController, animated: true, completion: nil)
     }
 }
 
@@ -155,6 +127,44 @@ extension ListingViewController: UITableViewDataSource {
     func tableView(_: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return estimatedHeightCache[indexPath] ?? 100
     }
+    
+    func reloadListing() {
+        listingTableView.reloadData()
+    }
+    
+    func updateListingNextPage() {
+        guard let listener = listener else {
+            return
+        }
+        
+        let index = IndexSet(integer: listener.sections.count - 1)
+        listingTableView.insertSections(index, with: .bottom)
+    }
+    
+    func configureLinkTableViewCell(cell: BaseLinkTableViewCell, link: Link) {
+        let viewModel = LinkCellViewModel(link: link)
+        
+        cell.viewModel = viewModel
+        cell.configure()
+    }
+    
+    func urlLinkTableViewCellFor(tableView: UITableView,
+                                 indexPath: IndexPath) -> UrlLinkTableViewCell? {
+        let cell: UrlLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        
+        return cell
+    }
+    
+    func imageLinkTableViewCellFor(tableView: UITableView,
+                                   indexPath: IndexPath) -> ImageLinkTableViewCell? {
+        let cell: ImageLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
+        
+        return cell
+    }
 }
 
-extension ListingViewController: UITableViewDelegate {}
+extension ListingViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        listener?.didSelectItem(atIndexPath: indexPath)
+    }
+}

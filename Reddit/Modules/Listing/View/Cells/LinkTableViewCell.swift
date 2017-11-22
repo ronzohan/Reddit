@@ -75,6 +75,16 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
 
         return stackView
     }()
+    
+    let containerView = UIView()
+    
+    // This is for touch so that it can animate a touch on whole cell
+    lazy private var highlightView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        
+        return view
+    }()
 
     // Meta
     private var onMetaTapped: (() -> Void)?
@@ -142,7 +152,6 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
         let offset: CGFloat = 8
         contentView.backgroundColor = UIColor.lightGray
 
-        let containerView = UIView()
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).offset(offset)
@@ -168,5 +177,26 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell 
             make.trailing.equalTo(linkView.snp.trailing)
             make.bottom.equalTo(containerView.snp.bottom)
         }
+        
+        contentView.addSubview(highlightView)
+        highlightView.snp.makeConstraints { (make) in
+            make.top.equalTo(containerView)
+            make.leading.equalTo(containerView)
+            make.right.equalTo(containerView)
+            make.bottom.equalTo(containerView)
+        }
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        if highlighted {
+            UIView.animate(withDuration: 0.3, animations: { 
+                self.highlightView.backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+            })
+        } else {
+            highlightView.backgroundColor = nil
+        }
+        
     }
 }

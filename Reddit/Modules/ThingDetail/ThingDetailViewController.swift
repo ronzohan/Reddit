@@ -22,4 +22,14 @@ final class ThingDetailViewController: UIViewController, ThingDetailPresentable,
     public final var uiviewController: UIViewController { return self }
 
     weak var listener: ThingDetailPresentableListener?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.red
+    }
+    
+    func present(viewController: ViewControllable) {
+        present(viewController.uiviewController, animated: true, completion: nil)
+    }
 }

@@ -10,7 +10,8 @@ import RIBs
 import RxSwift
 
 protocol ListingRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    // Declare methods the interactor can invoke to manage sub-tree via the router.
+    func routeToThingDetail(withID id: String)
 }
 
 protocol ListingPresentable: Presentable {
@@ -21,12 +22,11 @@ protocol ListingPresentable: Presentable {
 }
 
 protocol ListingListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    // Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
 final class ListingInteractor: PresentableInteractor<ListingPresentable>, 
-                               ListingInteractable, ListingPresentableListener {
-
+ListingInteractable, ListingPresentableListener {
     weak var router: ListingRouting?
     weak var listener: ListingListener?
 
@@ -107,6 +107,13 @@ final class ListingInteractor: PresentableInteractor<ListingPresentable>,
             return true
         } else {
             return false
+        }
+    }
+    
+    func didSelectItem(atIndexPath indexPath: IndexPath) {
+        switch sections[indexPath.section] {
+        case .linkRows(let links):
+            router?.routeToThingDetail(withID: links[indexPath.row].id)
         }
     }
 }

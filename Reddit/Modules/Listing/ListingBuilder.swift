@@ -47,6 +47,10 @@ final class ListingBuilder: Builder<ListingDependency>, ListingBuildable {
                                            repository: component.repository, 
                                            subreddit: component.subreddit)
         interactor.listener = listener
-        return ListingRouter(interactor: interactor, viewController: viewController)
+
+        let thingDetailBuilder = ThingDetailBuilder(dependency: component)
+        return ListingRouter(interactor: interactor, 
+                             viewController: viewController, 
+                             thingDetailBuilder: thingDetailBuilder)
     }
 }

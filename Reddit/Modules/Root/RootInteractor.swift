@@ -22,7 +22,6 @@ protocol RootListener: class {
 }
 
 final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
-
     weak var router: RootRouting?
     weak var listener: RootListener?
 
@@ -30,4 +29,9 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         super.init(presenter: presenter)
         presenter.listener = self
     }
+    
+    func routeToThingDetail(withID id: String) {
+        
+    }
 }
+

@@ -26,7 +26,6 @@
 		EE4B97191F4936BB00FAEECA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B97181F4936BB00FAEECA /* Image.swift */; };
 		EE4B971B1F4936EC00FAEECA /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B971A1F4936EC00FAEECA /* ImageInfo.swift */; };
 		EE4B971F1F4937AD00FAEECA /* PreviewImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */; };
-		EE4BCB581FA8952F00C7BEC5 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE4BCB571FA8952F00C7BEC5 /* Differentiator.framework */; };
 		EE4BCB591FA8953800C7BEC5 /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE4BCB571FA8952F00C7BEC5 /* Differentiator.framework */; };
 		EE4BCB5A1FA8953800C7BEC5 /* Differentiator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE4BCB571FA8952F00C7BEC5 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE4BCB5C1FA89C7F00C7BEC5 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BCB5B1FA89C7F00C7BEC5 /* UIKitExtensions.swift */; };
@@ -93,6 +92,7 @@
 		EED645A21F40AC4300BA46B2 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EED6D6F71FA2324C0029EF9A /* ListingViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6D6F61FA2324C0029EF9A /* ListingViewControllerTest.swift */; };
 		EED6D6FA1FA233320029EF9A /* ListingServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6D6F91FA233320029EF9A /* ListingServiceMock.swift */; };
+		EEFFF11D1FC4899F004D1113 /* ListingComponent+ThingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +218,7 @@
 		EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		EED6D6F61FA2324C0029EF9A /* ListingViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewControllerTest.swift; sourceTree = "<group>"; };
 		EED6D6F91FA233320029EF9A /* ListingServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingServiceMock.swift; sourceTree = "<group>"; };
+		EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListingComponent+ThingDetail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +235,6 @@
 				EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */,
 				EED645A11F40AC4300BA46B2 /* ObjectMapper.framework in Frameworks */,
 				EED6458B1F40A3AC00BA46B2 /* AlamofireImage.framework in Frameworks */,
-				EE4BCB581FA8952F00C7BEC5 /* Differentiator.framework in Frameworks */,
 				EE7662A81F5C3FB1006987BC /* RxCocoa.framework in Frameworks */,
 				EE299CBE1F43538800733426 /* AlamofireObjectMapper.framework in Frameworks */,
 				EED645911F40A3AC00BA46B2 /* SwiftyJSON.framework in Frameworks */,
@@ -576,6 +576,7 @@
 				EE04AD0B1F4B321900DAD0C6 /* Sections */,
 				EED645771F40A09500BA46B2 /* View */,
 				EEC7CB771FC1E51F0051097F /* ListingBuilder.swift */,
+				EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */,
 				EEC7CB781FC1E51F0051097F /* ListingInteractor.swift */,
 				EEC7CB791FC1E51F0051097F /* ListingRouter.swift */,
 				EEC7CB7A1FC1E51F0051097F /* ListingsViewController.swift */,
@@ -665,7 +666,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Ron Daryl Magno";
 				TargetAttributes = {
 					EED469741F3CCA08006759D1 = {
@@ -767,6 +768,7 @@
 				EEC7CB891FC1EA400051097F /* RootComponent+Listing.swift in Sources */,
 				EE4B971B1F4936EC00FAEECA /* ImageInfo.swift in Sources */,
 				EE4B971F1F4937AD00FAEECA /* PreviewImages.swift in Sources */,
+				EEFFF11D1FC4899F004D1113 /* ListingComponent+ThingDetail.swift in Sources */,
 				EE04AD0F1F4B326800DAD0C6 /* ListingSection.swift in Sources */,
 				EE6D84731F519A9800508361 /* Progressable.swift in Sources */,
 				EEC7CB741FC1E4C40051097F /* ThingDetailInteractor.swift in Sources */,

@@ -32,7 +32,7 @@ ListingInteractable, ListingPresentableListener {
 
     var after: String?
     var before: String?
-    let subreddit: String
+    var subreddit: String
 
     private var isNextPageQueried: Bool = false
     
@@ -40,7 +40,9 @@ ListingInteractable, ListingPresentableListener {
     
     let repository: ListingUseCase
 
-    init(presenter: ListingPresentable, repository: ListingUseCase, subreddit: String) {
+    init(presenter: ListingPresentable, 
+         repository: ListingUseCase, 
+         subreddit: String) {
         self.repository = repository
         self.subreddit = subreddit
         super.init(presenter: presenter)

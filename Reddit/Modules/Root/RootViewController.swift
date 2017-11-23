@@ -24,6 +24,6 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     weak var listener: RootPresentableListener?
 
     func present(viewController: ViewControllable) {
-        present(viewController.uiviewController, animated: true, completion: nil)
+        present(viewController.uiviewController, animated: false, completion: nil)
     }
 }

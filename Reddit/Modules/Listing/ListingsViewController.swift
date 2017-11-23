@@ -33,7 +33,7 @@ final class ListingViewController: UIViewController, ListingPresentable, Listing
     var estimatedHeightCache: [IndexPath: CGFloat] = [:]
 
     // MARK: - Subviews
-    lazy var listingTableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(ImageLinkTableViewCell.self,
                            forCellReuseIdentifier: ImageLinkTableViewCell.reuseIdentifier)
@@ -54,13 +54,13 @@ final class ListingViewController: UIViewController, ListingPresentable, Listing
 
         view.backgroundColor = UIColor.white
 
-        view.addSubview(listingTableView)
-        listingTableView.translatesAutoresizingMaskIntoConstraints = false
-        listingTableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-        listingTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        listingTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        listingTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        listingTableView.backgroundColor = UIColor.lightGray
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.backgroundColor = UIColor.lightGray
     }
 
     func present(viewController: ViewControllable) {
@@ -129,7 +129,7 @@ extension ListingViewController: UITableViewDataSource {
     }
     
     func reloadListing() {
-        listingTableView.reloadData()
+        tableView.reloadData()
     }
     
     func updateListingNextPage() {
@@ -138,7 +138,7 @@ extension ListingViewController: UITableViewDataSource {
         }
         
         let index = IndexSet(integer: listener.sections.count - 1)
-        listingTableView.insertSections(index, with: .bottom)
+        tableView.insertSections(index, with: .bottom)
     }
     
     func configureLinkTableViewCell(cell: BaseLinkTableViewCell, link: Link) {

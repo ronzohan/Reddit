@@ -33,7 +33,14 @@
 		EE4E8C431FA632AA0084CD33 /* RxDataSources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE4E8C411FA632AA0084CD33 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE59ECE81F77FFC100229774 /* PostHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECE71F77FFC000229774 /* PostHint.swift */; };
 		EE59ECEC1F7803BE00229774 /* PostHintTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECEB1F7803BD00229774 /* PostHintTest.swift */; };
-		EE5D1E551F83F49B00EAA5FD /* ListingDatasourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E4F1F83F49B00EAA5FD /* ListingDatasourceTest.swift */; };
+		EE5A9EC71FC5D71300A812D8 /* ListingInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9EC61FC5D71300A812D8 /* ListingInteractorTest.swift */; };
+		EE5A9EC91FC5D7AC00A812D8 /* ListingViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9EC81FC5D7AC00A812D8 /* ListingViewControllerTest.swift */; };
+		EE5A9ECF1FC5DD1E00A812D8 /* ListingServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ECD1FC5DD1D00A812D8 /* ListingServiceMock.swift */; };
+		EE5A9ED01FC5DD1E00A812D8 /* BaseLinkCellMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ECE1FC5DD1D00A812D8 /* BaseLinkCellMock.swift */; };
+		EE5A9ED21FC5DD4100A812D8 /* ListingInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED11FC5DD4100A812D8 /* ListingInteractorMock.swift */; };
+		EE5A9ED41FC5DDBB00A812D8 /* ViewControllableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */; };
+		EE5A9ED61FC5DF3F00A812D8 /* ListingViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED51FC5DF3F00A812D8 /* ListingViewControllerMock.swift */; };
+		EE5A9ED81FC5E00700A812D8 /* ListingUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED71FC5E00700A812D8 /* ListingUseCaseMock.swift */; };
 		EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E521F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift */; };
 		EE5D1E571F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E531F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift */; };
 		EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */; };
@@ -90,8 +97,6 @@
 		EED645921F40A3AC00BA46B2 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645881F40A3AC00BA46B2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EED645A11F40AC4300BA46B2 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */; };
 		EED645A21F40AC4300BA46B2 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EED6D6F71FA2324C0029EF9A /* ListingViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6D6F61FA2324C0029EF9A /* ListingViewControllerTest.swift */; };
-		EED6D6FA1FA233320029EF9A /* ListingServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED6D6F91FA233320029EF9A /* ListingServiceMock.swift */; };
 		EEFFF11D1FC4899F004D1113 /* ListingComponent+ThingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */; };
 /* End PBXBuildFile section */
 
@@ -159,7 +164,14 @@
 		EE4E8C411FA632AA0084CD33 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		EE59ECE71F77FFC000229774 /* PostHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHint.swift; sourceTree = "<group>"; };
 		EE59ECEB1F7803BD00229774 /* PostHintTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHintTest.swift; sourceTree = "<group>"; };
-		EE5D1E4F1F83F49B00EAA5FD /* ListingDatasourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingDatasourceTest.swift; sourceTree = "<group>"; };
+		EE5A9EC61FC5D71300A812D8 /* ListingInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingInteractorTest.swift; sourceTree = "<group>"; };
+		EE5A9EC81FC5D7AC00A812D8 /* ListingViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewControllerTest.swift; sourceTree = "<group>"; };
+		EE5A9ECD1FC5DD1D00A812D8 /* ListingServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingServiceMock.swift; sourceTree = "<group>"; };
+		EE5A9ECE1FC5DD1D00A812D8 /* BaseLinkCellMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLinkCellMock.swift; sourceTree = "<group>"; };
+		EE5A9ED11FC5DD4100A812D8 /* ListingInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingInteractorMock.swift; sourceTree = "<group>"; };
+		EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllableMock.swift; sourceTree = "<group>"; };
+		EE5A9ED51FC5DF3F00A812D8 /* ListingViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewControllerMock.swift; sourceTree = "<group>"; };
+		EE5A9ED71FC5E00700A812D8 /* ListingUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingUseCaseMock.swift; sourceTree = "<group>"; };
 		EE5D1E521F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLinkTableViewCellTest.swift; sourceTree = "<group>"; };
 		EE5D1E531F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewTableViewCellTest.swift; sourceTree = "<group>"; };
 		EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCellTest.swift; sourceTree = "<group>"; };
@@ -216,8 +228,6 @@
 		EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		EED645881F40A3AC00BA46B2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		EED6D6F61FA2324C0029EF9A /* ListingViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewControllerTest.swift; sourceTree = "<group>"; };
-		EED6D6F91FA233320029EF9A /* ListingServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingServiceMock.swift; sourceTree = "<group>"; };
 		EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListingComponent+ThingDetail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -330,29 +340,33 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EE5D1E4D1F83F49B00EAA5FD /* Listing */ = {
+		EE5A9ECC1FC5DCF800A812D8 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
-				EE5D1E591F83F4AA00EAA5FD /* ViewModel */,
-				EE5D1E4E1F83F49B00EAA5FD /* Datasource */,
-				EE5D1E501F83F49B00EAA5FD /* View */,
+				EE5A9ECE1FC5DD1D00A812D8 /* BaseLinkCellMock.swift */,
+				EE5A9ED11FC5DD4100A812D8 /* ListingInteractorMock.swift */,
+				EE5A9ECD1FC5DD1D00A812D8 /* ListingServiceMock.swift */,
+				EE5A9ED51FC5DF3F00A812D8 /* ListingViewControllerMock.swift */,
+				EE5A9ED71FC5E00700A812D8 /* ListingUseCaseMock.swift */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
 		};
-		EE5D1E4E1F83F49B00EAA5FD /* Datasource */ = {
+		EE5D1E4D1F83F49B00EAA5FD /* Listing */ = {
 			isa = PBXGroup;
 			children = (
-				EE5D1E4F1F83F49B00EAA5FD /* ListingDatasourceTest.swift */,
+				EE5D1E501F83F49B00EAA5FD /* View */,
+				EE5D1E591F83F4AA00EAA5FD /* ViewModel */,
+				EE5A9EC61FC5D71300A812D8 /* ListingInteractorTest.swift */,
+				EE5A9EC81FC5D7AC00A812D8 /* ListingViewControllerTest.swift */,
 			);
-			path = Datasource;
+			path = Listing;
 			sourceTree = "<group>";
 		};
 		EE5D1E501F83F49B00EAA5FD /* View */ = {
 			isa = PBXGroup;
 			children = (
 				EE5D1E511F83F49B00EAA5FD /* Components */,
-				EED6D6F61FA2324C0029EF9A /* ListingViewControllerTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,7 +610,8 @@
 		EED6D6F81FA233230029EF9A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				EED6D6F91FA233320029EF9A /* ListingServiceMock.swift */,
+				EE5A9ECC1FC5DCF800A812D8 /* Listing */,
+				EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -804,18 +819,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5A9EC71FC5D71300A812D8 /* ListingInteractorTest.swift in Sources */,
+				EE5A9ED21FC5DD4100A812D8 /* ListingInteractorMock.swift in Sources */,
 				EED4698E1F3CCA08006759D1 /* RedditTests.swift in Sources */,
+				EE5A9ED61FC5DF3F00A812D8 /* ListingViewControllerMock.swift in Sources */,
 				EE299CBC1F434E1F00733426 /* ListingServicesTest.swift in Sources */,
-				EE5D1E551F83F49B00EAA5FD /* ListingDatasourceTest.swift in Sources */,
-				EED6D6F71FA2324C0029EF9A /* ListingViewControllerTest.swift in Sources */,
 				EE5D1E571F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift in Sources */,
+				EE5A9EC91FC5D7AC00A812D8 /* ListingViewControllerTest.swift in Sources */,
+				EE5A9ED81FC5E00700A812D8 /* ListingUseCaseMock.swift in Sources */,
 				EEC08A2F1FB0CA3000429763 /* ListingViewModelTest.swift in Sources */,
 				EE7E74831F4AFEA700C9B623 /* ImageTest.swift in Sources */,
+				EE5A9ED01FC5DD1E00A812D8 /* BaseLinkCellMock.swift in Sources */,
 				EE59ECEC1F7803BE00229774 /* PostHintTest.swift in Sources */,
+				EE5A9ED41FC5DDBB00A812D8 /* ViewControllableMock.swift in Sources */,
 				EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */,
+				EE5A9ECF1FC5DD1E00A812D8 /* ListingServiceMock.swift in Sources */,
 				EE299CB91F434DF700733426 /* ListingTest.swift in Sources */,
 				EE5D1E5D1F83F50D00EAA5FD /* LinkCellViewModelTest.swift in Sources */,
-				EED6D6FA1FA233320029EF9A /* ListingServiceMock.swift in Sources */,
 				EE3999F41F44B68400AF003D /* ListingEndpointTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,

@@ -12,6 +12,9 @@
 		EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; };
 		EE19BA431F73F88A00F99974 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE19BA711F73FE9000F99974 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19BA701F73FE9000F99974 /* LinkView.swift */; };
+		EE1EB1021FC94528007978DB /* CardPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */; };
+		EE1EB1031FC94528007978DB /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB1001FC94527007978DB /* CardPresentationController.swift */; };
+		EE1EB1041FC94528007978DB /* CardTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */; };
 		EE2258311F45F9A1002B1968 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2258301F45F9A1002B1968 /* Parser.swift */; };
 		EE2541531F74044F007DFF61 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2541521F74044F007DFF61 /* Date+Extensions.swift */; };
 		EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */; };
@@ -20,6 +23,7 @@
 		EE299CBC1F434E1F00733426 /* ListingServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CBB1F434E1F00733426 /* ListingServicesTest.swift */; };
 		EE299CBE1F43538800733426 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */; };
 		EE299CBF1F43538800733426 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE306DA91FC733F90012DC43 /* ThingDetailInteractorTest.swift */; };
 		EE3999E81F44B22700AF003D /* ListingEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999E71F44B22700AF003D /* ListingEndpoints.swift */; };
 		EE3999EA1F44B30D00AF003D /* RedditEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999E91F44B30D00AF003D /* RedditEndpoint.swift */; };
 		EE3999F41F44B68400AF003D /* ListingEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999F31F44B68400AF003D /* ListingEndpointTest.swift */; };
@@ -146,6 +150,9 @@
 		EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
 		EE04AD0E1F4B326800DAD0C6 /* ListingSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingSection.swift; sourceTree = "<group>"; };
 		EE19BA701F73FE9000F99974 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
+		EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationAnimator.swift; sourceTree = "<group>"; };
+		EE1EB1001FC94527007978DB /* CardPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
+		EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransitioningDelegate.swift; sourceTree = "<group>"; };
 		EE2258301F45F9A1002B1968 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = ../Parser.swift; sourceTree = "<group>"; };
 		EE2541521F74044F007DFF61 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ExtensionsTest.swift"; sourceTree = "<group>"; };
@@ -153,6 +160,7 @@
 		EE299CB51F434DF700733426 /* ListingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTest.swift; sourceTree = "<group>"; };
 		EE299CBB1F434E1F00733426 /* ListingServicesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingServicesTest.swift; sourceTree = "<group>"; };
 		EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
+		EE306DA91FC733F90012DC43 /* ThingDetailInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingDetailInteractorTest.swift; sourceTree = "<group>"; };
 		EE3999E71F44B22700AF003D /* ListingEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingEndpoints.swift; sourceTree = "<group>"; };
 		EE3999E91F44B30D00AF003D /* RedditEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditEndpoint.swift; sourceTree = "<group>"; };
 		EE3999F31F44B68400AF003D /* ListingEndpointTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingEndpointTest.swift; sourceTree = "<group>"; };
@@ -276,6 +284,16 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		EE1EB0FE1FC94527007978DB /* CardAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */,
+				EE1EB1001FC94527007978DB /* CardPresentationController.swift */,
+				EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */,
+			);
+			path = CardAnimator;
+			sourceTree = "<group>";
+		};
 		EE2541541F740615007DFF61 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +340,14 @@
 				EE299CB71F434DF700733426 /* Services */,
 			);
 			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		EE306DA81FC733CD0012DC43 /* ThingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EE306DA91FC733F90012DC43 /* ThingDetailInteractorTest.swift */,
+			);
+			path = ThingDetail;
 			sourceTree = "<group>";
 		};
 		EE3999F21F44B67200AF003D /* Endpoints */ = {
@@ -434,10 +460,11 @@
 		EEB67CAD1F406DF80088646C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				EED6D6F81FA233230029EF9A /* Mocks */,
-				EE5D1E4D1F83F49B00EAA5FD /* Listing */,
 				EE2541541F740615007DFF61 /* Common */,
 				EE2A661F1F41CA4A00A8F9BF /* DataLayer */,
+				EE5D1E4D1F83F49B00EAA5FD /* Listing */,
+				EED6D6F81FA233230029EF9A /* Mocks */,
+				EE306DA81FC733CD0012DC43 /* ThingDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -585,15 +612,16 @@
 		EED645711F40A09500BA46B2 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
-				EE7662B21F5C51F2006987BC /* Repository */,
-				EE4EEA9B1F53377B0060866D /* ViewModel */,
-				EE04AD0B1F4B321900DAD0C6 /* Sections */,
-				EED645771F40A09500BA46B2 /* View */,
 				EEC7CB771FC1E51F0051097F /* ListingBuilder.swift */,
 				EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */,
 				EEC7CB781FC1E51F0051097F /* ListingInteractor.swift */,
 				EEC7CB791FC1E51F0051097F /* ListingRouter.swift */,
 				EEC7CB7A1FC1E51F0051097F /* ListingsViewController.swift */,
+				EE1EB0FE1FC94527007978DB /* CardAnimator */,
+				EE7662B21F5C51F2006987BC /* Repository */,
+				EE04AD0B1F4B321900DAD0C6 /* Sections */,
+				EED645771F40A09500BA46B2 /* View */,
+				EE4EEA9B1F53377B0060866D /* ViewModel */,
 			);
 			path = Listing;
 			sourceTree = "<group>";
@@ -610,8 +638,8 @@
 		EED6D6F81FA233230029EF9A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				EE5A9ECC1FC5DCF800A812D8 /* Listing */,
 				EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */,
+				EE5A9ECC1FC5DCF800A812D8 /* Listing */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -785,13 +813,16 @@
 				EE4B971F1F4937AD00FAEECA /* PreviewImages.swift in Sources */,
 				EEFFF11D1FC4899F004D1113 /* ListingComponent+ThingDetail.swift in Sources */,
 				EE04AD0F1F4B326800DAD0C6 /* ListingSection.swift in Sources */,
+				EE1EB1021FC94528007978DB /* CardPresentationAnimator.swift in Sources */,
 				EE6D84731F519A9800508361 /* Progressable.swift in Sources */,
 				EEC7CB741FC1E4C40051097F /* ThingDetailInteractor.swift in Sources */,
 				EED469791F3CCA08006759D1 /* AppDelegate.swift in Sources */,
 				EE701E3F1F5EE74700BAAC97 /* LinkCellViewModel.swift in Sources */,
 				EE7662B41F5C51F9006987BC /* ListingRepository.swift in Sources */,
+				EE1EB1041FC94528007978DB /* CardTransitioningDelegate.swift in Sources */,
 				EE3999E81F44B22700AF003D /* ListingEndpoints.swift in Sources */,
 				EED6457D1F40A09500BA46B2 /* Listing.swift in Sources */,
+				EE1EB1031FC94528007978DB /* CardPresentationController.swift in Sources */,
 				EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */,
 				EEC7CB871FC1E6900051097F /* RootViewController.swift in Sources */,
 				EED6457B1F40A09500BA46B2 /* Kind.swift in Sources */,
@@ -837,6 +868,7 @@
 				EE299CB91F434DF700733426 /* ListingTest.swift in Sources */,
 				EE5D1E5D1F83F50D00EAA5FD /* LinkCellViewModelTest.swift in Sources */,
 				EE3999F41F44B68400AF003D /* ListingEndpointTest.swift in Sources */,
+				EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,
 				EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */,

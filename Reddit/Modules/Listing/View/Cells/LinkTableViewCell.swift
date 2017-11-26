@@ -10,6 +10,10 @@ import UIKit
 import AlamofireImage
 import SnapKit
 
+protocol Contentable {
+    var linkContentView: UIView { get }
+}
+
 protocol ILinkCell {
     var viewModel: LinkCellViewModel? { get set }
 
@@ -23,9 +27,13 @@ protocol IInteractionableCell {
     func onDownVoteTapped(_: (() -> Void)?)
 }
 
-class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, IInteractionableCell {
+class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInteractionableCell {
 
     typealias Content = T
+    
+    var linkContentView: UIView {
+        return containerView
+    }
 
     lazy var linkView: LinkView<Content> = {
         let view = LinkView<Content>()

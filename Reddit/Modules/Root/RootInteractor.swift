@@ -29,9 +29,4 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         super.init(presenter: presenter)
         presenter.listener = self
     }
-    
-    func routeToThingDetail(withID id: String) {
-        
-    }
 }
-

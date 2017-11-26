@@ -16,12 +16,18 @@ protocol ThingDetailDependency: Dependency {
 final class ThingDetailComponent: Component<ThingDetailDependency> {
 
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var thingId: String
+    
+    init(dependency: ThingDetailDependency, thingId: String) {
+        self.thingId = thingId
+        super.init(dependency: dependency)
+    }
 }
 
 // MARK: - Builder
 
 protocol ThingDetailBuildable: Buildable {
-    func build(withListener listener: ThingDetailListener) -> ThingDetailRouting
+    func build(withListener listener: ThingDetailListener, thingId: String) -> ThingDetailRouting
 }
 
 final class ThingDetailBuilder: Builder<ThingDetailDependency>, ThingDetailBuildable {
@@ -30,10 +36,10 @@ final class ThingDetailBuilder: Builder<ThingDetailDependency>, ThingDetailBuild
         super.init(dependency: dependency)
     }
 
-    func build(withListener listener: ThingDetailListener) -> ThingDetailRouting {
-        let component = ThingDetailComponent(dependency: dependency)
+    func build(withListener listener: ThingDetailListener, thingId: String) -> ThingDetailRouting {
+        let component = ThingDetailComponent(dependency: dependency, thingId: thingId)
         let viewController = ThingDetailViewController()
-        let interactor = ThingDetailInteractor(presenter: viewController)
+        let interactor = ThingDetailInteractor(presenter: viewController, thingId: component.thingId)
         interactor.listener = listener
         return ThingDetailRouter(interactor: interactor, viewController: viewController)
     }

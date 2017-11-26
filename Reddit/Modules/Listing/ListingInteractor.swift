@@ -51,7 +51,7 @@ ListingInteractable, ListingPresentableListener {
     
     override func didBecomeActive() {
         super.didBecomeActive()
-        
+
         loadListingPage()
     }
 

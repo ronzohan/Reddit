@@ -26,6 +26,8 @@ final class ListingViewController: UIViewController, ListingPresentable, Listing
     /// The UIKit view representation of this view.
     public final var uiviewController: UIViewController { return self }
 
+    var cardTransition = CardTransitioningDelegate()
+    
     weak var listener: ListingPresentableListener?
 
     let disposeBag = DisposeBag()
@@ -63,7 +65,14 @@ final class ListingViewController: UIViewController, ListingPresentable, Listing
         tableView.backgroundColor = UIColor.lightGray
     }
 
+    // MARK: - ListingViewControllable
     func present(viewController: ViewControllable) {
+        present(viewController.uiviewController, animated: true, completion: nil)
+    }
+    
+    func presentWithCardAnimation(viewController: ViewControllable) {
+        viewController.uiviewController.modalPresentationStyle = .custom
+        viewController.uiviewController.transitioningDelegate = cardTransition
         present(viewController.uiviewController, animated: true, completion: nil)
     }
 }
@@ -165,6 +174,11 @@ extension ListingViewController: UITableViewDataSource {
 
 extension ListingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contentFrame = tableView.cellForRow(at: indexPath)?.frame
+
+        let content2Frame = tableView.convert(((tableView.cellForRow(at: indexPath) as? Contentable)?.linkContentView.frame)!, to: view)                                                                                                                                                                                                                         
+        cardTransition.originFrame = content2Frame
+        
         listener?.didSelectItem(atIndexPath: indexPath)
     }
 }

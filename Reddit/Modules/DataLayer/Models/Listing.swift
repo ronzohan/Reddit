@@ -10,15 +10,6 @@
 import Foundation
 import ObjectMapper
 
-enum ListingError: Error {
-    case decodingError(String)
-}
-
-enum ListingKeys: String, CodingKey {
-    case kind
-    case data
-}
-
 enum ListingDataKeys: String, CodingKey {
     case after
     case before
@@ -35,7 +26,7 @@ struct Listing {
 
 extension Listing: Decodable {
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ListingKeys.self)
+        let container = try decoder.container(keyedBy: RedditAnyKeys.self)
         
         let dataContainer = try container.nestedContainer(keyedBy: ListingDataKeys.self, forKey: .data)
         
@@ -51,13 +42,16 @@ extension Listing: Decodable {
         // it won't update childrenContainer currentIndex twice
         var thingsContainer = childrenContainer
 
+        // We need to manually parse the things in the children
+        // To do so, we must iterate each children and check what is their thing kind
+        // then instantiate the Thing model accordingly
         while !childrenContainer.isAtEnd {
             let thingContainer = try childrenContainer.nestedContainer(keyedBy: ThingKeys.self)
             let kind = try thingContainer.decode(ThingKind.self, forKey: .kind)
 
             switch kind {
             case .link:
-                let linkThingContainer = try thingsContainer.nestedContainer(keyedBy: ListingKeys.self)
+                let linkThingContainer = try thingsContainer.nestedContainer(keyedBy: RedditAnyKeys.self)
                 let link = try linkThingContainer.decode(Link.self, forKey: .data)
                 children.append(link)
             }

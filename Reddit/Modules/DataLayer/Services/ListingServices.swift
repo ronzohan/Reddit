@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import AlamofireObjectMapper
 import Alamofire
 import RxSwift
 
@@ -40,19 +39,25 @@ struct ListingServices: ListingUseCase {
             ] = [
                 "raw_json": 1,
                 "after": afterHash,
-                "before": beforeHash,
+                "before": beforeHash
             ]
 
             let request = Alamofire.request(url, method: .get, parameters: parameters)
 
-            request.responseObject { (response: DataResponse<Listing>) in
-                guard let value = response.result.value else {
-                    return
+            request.responseString(completionHandler: { (response) in
+                do {
+                    let listing = try JSONDecoder()
+                        .decode(Listing.self, 
+                                from: response.result.value!.data(using: .utf8)!) 
+                    
+                    observer.onNext(listing)
+                } catch let error { 
+                    debugPrint(error)
+                    observer.onError(error)
                 }
 
-                observer.onNext(value)
                 observer.onCompleted()
-            }
+            })
 
             return Disposables.create()
         })

@@ -10,15 +10,14 @@
 import Foundation
 import ObjectMapper
 
-enum ThingKeys: String {
+enum ThingKeys: String, CodingKey {
     case id
     case name
-    case kind
     case data
+    case kind
 }
 
 protocol Thing {
     var id: String { get set }
     var name: String { get set }
-    var kind: Kind { get set }
 }

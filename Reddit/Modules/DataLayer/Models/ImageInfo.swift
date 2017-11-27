@@ -7,27 +7,26 @@
 //
 
 import Foundation
-import ObjectMapper
 
-enum ImageInfoKeys: String {
-    case url
-    case width
-    case height
-}
-
-class ImageInfo: Mappable {
+struct ImageInfo {
     var url: String = ""
     var width: Double = 0
     var height: Double = 0
+}
 
-    init() {}
-
-    required init?(map _: Map) {
+extension ImageInfo: Decodable {
+    enum ImageInfoKeys: String, CodingKey {
+        case url
+        case width
+        case height
     }
 
-    func mapping(map: Map) {
-        url <- map[ImageInfoKeys.url.rawValue]
-        width <- map[ImageInfoKeys.width.rawValue]
-        height <- map[ImageInfoKeys.height.rawValue]
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ImageInfoKeys.self)
+        let url: String = try container.decode(String.self, forKey: .url)
+        let width = try container.decode(Double.self, forKey: .width)
+        let height = try container.decode(Double.self, forKey: .height)
+        
+        self.init(url: url, width: width, height: height)
     }
 }

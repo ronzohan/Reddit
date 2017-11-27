@@ -8,7 +8,10 @@
 
 import Foundation
 
-enum Kind: String {
+enum Kind: String, Codable {
     case listing = "Listing"
+}
+
+enum ThingKind: String, Codable {
     case link = "t3"
 }

@@ -7,29 +7,26 @@
 //
 
 import Foundation
-import ObjectMapper
 
-enum ImageKeys: String {
-    case source
-    case resolutions
-    case variants
-    case id
-}
-
-class Image: Mappable {
+struct Image {
     var source: ImageInfo = ImageInfo()
     var resolutions: [ImageInfo] = []
-    var variants: [ImageInfo] = []
     var id: String = ""
+}
 
-    init() {}
+extension Image: Decodable {
+    enum ImageKeys: String, CodingKey {
+        case source
+        case resolutions
+        case id
+    }
 
-    required init?(map _: Map) {}
-
-    func mapping(map: Map) {
-        source <- map[ImageKeys.source.rawValue]
-        resolutions <- map[ImageKeys.resolutions.rawValue]
-        variants <- map[ImageKeys.variants.rawValue]
-        id <- map[ImageKeys.id.rawValue]
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ImageKeys.self)
+        let source = try container.decode(ImageInfo.self, forKey: .source)
+        let resolutions = try container.decode([ImageInfo].self, forKey: .resolutions)
+        let id = try container.decode(String.self, forKey: .id)
+        
+        self.init(source: source, resolutions: resolutions, id: id)
     }
 }

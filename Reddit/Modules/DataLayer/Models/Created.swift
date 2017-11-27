@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CreatedKeys: String {
+enum CreatedKeys: String, CodingKey {
     case created
     case createdUTC = "created_utc"
 }

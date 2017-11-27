@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum VotableKeys: String {
+enum VotableKeys: String, CodingKey {
     case ups
     case downs
     case likes

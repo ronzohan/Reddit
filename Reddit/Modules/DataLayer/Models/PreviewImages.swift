@@ -7,23 +7,24 @@
 //
 
 import Foundation
-import ObjectMapper
 
-enum PreviewImageKeys: String {
-    case images
-    case enabled
-}
-
-class PreviewImage: Mappable {
+struct PreviewImage {
     var images: [Image] = []
     var enabled: Bool = false
+}
 
-    init() {}
+extension PreviewImage: Decodable {
+    enum PreviewImageKeys: String, CodingKey {
+        case images
+        case enabled
+    }
 
-    required init?(map _: Map) {}
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: PreviewImageKeys.self)
 
-    func mapping(map: Map) {
-        images <- map[PreviewImageKeys.images.rawValue]
-        enabled <- map[PreviewImageKeys.enabled.rawValue]
+        let images = try container.decode([Image].self, forKey: .images)
+        let enabled = try container.decode(Bool.self, forKey: .enabled)
+
+        self.init(images: images, enabled: enabled)
     }
 }

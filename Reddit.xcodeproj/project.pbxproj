@@ -15,7 +15,6 @@
 		EE1EB1021FC94528007978DB /* CardPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */; };
 		EE1EB1031FC94528007978DB /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB1001FC94527007978DB /* CardPresentationController.swift */; };
 		EE1EB1041FC94528007978DB /* CardTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */; };
-		EE2258311F45F9A1002B1968 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2258301F45F9A1002B1968 /* Parser.swift */; };
 		EE2541531F74044F007DFF61 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2541521F74044F007DFF61 /* Date+Extensions.swift */; };
 		EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */; };
 		EE299CB81F434DF700733426 /* LinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB41F434DF700733426 /* LinkTest.swift */; };
@@ -153,7 +152,6 @@
 		EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationAnimator.swift; sourceTree = "<group>"; };
 		EE1EB1001FC94527007978DB /* CardPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransitioningDelegate.swift; sourceTree = "<group>"; };
-		EE2258301F45F9A1002B1968 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = ../Parser.swift; sourceTree = "<group>"; };
 		EE2541521F74044F007DFF61 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		EE2541571F740636007DFF61 /* Date+ExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ExtensionsTest.swift"; sourceTree = "<group>"; };
 		EE299CB41F434DF700733426 /* LinkTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTest.swift; sourceTree = "<group>"; };
@@ -586,16 +584,16 @@
 		EED6456A1F40A09500BA46B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EED6456B1F40A09500BA46B2 /* Kind.swift */,
-				EED6456C1F40A09500BA46B2 /* Link.swift */,
-				EED6456D1F40A09500BA46B2 /* Listing.swift */,
-				EED6456E1F40A09500BA46B2 /* Thing.swift */,
-				EED5793A1F481601006AA6C7 /* Votable.swift */,
 				EED5793C1F48163A006AA6C7 /* Created.swift */,
 				EE4B97181F4936BB00FAEECA /* Image.swift */,
 				EE4B971A1F4936EC00FAEECA /* ImageInfo.swift */,
-				EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */,
+				EED6456B1F40A09500BA46B2 /* Kind.swift */,
+				EED6456C1F40A09500BA46B2 /* Link.swift */,
+				EED6456D1F40A09500BA46B2 /* Listing.swift */,
 				EE59ECE71F77FFC000229774 /* PostHint.swift */,
+				EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */,
+				EED6456E1F40A09500BA46B2 /* Thing.swift */,
+				EED5793A1F481601006AA6C7 /* Votable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -604,7 +602,6 @@
 			isa = PBXGroup;
 			children = (
 				EED645701F40A09500BA46B2 /* ListingServices.swift */,
-				EE2258301F45F9A1002B1968 /* Parser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -836,7 +833,6 @@
 				EED5793D1F48163A006AA6C7 /* Created.swift in Sources */,
 				EEB32C9C1FA229A600F414E8 /* UrlLinkTableViewCell.swift in Sources */,
 				EEC7CB7B1FC1E51F0051097F /* ListingBuilder.swift in Sources */,
-				EE2258311F45F9A1002B1968 /* Parser.swift in Sources */,
 				EED6457E1F40A09500BA46B2 /* Thing.swift in Sources */,
 				EEC7CB731FC1E4C40051097F /* ThingDetailBuilder.swift in Sources */,
 				EED5793B1F481601006AA6C7 /* Votable.swift in Sources */,

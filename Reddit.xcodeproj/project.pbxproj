@@ -20,8 +20,6 @@
 		EE299CB81F434DF700733426 /* LinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB41F434DF700733426 /* LinkTest.swift */; };
 		EE299CB91F434DF700733426 /* ListingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB51F434DF700733426 /* ListingTest.swift */; };
 		EE299CBC1F434E1F00733426 /* ListingServicesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CBB1F434E1F00733426 /* ListingServicesTest.swift */; };
-		EE299CBE1F43538800733426 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */; };
-		EE299CBF1F43538800733426 /* AlamofireObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE299CBD1F43538800733426 /* AlamofireObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE306DA91FC733F90012DC43 /* ThingDetailInteractorTest.swift */; };
 		EE3999E81F44B22700AF003D /* ListingEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999E71F44B22700AF003D /* ListingEndpoints.swift */; };
 		EE3999EA1F44B30D00AF003D /* RedditEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3999E91F44B30D00AF003D /* RedditEndpoint.swift */; };
@@ -98,8 +96,6 @@
 		EED6458C1F40A3AC00BA46B2 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EED645911F40A3AC00BA46B2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED645881F40A3AC00BA46B2 /* SwiftyJSON.framework */; };
 		EED645921F40A3AC00BA46B2 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645881F40A3AC00BA46B2 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EED645A11F40AC4300BA46B2 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */; };
-		EED645A21F40AC4300BA46B2 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645A01F40AC4300BA46B2 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EEFFF11D1FC4899F004D1113 /* ListingComponent+ThingDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFFF11C1FC4899F004D1113 /* ListingComponent+ThingDetail.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,11 +128,9 @@
 				EED4440F1FC1E0550027145D /* RIBs.framework in Embed Frameworks */,
 				EED6458A1F40A3AC00BA46B2 /* Alamofire.framework in Embed Frameworks */,
 				EE19BA431F73F88A00F99974 /* RxSwift.framework in Embed Frameworks */,
-				EED645A21F40AC4300BA46B2 /* ObjectMapper.framework in Embed Frameworks */,
 				EED6458C1F40A3AC00BA46B2 /* AlamofireImage.framework in Embed Frameworks */,
 				EE4BCB5A1FA8953800C7BEC5 /* Differentiator.framework in Embed Frameworks */,
 				EE7662A91F5C3FB1006987BC /* RxCocoa.framework in Embed Frameworks */,
-				EE299CBF1F43538800733426 /* AlamofireObjectMapper.framework in Embed Frameworks */,
 				EED645921F40A3AC00BA46B2 /* SwiftyJSON.framework in Embed Frameworks */,
 				EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */,
 			);
@@ -249,10 +243,8 @@
 				EED4440E1FC1E0550027145D /* RIBs.framework in Frameworks */,
 				EED645891F40A3AC00BA46B2 /* Alamofire.framework in Frameworks */,
 				EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */,
-				EED645A11F40AC4300BA46B2 /* ObjectMapper.framework in Frameworks */,
 				EED6458B1F40A3AC00BA46B2 /* AlamofireImage.framework in Frameworks */,
 				EE7662A81F5C3FB1006987BC /* RxCocoa.framework in Frameworks */,
-				EE299CBE1F43538800733426 /* AlamofireObjectMapper.framework in Frameworks */,
 				EED645911F40A3AC00BA46B2 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

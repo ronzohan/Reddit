@@ -18,7 +18,6 @@ protocol ListingPresentable: Presentable {
     weak var listener: ListingPresentableListener? { get set }
     func reloadListing()
     func updateListingNextPage()
-    
 }
 
 protocol ListingListener: class {

@@ -53,16 +53,17 @@ class UrlLinkTableViewCellTest: XCTestCase {
         ]
 
         // When i try to parse the json into an Image
-        let image = Image(JSON: imageJSON)
+        guard let image: Image = DictionaryHelper.model(for: imageJSON) else {
+            XCTFail("Cannot make image data")
+            return
+        }
 
-        let link = Link()
+        var link = Link()
         link.title = "A 19 year old Sofia Vergara"
         link.subredditNamePrefixed = "r/pics"
         link.createdUTC = 1_506_946_298
         link.domain = "i.imgur.com"
-        link.preview.images = [
-            image!,
-        ]
+        link.preview.images = [image]
 
         let viewModel = LinkCellViewModel(link: link)
 

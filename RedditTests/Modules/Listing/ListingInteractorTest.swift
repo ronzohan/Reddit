@@ -85,7 +85,7 @@ class ListingInteractorTest: XCTestCase {
     
     func testLoadNextListingPage() {
         // Given
-        let listing = Listing()
+        var listing = Listing()
         let links = [Link(), Link(), Link()]
         listing.children = links
         
@@ -107,7 +107,7 @@ class ListingInteractorTest: XCTestCase {
     // MARK: Load Listing Test
     func testGetListing() {
         // Given
-        let listing = Listing()
+        var listing = Listing()
         listing.children = [Link(), Link(), Link()]
 
         listingUseCase.listing = listing
@@ -135,7 +135,7 @@ class ListingInteractorTest: XCTestCase {
     
     func testLoadListingPage() {
         // Given
-        let listing = Listing()
+        var listing = Listing()
         listing.children = [Link(), Link(), Link()]
         
         // When

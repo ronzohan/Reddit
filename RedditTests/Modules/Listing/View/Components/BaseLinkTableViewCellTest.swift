@@ -19,7 +19,7 @@ class BaseLinkTableViewCellTest: XCTestCase {
     }
 
     func testConfigureCell() {
-        let link = Link()
+        var link = Link()
         link.title = "A 19 year old Sofia Vergara"
         link.subredditNamePrefixed = "r/pics"
         link.createdUTC = 1_506_946_298

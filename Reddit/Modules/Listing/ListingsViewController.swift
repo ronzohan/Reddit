@@ -18,7 +18,7 @@ protocol ListingPresentableListener: class {
     var sections: [ListingSection] { get }
     
     func loadNextListingPage(withIndexPath indexPath: IndexPath)
-    func didSelectItem(atIndexPath indexPath: IndexPath)
+    func didSelectItem(atIndexPath: IndexPath)
 }
 
 final class ListingViewController: UIViewController, ListingPresentable, ListingViewControllable {

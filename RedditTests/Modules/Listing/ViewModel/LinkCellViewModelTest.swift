@@ -50,12 +50,13 @@ class LinkCellViewModelTest: XCTestCase {
     }
 
     func testRetrievingOfImageUrl() {
-        let image = Image()
-        let imageInfo = ImageInfo()
-        imageInfo.height = 100
-        imageInfo.width = 200
-        imageInfo.url = "google.com"
-        image.resolutions = [imageInfo]
+        var imageInfo = ImageInfo(url: "google.com", 
+                                  width: 200, 
+                                  height: 100)
+
+        var image = Image(source: imageInfo, 
+                          resolutions: [imageInfo], 
+                          id: "")
 
         link.preview.images = [image]
 
@@ -63,8 +64,8 @@ class LinkCellViewModelTest: XCTestCase {
     }
 
     func testRetrievingOfImageUrlWithEmptyResolutions() {
-        let image = Image()
-        let imageInfo = ImageInfo()
+        var image = Image()
+        var imageInfo = ImageInfo()
         imageInfo.height = 100
         imageInfo.width = 200
         imageInfo.url = "google.com"

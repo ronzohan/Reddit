@@ -24,14 +24,14 @@ final class ThingDetailViewController: UIViewController, ThingDetailPresentable,
 
     weak var listener: ThingDetailPresentableListener?
     
-    lazy private var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.blue
         
         return imageView
     }()
     
-    lazy private var toolbar: UIToolbar = {
+    lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar()
         
         let fillerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, 
@@ -79,10 +79,18 @@ final class ThingDetailViewController: UIViewController, ThingDetailPresentable,
             make.height.greaterThanOrEqualTo(100)
             make.leading.trailing.equalToSuperview()
         }
+        
+        let button = UIButton()
+        button.setTitle("Clickadklsajldkjasdjaljksd", for: .normal)
+        button.setTitleColor(UIColor.black, for: .normal)
+        
+        view.addSubview(button)
+        button.snp.makeConstraints { (make) in
+            make.top.equalTo(topLayoutGuide.snp.bottom).offset(100)
+            make.left.right.equalToSuperview()
+        }
     }
-    
-    
-    
+
     func setThingDetail(title: String) {
     }
 }

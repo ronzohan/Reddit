@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */; };
 		EE04AD0F1F4B326800DAD0C6 /* ListingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD0E1F4B326800DAD0C6 /* ListingSection.swift */; };
+		EE0B96311FD05A8400E38284 /* LinkDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B96301FD05A8400E38284 /* LinkDataMock.swift */; };
 		EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; };
 		EE19BA431F73F88A00F99974 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE19BA711F73FE9000F99974 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19BA701F73FE9000F99974 /* LinkView.swift */; };
@@ -57,6 +58,7 @@
 		EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */; };
 		EE8B47ED1FB4B75100F4C0CB /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; };
 		EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */; };
 		EEA21B361FCC59AB00089504 /* RedditAnyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */; };
 		EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */; };
 		EEB32C9B1FA229A600F414E8 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */; };
@@ -143,6 +145,7 @@
 /* Begin PBXFileReference section */
 		EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
 		EE04AD0E1F4B326800DAD0C6 /* ListingSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingSection.swift; sourceTree = "<group>"; };
+		EE0B96301FD05A8400E38284 /* LinkDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkDataMock.swift; sourceTree = "<group>"; };
 		EE19BA701F73FE9000F99974 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationAnimator.swift; sourceTree = "<group>"; };
 		EE1EB1001FC94527007978DB /* CardPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 		EE7E74821F4AFEA700C9B623 /* ImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
 		EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImageTest.swift; sourceTree = "<group>"; };
 		EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHelper.swift; sourceTree = "<group>"; };
 		EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAnyKeys.swift; sourceTree = "<group>"; };
 		EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
@@ -276,6 +280,14 @@
 			path = Sections;
 			sourceTree = "<group>";
 		};
+		EE0B962F1FD05A7E00E38284 /* ModelMocks */ = {
+			isa = PBXGroup;
+			children = (
+				EE0B96301FD05A8400E38284 /* LinkDataMock.swift */,
+			);
+			path = ModelMocks;
+			sourceTree = "<group>";
+		};
 		EE1EB0FE1FC94527007978DB /* CardAnimator */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +318,7 @@
 		EE299CB31F434DF700733426 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EE0B962F1FD05A7E00E38284 /* ModelMocks */,
 				EE299CB41F434DF700733426 /* LinkTest.swift */,
 				EE299CB51F434DF700733426 /* ListingTest.swift */,
 				EE7E74821F4AFEA700C9B623 /* ImageTest.swift */,
@@ -330,6 +343,7 @@
 				EE3999F21F44B67200AF003D /* Endpoints */,
 				EE299CB31F434DF700733426 /* Model */,
 				EE299CB71F434DF700733426 /* Services */,
+				EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -853,6 +867,7 @@
 				EEC08A2F1FB0CA3000429763 /* ListingViewModelTest.swift in Sources */,
 				EE7E74831F4AFEA700C9B623 /* ImageTest.swift in Sources */,
 				EE5A9ED01FC5DD1E00A812D8 /* BaseLinkCellMock.swift in Sources */,
+				EE0B96311FD05A8400E38284 /* LinkDataMock.swift in Sources */,
 				EE59ECEC1F7803BE00229774 /* PostHintTest.swift in Sources */,
 				EE5A9ED41FC5DDBB00A812D8 /* ViewControllableMock.swift in Sources */,
 				EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */,
@@ -863,6 +878,7 @@
 				EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,
+				EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */,
 				EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */,
 				EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */,
 				EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */,

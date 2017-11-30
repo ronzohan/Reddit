@@ -42,7 +42,7 @@ class PreviewImageTest: XCTestCase {
         ]
 
         // When I parse that json
-        let previewImage = PreviewImage(JSON: previewJSON)
+        let previewImage: PreviewImage? = DictionaryHelper.model(for: previewJSON)
 
         // Then thing mapper thing should have the same value on the json
         XCTAssertEqual(previewImage?.images.count, 1)

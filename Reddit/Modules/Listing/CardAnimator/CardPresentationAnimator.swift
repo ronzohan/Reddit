@@ -34,12 +34,20 @@ class CardPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         let animationDuration = transitionDuration(using: transitionContext)
         
         // Set the presented view controller the frame same as the origin frame
-        containerView.addSubview(toViewController.view)
+       
         toViewController.view.frame = originFrame
+
+        containerView.addSubview(toViewController.view)
+        toViewController.view.setNeedsLayout()
         toViewController.view.layoutIfNeeded()
-        
-        UIView.animate(withDuration: animationDuration, animations: { 
-             toViewController.view.frame.size.width = finalFrame.width
+
+        UIView.animate(withDuration: animationDuration, 
+                       delay: 0, 
+                       usingSpringWithDamping: 0.5, 
+                       initialSpringVelocity: 0.25, 
+                       options: .layoutSubviews, 
+                       animations: { 
+            toViewController.view.frame = finalFrame
         }) { (finished) in
             transitionContext.completeTransition(finished)
         }

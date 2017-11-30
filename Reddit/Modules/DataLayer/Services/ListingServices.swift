@@ -43,12 +43,21 @@ struct ListingServices: ListingUseCase {
             ]
 
             let request = Alamofire.request(url, method: .get, parameters: parameters)
-
-            request.responseString(completionHandler: { (response) in
+            
+            request.responseData(completionHandler: { (response) in
+                enum ResponseError: Error {
+                    case noResponse
+                }
+    
+                guard let data = response.data else {
+                    observer.onError(ResponseError.noResponse)
+                    observer.onCompleted()
+                    return
+                }
+                
                 do {
                     let listing = try JSONDecoder()
-                        .decode(Listing.self, 
-                                from: response.result.value!.data(using: .utf8)!) 
+                        .decode(Listing.self, from: data) 
                     
                     observer.onNext(listing)
                 } catch let error { 

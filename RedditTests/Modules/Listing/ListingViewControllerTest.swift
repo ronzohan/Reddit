@@ -10,7 +10,7 @@ import XCTest
 @testable import Reddit
 
 class ListingViewControllerTest: XCTestCase {
-    var sut: ListingViewController!
+    var sut: SubredditViewController!
     var interactor: ListingInteractorMock!
     
     override func setUp() {
@@ -18,7 +18,7 @@ class ListingViewControllerTest: XCTestCase {
 
         interactor = ListingInteractorMock()
 
-        sut = ListingViewController()
+        sut = SubredditViewController()
         sut.listener = interactor
         
         XCTAssertNotNil(sut?.view)

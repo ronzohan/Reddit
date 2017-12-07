@@ -8,7 +8,7 @@
 
 import RIBs
 
-protocol RootInteractable: Interactable, ListingListener {
+protocol RootInteractable: Interactable, SubredditListener {
     weak var router: RootRouting? { get set }
     weak var listener: RootListener? { get set }
 }
@@ -19,11 +19,11 @@ protocol RootViewControllable: ViewControllable {
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
     // MARK: - Private
-    private let listingBuilder: ListingBuildable
+    private let listingBuilder: SubredditBuildable
 
     init(interactor: RootInteractable,
          viewController: RootViewControllable,
-         listingBuilder: ListingBuildable) {
+         listingBuilder: SubredditBuildable) {
         self.listingBuilder = listingBuilder
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self

@@ -21,7 +21,13 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
 
-        let sortedComponents: [Calendar.Component] = [.year, .month, .weekOfYear, .day, .hour, .minute, .second]
+        let sortedComponents: [Calendar.Component] = [.year, 
+                                                      .month, 
+                                                      .weekOfYear, 
+                                                      .day, 
+                                                      .hour, 
+                                                      .minute, 
+                                                      .second]
 
         let calendarComponents =
             Set<Calendar.Component>(sortedComponents)

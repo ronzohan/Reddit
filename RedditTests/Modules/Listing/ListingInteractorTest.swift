@@ -12,7 +12,7 @@ import RxSwift
 
 class ListingInteractorTest: XCTestCase {
     
-    var sut: ListingInteractor!
+    var sut: SubredditInteractor!
     var listingViewController: ListingViewControllerMock!
     var listingUseCase: ListingUseCaseMock!
     var disposeBag: DisposeBag! 
@@ -22,7 +22,7 @@ class ListingInteractorTest: XCTestCase {
         disposeBag = DisposeBag()
         listingUseCase = ListingUseCaseMock()
         listingViewController = ListingViewControllerMock()
-        sut = ListingInteractor(presenter: listingViewController, 
+        sut = SubredditInteractor(presenter: listingViewController, 
                                 repository: listingUseCase, 
                                 subreddit: "")
     }

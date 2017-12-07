@@ -9,25 +9,25 @@
 import RIBs
 import RxSwift
 
-protocol ListingRouting: ViewableRouting {
+protocol SubredditRouting: ViewableRouting {
     // Declare methods the interactor can invoke to manage sub-tree via the router.
     func routeToThingDetail(withID id: String)
 }
 
-protocol ListingPresentable: Presentable {
-    weak var listener: ListingPresentableListener? { get set }
+protocol SubredditPresentable: Presentable {
+    weak var listener: SubredditPresentableListener? { get set }
     func reloadListing()
     func updateListingNextPage()
 }
 
-protocol ListingListener: class {
+protocol SubredditListener: class {
     // Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class ListingInteractor: PresentableInteractor<ListingPresentable>, 
-ListingInteractable, ListingPresentableListener {
-    weak var router: ListingRouting?
-    weak var listener: ListingListener?
+final class SubredditInteractor: PresentableInteractor<SubredditPresentable>, 
+SubredditInteractable, SubredditPresentableListener {
+    weak var router: SubredditRouting?
+    weak var listener: SubredditListener?
 
     var after: String?
     var before: String?
@@ -37,12 +37,12 @@ ListingInteractable, ListingPresentableListener {
     
     var sections: [ListingSection] = []
     
-    let repository: SubredditServiceable
+    let subredditService: SubredditServiceable
 
-    init(presenter: ListingPresentable, 
-         repository: SubredditServiceable, 
+    init(presenter: SubredditPresentable, 
+         service: SubredditServiceable, 
          subreddit: String) {
-        self.repository = repository
+        self.subredditService = service
         self.subreddit = subreddit
         super.init(presenter: presenter)
         presenter.listener = self
@@ -59,7 +59,7 @@ ListingInteractable, ListingPresentableListener {
         bodyParams["after"] = after
         bodyParams["before"] = before
         
-        return repository.hotPosts(forSubreddit: subreddit, bodyParams: bodyParams)
+        return subredditService.hotPosts(forSubreddit: subreddit, bodyParams: bodyParams)
             .do(onNext: { listing in
                 // Update current after and before values for loading next page
                 self.after = listing.after

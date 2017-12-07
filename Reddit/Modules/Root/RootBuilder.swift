@@ -14,12 +14,8 @@ protocol RootDependency: RootDependencyListing {
 final class RootComponent: Component<RootDependency> {
     let rootViewController: RootViewController
 
-    let subredditService: SubredditServiceable
-
     init(dependency: RootDependency,
-         rootViewController: RootViewController,
-         repository: SubredditServiceable) {
-        self.subredditService = repository
+         rootViewController: RootViewController) {
         self.rootViewController = rootViewController
         super.init(dependency: dependency)
     }
@@ -41,11 +37,10 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let viewController = RootViewController()
         
         let component = RootComponent(dependency: dependency,
-                                      rootViewController: viewController,
-                                      repository: dependency.listingService)
+                                      rootViewController: viewController)
         let interactor = RootInteractor(presenter: viewController)
 
-        let listingBuilder = ListingBuilder(dependency: component)
+        let listingBuilder = SubredditBuilder(dependency: component)
         return RootRouter(interactor: interactor,
                           viewController: viewController,
                           listingBuilder: listingBuilder)

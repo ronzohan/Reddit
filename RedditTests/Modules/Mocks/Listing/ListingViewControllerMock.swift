@@ -10,8 +10,8 @@ import Foundation
 import RIBs
 @testable import Reddit
 
-class ListingViewControllerMock: ListingPresentable {
-    weak var listener: ListingPresentableListener?
+class ListingViewControllerMock: SubredditPresentable {
+    weak var listener: SubredditPresentableListener?
 
     var didReloadListing = false
     func reloadListing() {

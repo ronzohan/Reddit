@@ -11,7 +11,7 @@ import RxSwift
 import UIKit
 import SnapKit
 
-protocol ListingPresentableListener: class {
+protocol SubredditPresentableListener: class {
     // Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
@@ -21,14 +21,14 @@ protocol ListingPresentableListener: class {
     func didSelectItem(atIndexPath: IndexPath)
 }
 
-final class ListingViewController: UIViewController, ListingPresentable, ListingViewControllable {
+final class SubredditViewController: UIViewController, SubredditPresentable, SubredditViewControllable {
 
     /// The UIKit view representation of this view.
     public final var uiviewController: UIViewController { return self }
 
     var cardTransition = CardTransitioningDelegate()
     
-    weak var listener: ListingPresentableListener?
+    weak var listener: SubredditPresentableListener?
 
     let disposeBag = DisposeBag()
     
@@ -78,7 +78,7 @@ final class ListingViewController: UIViewController, ListingPresentable, Listing
 }
 
 // MARK: - Datasource
-extension ListingViewController: UITableViewDataSource {
+extension SubredditViewController: UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
         return listener?.sections.count ?? 0
     }
@@ -172,7 +172,7 @@ extension ListingViewController: UITableViewDataSource {
     }
 }
 
-extension ListingViewController: UITableViewDelegate {
+extension SubredditViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contentFrame = tableView.cellForRow(at: indexPath)?.frame
 

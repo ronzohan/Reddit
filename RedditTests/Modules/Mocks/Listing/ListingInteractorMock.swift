@@ -9,7 +9,7 @@
 import Foundation
 @testable import Reddit
 
-class ListingInteractorMock: ListingPresentableListener {
+class ListingInteractorMock: SubredditPresentableListener {
     var sections: [ListingSection] = []
     
     var didLoadNextListingPage = false

@@ -10,28 +10,28 @@ import XCTest
 import RxSwift
 @testable import Reddit
 
-class ListingInteractorTest: XCTestCase {
+class SubredditInteractorTest: XCTestCase {
     
     var sut: SubredditInteractor!
-    var listingViewController: ListingViewControllerMock!
-    var listingUseCase: ListingUseCaseMock!
+    var subredditViewController: SubredditViewControllerMock!
+    var subredditService: SubredditServiceMock!
     var disposeBag: DisposeBag! 
     
     override func setUp() {
         super.setUp()
         disposeBag = DisposeBag()
-        listingUseCase = ListingUseCaseMock()
-        listingViewController = ListingViewControllerMock()
-        sut = SubredditInteractor(presenter: listingViewController, 
-                                repository: listingUseCase, 
-                                subreddit: "")
+        subredditService = SubredditServiceMock()
+        subredditViewController = SubredditViewControllerMock()
+        sut = SubredditInteractor(presenter: subredditViewController, 
+                                  service: subredditService, 
+                                  subreddit: "")
     }
     
     // MARK: - Load Next Page Test
     func testShouldNotLoadNextPage() {
         // Given
-        let sections: [ListingSection] = [
-            ListingSection.linkRows(links: [
+        let sections: [SubredditSection] = [
+            SubredditSection.linkRows(links: [
                 Link(),
                 Link(),
                 Link()
@@ -50,8 +50,8 @@ class ListingInteractorTest: XCTestCase {
 
     func testShouldLoadNextPage() {
         // Given
-        let sections: [ListingSection] = [
-            ListingSection.linkRows(links: [
+        let sections: [SubredditSection] = [
+            SubredditSection.linkRows(links: [
                 Link(),
                 Link(),
                 Link()
@@ -78,9 +78,9 @@ class ListingInteractorTest: XCTestCase {
         _ = sut.getListing()
 
         // Then
-        XCTAssertEqual(listingUseCase.subreddit, sut.subreddit)
-        XCTAssertEqual(listingUseCase.after, sut.after)
-        XCTAssertEqual(listingUseCase.before, sut.before)
+        XCTAssertEqual(subredditService.subreddit, sut.subreddit)
+        XCTAssertEqual(subredditService.params["after"] as? String, sut.after)
+        XCTAssertEqual(subredditService.params["before"] as? String, sut.before)
     }
     
     func testLoadNextListingPage() {
@@ -89,9 +89,9 @@ class ListingInteractorTest: XCTestCase {
         let links = [Link(), Link(), Link()]
         listing.children = links
         
-        listingUseCase.listing = listing
+        subredditService.listing = listing
 
-        sut.sections = [ListingSection.linkRows(links: links)]
+        sut.sections = [SubredditSection.linkRows(links: links)]
         
         let indexPath = IndexPath(row: listing.children.count - 1, section: 0)
         
@@ -100,8 +100,8 @@ class ListingInteractorTest: XCTestCase {
         
         // Then
         XCTAssertEqual(sut.sections.count, 2)
-        XCTAssertTrue(listingViewController.didUpdateListingNextPage)
-        XCTAssertFalse(listingViewController.didReloadListing)
+        XCTAssertTrue(subredditViewController.didUpdateListingNextPage)
+        XCTAssertFalse(subredditViewController.didReloadListing)
     }
     
     // MARK: Load Listing Test
@@ -110,7 +110,7 @@ class ListingInteractorTest: XCTestCase {
         var listing = Listing()
         listing.children = [Link(), Link(), Link()]
 
-        listingUseCase.listing = listing
+        subredditService.listing = listing
         sut.subreddit = "Dota 2"
 
         // When
@@ -128,7 +128,7 @@ class ListingInteractorTest: XCTestCase {
             .addDisposableTo(disposeBag)
         
         // Then
-        XCTAssertEqual(listingUseCase.subreddit, sut.subreddit)
+        XCTAssertEqual(subredditService.subreddit, sut.subreddit)
         XCTAssertEqual(sut.after, nil)
         XCTAssertEqual(sut.before, nil)
     }
@@ -143,7 +143,7 @@ class ListingInteractorTest: XCTestCase {
         
         // Then
         XCTAssertEqual(sut.sections.count, 1)
-        XCTAssertTrue(listingViewController.didReloadListing)
-        XCTAssertFalse(listingViewController.didUpdateListingNextPage)
+        XCTAssertTrue(subredditViewController.didReloadListing)
+        XCTAssertFalse(subredditViewController.didUpdateListingNextPage)
     }
 }

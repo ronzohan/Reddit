@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum ListingSection {
+enum SubredditSection {
     case linkRows(links: [Link])
 }

@@ -15,7 +15,7 @@ class RequestConfigTest: XCTestCase {
         let host = "www.reddit.com"
         
         // When
-        let config = EndpointConfig(host: host)
+        let config = RequestConfig(host: host)
         
         // Then
         XCTAssertEqual(config.host, host)

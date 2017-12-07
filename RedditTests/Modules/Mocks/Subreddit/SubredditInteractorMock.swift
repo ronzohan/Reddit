@@ -9,8 +9,8 @@
 import Foundation
 @testable import Reddit
 
-class ListingInteractorMock: SubredditPresentableListener {
-    var sections: [ListingSection] = []
+class SubredditInteractorMock: SubredditPresentableListener {
+    var sections: [SubredditSection] = []
     
     var didLoadNextListingPage = false
     func loadNextListingPage(withIndexPath indexPath: IndexPath) {

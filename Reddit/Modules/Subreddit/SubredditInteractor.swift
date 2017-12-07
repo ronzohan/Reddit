@@ -35,7 +35,7 @@ SubredditInteractable, SubredditPresentableListener {
 
     private var isNextPageQueried: Bool = false
     
-    var sections: [ListingSection] = []
+    var sections: [SubredditSection] = []
     
     let subredditService: SubredditServiceable
 
@@ -54,7 +54,7 @@ SubredditInteractable, SubredditPresentableListener {
         loadListingPage()
     }
 
-    func getListing() -> Observable<ListingSection> {
+    func getListing() -> Observable<SubredditSection> {
         var bodyParams: [String: Any] = [:]
         bodyParams["after"] = after
         bodyParams["before"] = before
@@ -65,19 +65,19 @@ SubredditInteractable, SubredditPresentableListener {
                 self.after = listing.after
                 self.before = listing.before
             })
-            .map({ (listing) -> ListingSection in
+            .map({ (listing) -> SubredditSection in
                 let section = self.sectionModels(forListing: listing)
                 
                 return section
             })
     }
 
-    func sectionModels(forListing listing: Listing) -> ListingSection {
+    func sectionModels(forListing listing: Listing) -> SubredditSection {
         let links = listing.children.flatMap { (thing) -> Link? in
             return thing as? Link
         }
 
-        return ListingSection.linkRows(links: links)
+        return SubredditSection.linkRows(links: links)
     }
     
     func loadListingPage() {
@@ -104,7 +104,7 @@ SubredditInteractable, SubredditPresentableListener {
     }
     
     func shouldLoadNextPage(withIndexPath indexPath: IndexPath) -> Bool {
-        if case let ListingSection.linkRows(links) = sections[indexPath.section],
+        if case let SubredditSection.linkRows(links) = sections[indexPath.section],
             indexPath.row == links.count - 1 &&
                 !sections.isEmpty &&
                 indexPath.section == sections.count - 1 &&

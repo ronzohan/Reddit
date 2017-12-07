@@ -9,8 +9,8 @@
 import Foundation
 
 class ServiceFactory {
-    static var networkConfig: RequestConfig = RequestConfig(host: "https://www.reddit.com")
-    static var networkAdapter: NetworkAdapter = AFNetworkAdapter()
+    private static var networkConfig: RequestConfig = RequestConfig(host: "https://www.reddit.com")
+    private static var networkAdapter: NetworkAdapter = AFNetworkAdapter()
     
     static func makeSubredditService() -> SubredditService {
         return SubredditService(with: networkAdapter, config: networkConfig)

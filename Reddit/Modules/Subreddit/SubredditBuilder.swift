@@ -14,7 +14,7 @@ protocol SubredditDependency: Dependency {
 final class SubredditComponent: Component<SubredditDependency> {
     fileprivate let subreddit: String
 
-    var repository: SubredditServiceable {
+    var service: SubredditServiceable {
         return ServiceFactory.makeSubredditService()
     }
 
@@ -40,7 +40,7 @@ final class SubredditBuilder: Builder<SubredditDependency>, SubredditBuildable {
         let component = SubredditComponent(dependency: dependency, subreddit: subreddit)
         let viewController = SubredditViewController()
         let interactor = SubredditInteractor(presenter: viewController, 
-                                           service: component.repository, 
+                                           service: component.service, 
                                            subreddit: component.subreddit)
         interactor.listener = listener
 

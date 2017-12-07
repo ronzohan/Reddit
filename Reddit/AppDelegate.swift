@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.launchRouter = launchRouter
 
         launchRouter.launchFromWindow(window)
-    
+
         return true
     }
 }

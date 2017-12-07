@@ -8,18 +8,18 @@
 
 import RIBs
 
-protocol RootDependency: Dependency {
+protocol RootDependency: RootDependencyListing {
 }
 
 final class RootComponent: Component<RootDependency> {
     let rootViewController: RootViewController
 
-    let repository: ListingUseCase
+    let subredditService: SubredditServiceable
 
     init(dependency: RootDependency,
          rootViewController: RootViewController,
-         repository: ListingUseCase) {
-        self.repository = repository
+         repository: SubredditServiceable) {
+        self.subredditService = repository
         self.rootViewController = rootViewController
         super.init(dependency: dependency)
     }
@@ -39,10 +39,10 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
 
     func build() -> LaunchRouting {
         let viewController = RootViewController()
-        let repository = ListingServices()
+        
         let component = RootComponent(dependency: dependency,
                                       rootViewController: viewController,
-                                      repository: repository)
+                                      repository: dependency.listingService)
         let interactor = RootInteractor(presenter: viewController)
 
         let listingBuilder = ListingBuilder(dependency: component)

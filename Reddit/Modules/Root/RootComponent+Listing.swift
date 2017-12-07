@@ -10,10 +10,11 @@ import RIBs
 
 /// The dependencies needed from the parent scope of Root to provide for the Listing scope.
 protocol RootDependencyListing: Dependency {
-}
+    var listingService: SubredditServiceable { get }
+} 
 
 extension RootComponent: ListingDependency {
-    var listingRepository: ListingUseCase {
-        return repository
+    var repository: SubredditServiceable {
+        return subredditService
     }
 }

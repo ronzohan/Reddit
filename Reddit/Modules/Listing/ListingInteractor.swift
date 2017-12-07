@@ -37,10 +37,10 @@ ListingInteractable, ListingPresentableListener {
     
     var sections: [ListingSection] = []
     
-    let repository: ListingUseCase
+    let repository: SubredditServiceable
 
     init(presenter: ListingPresentable, 
-         repository: ListingUseCase, 
+         repository: SubredditServiceable, 
          subreddit: String) {
         self.repository = repository
         self.subreddit = subreddit
@@ -55,7 +55,11 @@ ListingInteractable, ListingPresentableListener {
     }
 
     func getListing() -> Observable<ListingSection> {
-        return repository.fetchHotListing(subreddit: subreddit, after: after, before: before)
+        var bodyParams: [String: Any] = [:]
+        bodyParams["after"] = after
+        bodyParams["before"] = before
+        
+        return repository.hotPosts(forSubreddit: subreddit, bodyParams: bodyParams)
             .do(onNext: { listing in
                 // Update current after and before values for loading next page
                 self.after = listing.after
@@ -63,7 +67,7 @@ ListingInteractable, ListingPresentableListener {
             })
             .map({ (listing) -> ListingSection in
                 let section = self.sectionModels(forListing: listing)
-
+                
                 return section
             })
     }

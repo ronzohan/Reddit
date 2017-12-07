@@ -11,15 +11,15 @@ import RIBs
 protocol ListingDependency: Dependency {
     // TODO: Declare the set of dependencies required by this RIB, but cannot be
     // created by this RIB.
-    var listingRepository: ListingUseCase { get }
+    var repository: SubredditServiceable { get }
 }
 
 final class ListingComponent: Component<ListingDependency> {
     // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
     fileprivate let subreddit: String
 
-    var repository: ListingUseCase {
-        return dependency.listingRepository
+    var repository: SubredditServiceable {
+        return dependency.repository
     }
 
     init(dependency: ListingDependency, subreddit: String) {

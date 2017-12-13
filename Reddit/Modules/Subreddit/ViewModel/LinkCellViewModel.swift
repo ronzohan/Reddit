@@ -51,7 +51,7 @@ class LinkCellViewModel {
         self.link = link
     }
 
-    func getCellHeight(withWidth width: Double) -> Double {
+    func cellHeight(forWidth width: Double) -> Double {
         if !link.preview.images.isEmpty {
             var previewHeight: Double = 0
 

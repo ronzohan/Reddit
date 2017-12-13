@@ -26,7 +26,7 @@ class ImageLinkTableViewCell: LinkTableViewCell<UIImageView> {
             updateImage(withURLRequest: URLRequest(url: url))
         }
 
-        if let height = viewModel?.getCellHeight(withWidth: Double(frame.width)) {
+        if let height = viewModel?.cellHeight(forWidth: Double(frame.width)) {
             updateCellHeight(height: height)
         }
     }

@@ -2,4 +2,4 @@ language: swift
 xcode_workspace: Reddit.xcodeproj
 xcode_scheme: RedditTests
 before_script:
-  - carthage bootstrap
+  - carthage bootstrap --platform iOS

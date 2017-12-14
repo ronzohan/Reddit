@@ -68,6 +68,7 @@
 		EEB32C9B1FA229A600F414E8 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */; };
 		EEB32C9C1FA229A600F414E8 /* UrlLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */; };
 		EEB32C9E1FA22B3D00F414E8 /* BaseLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C9D1FA22B3C00F414E8 /* BaseLinkTableViewCell.swift */; };
+		EEBE3AE71FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE3AE61FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift */; };
 		EEC08A2F1FB0CA3000429763 /* ListingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC08A2E1FB0CA3000429763 /* ListingViewModelTest.swift */; };
 		EEC7CB731FC1E4C40051097F /* ThingDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7CB6F1FC1E4C40051097F /* ThingDetailBuilder.swift */; };
 		EEC7CB741FC1E4C40051097F /* ThingDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7CB701FC1E4C40051097F /* ThingDetailInteractor.swift */; };
@@ -208,6 +209,7 @@
 		EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C9D1FA22B3C00F414E8 /* BaseLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLinkTableViewCell.swift; sourceTree = "<group>"; };
+		EEBE3AE61FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnapKit+SafeAreaLayout.swift"; sourceTree = "<group>"; };
 		EEC08A2E1FB0CA3000429763 /* ListingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModelTest.swift; sourceTree = "<group>"; };
 		EEC7CB6F1FC1E4C40051097F /* ThingDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingDetailBuilder.swift; sourceTree = "<group>"; };
 		EEC7CB701FC1E4C40051097F /* ThingDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingDetailInteractor.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				EE6D84721F519A9800508361 /* Progressable.swift */,
 				EE2541521F74044F007DFF61 /* Date+Extensions.swift */,
 				EE4BCB5B1FA89C7F00C7BEC5 /* UIKitExtensions.swift */,
+				EEBE3AE61FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				EEB32C9C1FA229A600F414E8 /* UrlLinkTableViewCell.swift in Sources */,
 				EEC7CB7B1FC1E51F0051097F /* SubredditBuilder.swift in Sources */,
 				EED6457E1F40A09500BA46B2 /* Thing.swift in Sources */,
+				EEBE3AE71FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift in Sources */,
 				EEF9356B1FD85476003A5B6E /* Service.swift in Sources */,
 				EEC7CB731FC1E4C40051097F /* ThingDetailBuilder.swift in Sources */,
 				EED5793B1F481601006AA6C7 /* Votable.swift in Sources */,
@@ -1122,6 +1126,7 @@
 				);
 				INFOPLIST_FILE = Reddit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=200";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.Reddit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -1140,6 +1145,7 @@
 				);
 				INFOPLIST_FILE = Reddit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.Reddit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;

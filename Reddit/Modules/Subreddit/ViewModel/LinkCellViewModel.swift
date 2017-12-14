@@ -30,15 +30,19 @@ class LinkCellViewModel {
     }
 
     var imageUrl: String? {
+        let url: String?
+
         guard !link.preview.images.isEmpty else {
             return nil
         }
 
         if !link.preview.images[0].resolutions.isEmpty {
-            return link.preview.images[0].resolutions[link.preview.images[0].resolutions.count - 1].url
+            url = link.preview.images[0].resolutions[link.preview.images[0].resolutions.count - 1].url
         } else {
-            return nil
+            url = nil
         }
+        
+        return url
     }
 
     var postHint: PostHint {
@@ -46,31 +50,30 @@ class LinkCellViewModel {
     }
 
     private var link: Link
+    
+    var minimumCellHeight: Double = 100
 
     init(link: Link) {
         self.link = link
     }
 
     func cellHeight(forWidth width: Double) -> Double {
+        var previewHeight: Double = 0
+
         if !link.preview.images.isEmpty {
-            var previewHeight: Double = 0
-
+            // Find the most apprioriate width
             for i in link.preview.images[0].resolutions where i.width < width {
-                let widthMultiplier = width / i.width
-                previewHeight = i.height * Double(widthMultiplier)
+                previewHeight = i.height
             }
 
-            let height: Double
-
-            if link.preview.enabled {
-                height = previewHeight
-            } else {
-                height = 100
+            if !link.preview.enabled {
+               previewHeight = minimumCellHeight
             }
 
-            return height
         } else {
-            return 0
+            previewHeight = minimumCellHeight
         }
+        
+        return previewHeight
     }
 }

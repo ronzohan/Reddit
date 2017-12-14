@@ -183,10 +183,11 @@ extension SubredditViewController: UITableViewDataSource {
 
 extension SubredditViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contentFrame = tableView.cellForRow(at: indexPath)?.frame
-
-        let content2Frame = tableView.convert(((tableView.cellForRow(at: indexPath) as? Contentable)?.linkContentView.frame)!, to: view)                                                                                                                                                                                                                         
-        cardTransition.originFrame = content2Frame
+        let contentView = (tableView.cellForRow(at: indexPath) as? Contentable)?.linkContentView
+        
+        let rect = CGRect(origin: CGPoint.zero, size: contentView!.frame.size)
+        
+        cardTransition.originFrame = contentView!.convert(rect, to: view)
         
         listener?.didSelectItem(atIndexPath: indexPath)
     }

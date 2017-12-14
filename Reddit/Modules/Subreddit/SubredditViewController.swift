@@ -127,6 +127,15 @@ extension SubredditViewController: UITableViewDataSource {
         
         return linkCell
     }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // TODO Test this
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { (_) in
+            self.tableView.reloadData()
+        }, completion: nil)
+    }
     
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         estimatedHeightCache[indexPath] = cell.frame.height

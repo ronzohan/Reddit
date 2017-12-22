@@ -18,31 +18,16 @@ protocol ThingDetailPresentableListener: class {
     func getThingDetail()
 }
 
-final class ThingDetailViewController: UIViewController, ThingDetailPresentable, ThingDetailViewControllable {
+final class ThingDetailViewController<T: UIView>: UIViewController, ThingDetailPresentable, ThingDetailViewControllable {
     /// The UIKit view representation of this view.
     public final var uiviewController: UIViewController { return self }
 
     weak var listener: ThingDetailPresentableListener?
     
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.blue
+    private lazy var linkView: LinkView<T> = {
+        let view = LinkView<T>()
         
-        return imageView
-    }()
-    
-    lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar()
-        
-        let fillerBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, 
-                                              target: nil, 
-                                              action: nil)
-        let closeBarButton = UIBarButtonItem(title: "X", style: .plain, 
-                                             target: self, 
-                                             action: #selector(self.dismissHandler))
-        toolbar.items = [fillerBarButton, closeBarButton]
-
-        return toolbar
+        return view
     }()
     
     override func viewDidLoad() {
@@ -62,32 +47,15 @@ final class ThingDetailViewController: UIViewController, ThingDetailPresentable,
         present(viewController.uiviewController, animated: true, completion: nil)
     }
     
-    @objc func dismissHandler() {
-        dismiss(animated: true, completion: nil)
-    }
-    
     func setupSubviews() {
-        view.addSubview(toolbar)
-        toolbar.snp.makeConstraints { (make) in
-            make.top.equalTo(topLayoutGuide.snp.bottom)
-            make.leading.trailing.equalToSuperview()
-        }
-
-        view.addSubview(imageView)
-        imageView.snp.makeConstraints { (make) in
-            make.top.equalTo(toolbar.snp.bottom)
-            make.height.greaterThanOrEqualTo(100)
-            make.leading.trailing.equalToSuperview()
-        }
-        
-        let button = UIButton()
-        button.setTitle("Clickadklsajldkjasdjaljksd", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        
-        view.addSubview(button)
-        button.snp.makeConstraints { (make) in
-            make.top.equalTo(topLayoutGuide.snp.bottom).offset(100)
-            make.left.right.equalToSuperview()
+        view.addSubview(linkView)
+        linkView.metaLabel.text = "Fuck you"
+        linkView.titleLabel.text = "Fuck you too"
+        linkView.backgroundColor = UIColor.red
+        linkView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeArea.top)
+            make.left.equalTo(view.safeArea.left)
+            make.right.equalTo(view.safeArea.right)
         }
     }
 

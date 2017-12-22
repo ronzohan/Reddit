@@ -187,5 +187,28 @@ class SubredditViewControllerTest: XCTestCase {
         // Then
         XCTAssertEqual(sut.estimatedHeightCache[indexPath], cellHeight)
     }
+    
+    // MARK: - Rotation Test
+    func testShouldReloadDataOnRotate() {
+        // Given
+        let sections: [SubredditSection] = [
+            SubredditSection.linkRows(links: [
+                Link(),
+                Link(),
+                Link()
+                ])
+        ]
+        
+        XCTAssertEqual(sut.numberOfSections(in: sut.tableView), 0)
+        
+        // When
+        interactor.sections = sections
+        
+        // Update the bounds so that viewWillTransitionToSize will be called
+        sut.view.bounds = CGRect.zero
+        
+        // Then
+        XCTAssertEqual(sut.numberOfSections(in: sut.tableView), 1)
+    }
 }
 

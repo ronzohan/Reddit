@@ -12,4 +12,6 @@ class BaseLinkTableViewCell: UITableViewCell, ILinkCell {
     var viewModel: LinkCellViewModel?
 
     func configure() {}
+    
+    func updateCellHeight() {}
 }

@@ -25,12 +25,17 @@ class ImageLinkTableViewCell: LinkTableViewCell<UIImageView> {
         if let urlString = viewModel?.imageUrl, let url = URL(string: urlString) {
             updateImage(withURLRequest: URLRequest(url: url))
         }
+        
+        updateCellHeight()
+    }
 
+    override func updateCellHeight() {
+        debugPrint("frame \(frame.width)")
         if let height = viewModel?.cellHeight(forWidth: Double(frame.width)) {
             updateCellHeight(height: height)
         }
     }
-
+    
     func updateImage(withURLRequest request: URLRequest?) {
         guard let imageRequest = request else {
             linkView.contentView.image = nil

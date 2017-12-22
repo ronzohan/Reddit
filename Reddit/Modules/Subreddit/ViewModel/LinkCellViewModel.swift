@@ -63,17 +63,19 @@ class LinkCellViewModel {
         if !link.preview.images.isEmpty {
             // Find the most apprioriate width
             for i in link.preview.images[0].resolutions where i.width < width {
-                previewHeight = i.height
+                
+                previewHeight = i.height * (width / i.width)
             }
 
             if !link.preview.enabled {
                previewHeight = minimumCellHeight
             }
 
-        } else {
+        } else { 
             previewHeight = minimumCellHeight
         }
         
+   
         return previewHeight
     }
 }

@@ -126,9 +126,9 @@ class LinkView<T: UIView>: UIView {
         mainContentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         mainContentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
 
-        mainContentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 0)
-        mainContentViewHeightConst?.priority = UILayoutPriority(rawValue: 999)
-        mainContentViewHeightConst?.isActive = true
+        //mainContentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 0)
+        //mainContentViewHeightConst?.priority = UILayoutPriority.defaultLow
+        //mainContentViewHeightConst?.isActive = true
 
         updateLayoutMode(mode: mode)
     }

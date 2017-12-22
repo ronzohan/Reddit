@@ -134,11 +134,16 @@ extension SubredditViewController: UITableViewDataSource {
         
         coordinator.animate(alongsideTransition: { (_) in
             self.tableView.reloadData()
+
+            if let indexPaths = self.tableView.indexPathsForVisibleRows {
+                self.tableView.reloadRows(at: indexPaths, with: .automatic)
+            }
         }, completion: nil)
     }
     
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         estimatedHeightCache[indexPath] = cell.frame.height
+
         listener?.loadNextListingPage(withIndexPath: indexPath)
     }
     

@@ -8,7 +8,6 @@
 // Source: https://github.com/reddit/reddit/wiki/JSON#thing-reddit-base-class
 
 import Foundation
-import ObjectMapper
 
 enum ThingKeys: String, CodingKey {
     case id

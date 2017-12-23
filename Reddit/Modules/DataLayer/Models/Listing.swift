@@ -8,7 +8,6 @@
 //  Source: https://github.com/reddit/reddit/wiki/JSON#listing
 
 import Foundation
-import ObjectMapper
 
 enum ListingDataKeys: String, CodingKey {
     case after

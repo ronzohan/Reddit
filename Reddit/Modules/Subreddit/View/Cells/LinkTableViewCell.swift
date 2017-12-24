@@ -162,10 +162,10 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
 
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView).offset(offset)
-            make.leading.equalTo(contentView).offset(offset)
-            make.right.equalTo(contentView).offset(-offset)
-            make.bottom.equalTo(contentView)
+            make.top.equalTo(contentView.snp.top).offset(offset)
+            make.leading.equalTo(contentView.snp.leading).offset(offset)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-offset)
+            make.bottom.equalTo(contentView.snp.bottom)
         }
 
         containerView.layer.cornerRadius = 10
@@ -173,9 +173,9 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
 
         containerView.addSubview(linkView)
         linkView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView).offset(offset)
-            make.leading.equalTo(contentView).offset(offset)
-            make.trailing.equalTo(contentView).offset(-offset)
+            make.top.equalTo(contentView.snp.top).offset(offset)
+            make.leading.equalTo(contentView.snp.leading).offset(offset)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-offset)
         }
 
         containerView.addSubview(actionsStackView)
@@ -188,10 +188,7 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
         
         contentView.addSubview(highlightView)
         highlightView.snp.makeConstraints { (make) in
-            make.top.equalTo(containerView)
-            make.leading.equalTo(containerView)
-            make.right.equalTo(containerView)
-            make.bottom.equalTo(containerView)
+            make.edges.equalToSuperview()
         }
     }
     

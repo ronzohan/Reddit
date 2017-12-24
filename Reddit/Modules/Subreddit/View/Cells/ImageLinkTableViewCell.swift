@@ -15,8 +15,6 @@ class ImageLinkTableViewCell: LinkTableViewCell<UIImageView> {
 
         linkView.contentView.af_cancelImageRequest()
         linkView.contentView.image = nil
-
-        // linkView.mainContentViewHeightConst?.constant = CGFloat(0)
     }
 
     override func configure() {
@@ -30,9 +28,8 @@ class ImageLinkTableViewCell: LinkTableViewCell<UIImageView> {
     }
 
     override func updateCellHeight() {
-        debugPrint("frame \(frame.width)")
-        if let height = viewModel?.cellHeight(forWidth: Double(frame.width)) {
-            updateCellHeight(height: height)
+        if let height = viewModel?.cellHeight(for: Double(frame.width)) {
+            updateCellHeight(height: round(height))
         }
     }
     

@@ -120,6 +120,7 @@ class SubredditInteractorTest: XCTestCase {
                     case .linkRows(let links):
                         XCTAssertEqual(listing.children.count, 
                                        links.count)
+                    case .loadingIndicator
                 }
                 
                 XCTAssertEqual(self.sut.after, nil)

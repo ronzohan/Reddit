@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 enum LayoutMode {
     case horizontal
@@ -42,6 +43,7 @@ class LinkView<T: UIView>: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
 
         return label
     }()
@@ -50,17 +52,18 @@ class LinkView<T: UIView>: UIView {
         let view = UIView()
 
         view.addSubview(metaLabel)
-        metaLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        metaLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: mediumSpacing).isActive = true
-        metaLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: mediumSpacing).isActive = true
-        metaLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        metaLabel.snp.makeConstraints { (make) in
+            make.right.equalTo(view.snp.right).offset(mediumSpacing)
+            make.left.equalTo(view.snp.left).offset(mediumSpacing)
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
+        }
 
         return view
     }()
 
     lazy var metaLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
     }()
@@ -93,6 +96,7 @@ class LinkView<T: UIView>: UIView {
 
     private lazy var lineView: UIView = {
         let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor.lightGray
         view.heightAnchor.constraint(equalToConstant: lineViewHeight).isActive = true
 
@@ -107,43 +111,41 @@ class LinkView<T: UIView>: UIView {
     }()
 
     func setup() {
-        mainContentView.translatesAutoresizingMaskIntoConstraints = false
-
+        addSubview(mainContentView)
         mainContentView.addArrangedSubview(metaContainerView)
         mainContentView.addArrangedSubview(titleStackView)
-        addSubview(mainContentView)
+        
+        mainContentView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+        }
+        
+        addSubview(contentView)
+        contentView.snp.makeConstraints { (make) in
+            make.top.equalTo(mainContentView.snp.bottom)
+            make.left.equalTo(mainContentView.snp.left)
+            make.right.equalTo(mainContentView.snp.right)
+            make.bottom.equalTo(self.snp.bottom)
+        }
 
-        mainContentView.topAnchor.constraint(
-            equalTo: topAnchor,
-            constant: contentStackViewTopOffset
-        ).isActive = true
-
-        mainContentView.bottomAnchor.constraint(
-            equalTo: bottomAnchor,
-            constant: 0
-        ).isActive = true
-
-        mainContentView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        mainContentView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-
-        //mainContentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 0)
-        //mainContentViewHeightConst?.priority = UILayoutPriority.defaultLow
-        //mainContentViewHeightConst?.isActive = true
-
+        mainContentViewHeightConst = contentView.heightAnchor.constraint(equalToConstant: 100)
+        mainContentViewHeightConst?.priority = UILayoutPriority(rawValue: 999)
+        mainContentViewHeightConst?.isActive = true
         updateLayoutMode(mode: mode)
     }
 
     func updateLayoutMode(mode: LayoutMode) {
         switch mode {
         case .horizontal:
-            mainContentView.removeArrangedSubview(contentView)
-            contentView.removeFromSuperview()
-            titleStackView.insertArrangedSubview(contentView, at: 0)
-            contentView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+            break
+//            mainContentView.removeArrangedSubview(contentView)
+//            contentView.removeFromSuperview()
+//            titleStackView.insertArrangedSubview(contentView, at: 0)
+//            contentView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         case .vertical:
-            titleStackView.removeArrangedSubview(contentView)
-            contentView.removeFromSuperview()
-            mainContentView.addArrangedSubview(contentView)
+            break
+//            titleStackView.removeArrangedSubview(contentView)
+//            contentView.removeFromSuperview()
+//            mainContentView.addArrangedSubview(contentView)
         }
     }
 }

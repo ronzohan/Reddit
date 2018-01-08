@@ -41,11 +41,23 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
                            forCellReuseIdentifier: ImageLinkTableViewCell.reuseIdentifier)
         tableView.register(UrlLinkTableViewCell.self,
                            forCellReuseIdentifier: UrlLinkTableViewCell.reuseIdentifier)
+        tableView.register(LoadingCell.self,
+                           forCellReuseIdentifier: LoadingCell.reuseIdentifier)
+        
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableViewAutomaticDimension
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+       
+        let activityView = UIActivityIndicatorView(frame: CGRect(x: 0,
+                                                                 y: 0,
+                                                                 width: 100,
+                                                                 height: 40))
+        activityView.startAnimating()
+        activityView.color = UIColor.white
+        tableView.tableFooterView = activityView
 
         return tableView
     }()
@@ -91,6 +103,8 @@ extension SubredditViewController: UITableViewDataSource {
         switch sections[section] {
         case let .linkRows(links):
             return links.count
+        case .loadingIndicator:
+            return 1
         }
     }
     
@@ -102,6 +116,8 @@ extension SubredditViewController: UITableViewDataSource {
         switch sections[indexPath.section] {
         case let .linkRows(links: links):
             return linkCellForLink(link: links[indexPath.row], tableView: tableView, forRowAt: indexPath)
+        case .loadingIndicator:
+            return loadingCellFor(tableView: tableView, forRowAt: indexPath)
         }
     }
     
@@ -126,6 +142,16 @@ extension SubredditViewController: UITableViewDataSource {
         configureLinkTableViewCell(cell: linkCell, link: link)
         
         return linkCell
+    }
+    
+    func loadingCellFor(tableView: UITableView, forRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell: LoadingCell = tableView.dequeueReusableCell(forIndexPath: indexPath) else {
+            return UITableViewCell()
+        }
+        
+        cell.loadingIndicator.startAnimating()
+        
+        return cell
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

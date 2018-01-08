@@ -8,7 +8,6 @@
 
 import XCTest
 @testable import Reddit
-import ObjectMapper
 
 class LinkTest: XCTestCase {
 

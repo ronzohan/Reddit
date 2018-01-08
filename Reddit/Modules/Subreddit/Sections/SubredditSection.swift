@@ -10,4 +10,5 @@ import Foundation
 
 enum SubredditSection {
     case linkRows(links: [Link])
+    case loadingIndicator
 }

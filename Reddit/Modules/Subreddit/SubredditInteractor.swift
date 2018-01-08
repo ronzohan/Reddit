@@ -119,6 +119,8 @@ SubredditInteractable, SubredditPresentableListener {
         switch sections[indexPath.section] {
         case .linkRows(let links):
             router?.routeToThingDetail(withID: links[indexPath.row].id)
+        case .loadingIndicator:
+            break
         }
     }
 }

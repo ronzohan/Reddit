@@ -10,16 +10,18 @@ import Foundation
 import RxSwift
 @testable import Reddit
 
-class NetworkAdapterMock: NetworkAdapter {
+class NetworkAdapterMock: NetworkAdapter {    
     var request: Request?
-
-    func execute(request: Request, completionHandler: @escaping (Response<Data>) -> Void) {
+    
+    func execute(request: Request, completionHandler: @escaping (_ response: Response<Data>) -> Void) {
         self.request = request
     }
 }
 
 class SubredditServiceMock: SubredditServiceable {
-    var adapter: NetworkAdapter = AFNetworkAdapter() as! NetworkAdapter
+    var adapter: NetworkAdapter {
+        return AFNetworkAdapter()
+    }
     
     var params: [String: Any] = [:]
     
@@ -45,3 +47,5 @@ class SubredditServiceMock: SubredditServiceable {
         return Observable.just(listing ?? Listing())
     }
 }
+
+

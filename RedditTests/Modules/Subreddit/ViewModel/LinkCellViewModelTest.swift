@@ -101,7 +101,7 @@ class LinkCellViewModelTest: XCTestCase {
     
     func testCellHeightForWidthWithManyImages() {
         // Given
-        let frameWidth: Double = 200
+        let frameWidth: Double = 210
         
         var image = Image()
         var imageInfo = ImageInfo()
@@ -122,8 +122,9 @@ class LinkCellViewModelTest: XCTestCase {
         let cellHeight = viewModel.cellHeight(for: frameWidth)
         
         // Then
-        XCTAssertEqual(cellHeight, 
-                       imageInfo2.height)
+        let expectedCellHeight = imageInfo2.height * (frameWidth / imageInfo2.width)
+        XCTAssertEqual(expectedCellHeight, 
+                       cellHeight)
     }
     
     func testCellHeightForWidthWithPreviewDisabled() {

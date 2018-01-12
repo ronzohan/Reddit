@@ -97,7 +97,6 @@
 		EED6458B1F40A3AC00BA46B2 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */; };
 		EED6458C1F40A3AC00BA46B2 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EEE00EAD1FEF3AC600C5BE73 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE00EAC1FEF3AC600C5BE73 /* LoadingCell.swift */; };
-		EEF491781FEE415A009F310D /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF491761FEE415A009F310D /* NetworkAdapter.swift */; };
 		EEF4917C1FEE4790009F310D /* RedditDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF4917B1FEE4790009F310D /* RedditDetail.xib */; };
 		EEF69CBE1FD597A400AF1F46 /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF69CBD1FD597A400AF1F46 /* RequestConfig.swift */; };
 		EEF69CC11FD597ED00AF1F46 /* RequestConfigTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF69CC01FD597ED00AF1F46 /* RequestConfigTest.swift */; };
@@ -237,7 +236,6 @@
 		EED645841F40A3AC00BA46B2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		EEE00EAC1FEF3AC600C5BE73 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
-		EEF491761FEE415A009F310D /* NetworkAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
 		EEF4917B1FEE4790009F310D /* RedditDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RedditDetail.xib; sourceTree = "<group>"; };
 		EEF69CBD1FD597A400AF1F46 /* RequestConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
 		EEF69CC01FD597ED00AF1F46 /* RequestConfigTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfigTest.swift; sourceTree = "<group>"; };
@@ -668,7 +666,6 @@
 		EEF491741FEE415A009F310D /* NetworkAdapter */ = {
 			isa = PBXGroup;
 			children = (
-				EEF491761FEE415A009F310D /* NetworkAdapter.swift */,
 			);
 			name = NetworkAdapter;
 			path = Reddit/Modules/DataLayer/NetworkAdapter;
@@ -955,7 +952,6 @@
 				EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,
-				EEF491781FEE415A009F310D /* NetworkAdapter.swift in Sources */,
 				EEF69CC11FD597ED00AF1F46 /* RequestConfigTest.swift in Sources */,
 				EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */,
 				EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */,

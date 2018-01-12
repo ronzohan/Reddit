@@ -19,7 +19,7 @@ class AppComponent: Component<EmptyDependency>, RootDependency {
         networkAdapter = AFNetworkAdapter()
         config = RequestConfig(host: "https://www.reddit.com")
         
-        listingService = SubredditService(with: networkAdapter, config: config)
+        listingService = SubredditService(adapter: networkAdapter, config: config)
         super.init(dependency: EmptyComponent())
     }
 }

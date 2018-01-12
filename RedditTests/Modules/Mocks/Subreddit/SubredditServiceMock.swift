@@ -7,21 +7,19 @@
 //
 
 import Foundation
-@testable import Reddit
 import RxSwift
+@testable import Reddit
 
 class NetworkAdapterMock: NetworkAdapter {
     var request: Request?
-    
+
     func execute(request: Request, completionHandler: @escaping (Response<Data>) -> Void) {
         self.request = request
     }
 }
 
 class SubredditServiceMock: SubredditServiceable {
-    var adapter: NetworkAdapter {
-        return NetworkAdapterMock()
-    }
+    var adapter: NetworkAdapter = AFNetworkAdapter() as! NetworkAdapter
     
     var params: [String: Any] = [:]
     

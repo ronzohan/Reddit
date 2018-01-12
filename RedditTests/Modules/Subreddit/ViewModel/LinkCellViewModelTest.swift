@@ -91,7 +91,7 @@ class LinkCellViewModelTest: XCTestCase {
         link.preview.images = [image] 
 
         // When
-        let cellHeight = viewModel.cellHeight(forWidth: frameWidth)
+        let cellHeight = viewModel.cellHeight(for: frameWidth)
         
         // Then
         // Width should be this value
@@ -119,7 +119,7 @@ class LinkCellViewModelTest: XCTestCase {
         link.preview.enabled = true
         
         // When
-        let cellHeight = viewModel.cellHeight(forWidth: frameWidth)
+        let cellHeight = viewModel.cellHeight(for: frameWidth)
         
         // Then
         XCTAssertEqual(cellHeight, 
@@ -142,7 +142,7 @@ class LinkCellViewModelTest: XCTestCase {
         link.preview.enabled = false
         
         // When
-        let cellHeight = viewModel.cellHeight(forWidth: frameWidth)
+        let cellHeight = viewModel.cellHeight(for: frameWidth)
 
         // Then
         XCTAssertEqual(cellHeight, 
@@ -154,7 +154,7 @@ class LinkCellViewModelTest: XCTestCase {
         let frameWidth: Double = 200
         
         // When
-        let cellHeight = viewModel.cellHeight(forWidth: frameWidth)
+        let cellHeight = viewModel.cellHeight(for: frameWidth)
         
         // Then
         XCTAssertEqual(cellHeight, 

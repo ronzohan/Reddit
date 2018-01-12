@@ -117,10 +117,11 @@ class SubredditInteractorTest: XCTestCase {
         sut.getListing()
             .subscribe(onNext: { (section) in
                 switch section {
-                    case .linkRows(let links):
-                        XCTAssertEqual(listing.children.count, 
+                case .linkRows(let links):
+                    XCTAssertEqual(listing.children.count, 
                                        links.count)
-                    case .loadingIndicator
+                case .loadingIndicator:
+                    break
                 }
                 
                 XCTAssertEqual(self.sut.after, nil)

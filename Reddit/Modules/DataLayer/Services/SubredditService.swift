@@ -18,7 +18,7 @@ class SubredditService: SubredditServiceable {
     var adapter: NetworkAdapter
     var config: RequestConfig
 
-    init(with adapter: NetworkAdapter, config: RequestConfig) {
+    init(adapter: NetworkAdapter, config: RequestConfig) {
         self.adapter = adapter
         self.config = config
     }

@@ -15,5 +15,5 @@ enum Response<T> {
 }
 
 protocol NetworkAdapter {
-    func execute(request: Request, completionHandler: @escaping (_ response: Response<Data>) -> Void)
+    func execute(request: Request, completionHandler: @escaping (Response<Data>) -> Void)
 }

@@ -13,6 +13,6 @@ class ServiceFactory {
     private static var networkAdapter: NetworkAdapter = AFNetworkAdapter()
     
     static func makeSubredditService() -> SubredditService {
-        return SubredditService(with: networkAdapter, config: networkConfig)
+        return SubredditService(adapter: networkAdapter, config: networkConfig)
     }
 }

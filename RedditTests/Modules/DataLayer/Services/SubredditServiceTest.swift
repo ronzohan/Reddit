@@ -19,7 +19,7 @@ class SubredditServiceTest: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        sut = SubredditService(with: adapter, config: config)
+        sut = SubredditService(adapter: adapter, config: config)
     }
     
     func testGetNewPosts() {

@@ -53,7 +53,7 @@ class ListingTest: XCTestCase {
     }
 
     // Not supported
-    /*func testJSONListingWithNoData() {
+    func testJSONListingWithNoData() {
         // Given I have a json
         let jsonListing: [String: Any] = [
             "kind": "Listing",
@@ -66,7 +66,7 @@ class ListingTest: XCTestCase {
         // Then thing mapper thing should have the same value on the json
         XCTAssertEqual(listing.after, nil)
         XCTAssertEqual(listing.before, nil)
-        XCTAssertEqual(listing.modHash, "")
+        XCTAssertEqual(listing.modHash, nil)
         XCTAssertEqual(listing.children.count, 0)
-    }*/
+    }
 }

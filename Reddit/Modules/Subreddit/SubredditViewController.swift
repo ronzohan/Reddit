@@ -50,7 +50,6 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
         tableView.delegate = self
         tableView.dataSource = self
         
-       
         let activityView = UIActivityIndicatorView(frame: CGRect(x: 0,
                                                                  y: 0,
                                                                  width: 100,
@@ -69,11 +68,13 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
         view.backgroundColor = UIColor.white
 
         view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeArea.top)
+            make.bottom.equalTo(view.safeArea.bottom)
+            make.leading.equalTo(view.safeArea.leading)
+            make.trailing.equalTo(view.safeArea.trailing)
+        }
+        
         tableView.backgroundColor = UIColor.lightGray
     }
 
@@ -152,19 +153,6 @@ extension SubredditViewController: UITableViewDataSource {
         cell.loadingIndicator.startAnimating()
         
         return cell
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        // TODO Test this
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        coordinator.animate(alongsideTransition: { (_) in
-            self.tableView.reloadData()
-
-            if let indexPaths = self.tableView.indexPathsForVisibleRows {
-                self.tableView.reloadRows(at: indexPaths, with: .automatic)
-            }
-        }, completion: nil)
     }
     
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

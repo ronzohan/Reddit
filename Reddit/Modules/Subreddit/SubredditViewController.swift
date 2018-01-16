@@ -77,6 +77,19 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
         
         tableView.backgroundColor = UIColor.lightGray
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        // TODO Test this
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { (_) in
+            self.tableView.reloadData()
+            
+            if let indexPaths = self.tableView.indexPathsForVisibleRows {
+                self.tableView.reloadRows(at: indexPaths, with: .automatic)
+            }
+        }, completion: nil)
+    }
 
     // MARK: - ListingViewControllable
     func present(viewController: ViewControllable) {

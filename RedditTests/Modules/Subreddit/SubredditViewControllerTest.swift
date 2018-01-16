@@ -210,5 +210,15 @@ class SubredditViewControllerTest: XCTestCase {
         // Then
         XCTAssertEqual(sut.numberOfSections(in: sut.tableView), 1)
     }
+    
+    // MARK: - Title test
+    func testShouldDisplayCorrectTitle() {
+        // Given
+        // When
+        sut.viewDidLoad()
+        
+        // Then
+        XCTAssertEqual(sut.title, "Home")
+    }
 }
 

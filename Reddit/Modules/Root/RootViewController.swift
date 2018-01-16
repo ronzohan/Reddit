@@ -24,6 +24,7 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     weak var listener: RootPresentableListener?
 
     func present(viewController: ViewControllable) {
-        present(viewController.uiviewController, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: viewController.uiviewController)
+        present(navigationController, animated: true, completion: nil)
     }
 }

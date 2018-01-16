@@ -11,8 +11,6 @@ import XCTest
 
 class LinkTest: XCTestCase {
 
-    var link: Link!
-
     override func setUp() {
         super.setUp()
     }
@@ -22,26 +20,22 @@ class LinkTest: XCTestCase {
         let linkData = LinkDataMock.linkData
 
         // When I parse that json
-        link = DictionaryHelper.model(for: linkData)
+        let link: Link? = DictionaryHelper.model(for: linkData)
 
         // Then thing mapper thing should have the same value on the json
-        XCTAssertEqual(link.author, LinkDataMock.author)
-        XCTAssertEqual(link.title, LinkDataMock.title)
-        XCTAssertEqual(link.url, LinkDataMock.url)
+        XCTAssertEqual(link?.author, LinkDataMock.author)
+        XCTAssertEqual(link?.title, LinkDataMock.title)
+        XCTAssertEqual(link?.url, LinkDataMock.url)
     }
 
-    // Not Supported on decoding nil link data
-    /*
     func testInitForLink() {
         // Given I have a link
-        let link: Link
         let linkJSON: Link?
 
         // When I init the link to its blank init
-        link = Link()
         linkJSON = DictionaryHelper.model(for: [:])
 
-        // Then it should have default values
-        XCTAssertEqual(link, linkJSON)
-    }*/
+        // Then it should have nil value
+        XCTAssertNil(linkJSON)
+    }
 }

@@ -75,6 +75,6 @@ struct LinkDataMock {
         "ups": ups,
         "title": title,
         "url": url,
-        "name": thingName,
+        "name": thingName
     ]
 }

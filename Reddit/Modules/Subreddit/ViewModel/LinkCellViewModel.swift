@@ -9,6 +9,10 @@
 import Foundation
 
 class LinkCellViewModel {
+    
+    /// Minimum cell height in case the provided image is too large
+    static var minimumCellHeight: Double = 100
+
     var meta: String {
         let date = Date(timeInterval: link.createdUTC)
 
@@ -32,12 +36,16 @@ class LinkCellViewModel {
     var imageUrl: String? {
         let url: String?
 
-        guard !link.preview.images.isEmpty else {
+        guard let preview = link.preview else {
             return nil
         }
 
-        if !link.preview.images[0].resolutions.isEmpty {
-            url = link.preview.images[0].resolutions[link.preview.images[0].resolutions.count - 1].url
+        guard !preview.images.isEmpty else {
+            return nil
+        }
+
+        if !preview.images[0].resolutions.isEmpty {
+            url = preview.images[0].resolutions[preview.images[0].resolutions.count - 1].url
         } else {
             url = nil
         }
@@ -50,28 +58,33 @@ class LinkCellViewModel {
     }
 
     private var link: Link
-    
-    var minimumCellHeight: Double = 100
 
     init(link: Link) {
         self.link = link
     }
 
+    // TODO: This is just returning the preview image height, not the cell height
     func cellHeight(for width: Double) -> Double {
         var previewHeight: Double = 0
 
-        if !link.preview.images.isEmpty {
+        guard let preview = link.preview else { return 0 }
+        
+        if !preview.images.isEmpty, preview.enabled {
             // Find the most apprioriate width
-            for i in link.preview.images[0].resolutions where i.width < width {
+            var didFindApporiateWidth = false
+            
+            for i in preview.images[0].resolutions where i.width < width {
                 previewHeight = i.height * (width / i.width)
+                didFindApporiateWidth = true
             }
-
-            if !link.preview.enabled {
-               previewHeight = minimumCellHeight
+            
+            // If no appropriate width was been found given a frame width, the just use the minimum image height
+            if !didFindApporiateWidth {
+                previewHeight = LinkCellViewModel.minimumCellHeight
             }
 
         } else { 
-            previewHeight = minimumCellHeight
+            previewHeight = LinkCellViewModel.minimumCellHeight
         }
 
         return previewHeight

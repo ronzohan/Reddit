@@ -14,7 +14,7 @@ enum VotableKeys: String, CodingKey {
     case likes
 }
 
-protocol Votable {
+protocol Votable: Codable {
     var ups: Int { get }
     var downs: Int { get }
     var likes: Bool? { get }

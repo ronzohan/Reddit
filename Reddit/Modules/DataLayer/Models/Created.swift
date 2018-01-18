@@ -13,7 +13,7 @@ enum CreatedKeys: String, CodingKey {
     case createdUTC = "created_utc"
 }
 
-protocol Created {
+protocol Created: Codable {
     var created: UInt64 { get }
     var createdUTC: UInt64 { get }
 }

@@ -16,7 +16,7 @@ import Foundation
  * rich:video (a video embedded in HTML - like youtube or vimeo)
  * link (catch-all)
  */
-public enum PostHint: String {
+public enum PostHint: String, Codable {
     case redditSelf = "self"
     case video
     case image

@@ -30,6 +30,11 @@
 		EE299CB81F434DF700733426 /* LinkTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB41F434DF700733426 /* LinkTest.swift */; };
 		EE299CB91F434DF700733426 /* ListingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE299CB51F434DF700733426 /* ListingTest.swift */; };
 		EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE306DA91FC733F90012DC43 /* ThingDetailInteractorTest.swift */; };
+		EE35A3812011013B001FCB38 /* PreviewDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE35A3802011013B001FCB38 /* PreviewDataMock.swift */; };
+		EE3B85C1200E574A00B5A6B4 /* ArticleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B85C0200E574900B5A6B4 /* ArticleTest.swift */; };
+		EE3B85C3200E5A6C00B5A6B4 /* CommentTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B85C2200E5A6C00B5A6B4 /* CommentTest.swift */; };
+		EE3B85C5200E5B2400B5A6B4 /* CommentDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B85C4200E5B2400B5A6B4 /* CommentDataMock.swift */; };
+		EE3B85C7200E64FA00B5A6B4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3B85C6200E64FA00B5A6B4 /* Comment.swift */; };
 		EE4B97191F4936BB00FAEECA /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B97181F4936BB00FAEECA /* Image.swift */; };
 		EE4B971B1F4936EC00FAEECA /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B971A1F4936EC00FAEECA /* ImageInfo.swift */; };
 		EE4B971F1F4937AD00FAEECA /* PreviewImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */; };
@@ -167,6 +172,11 @@
 		EE299CB41F434DF700733426 /* LinkTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTest.swift; sourceTree = "<group>"; };
 		EE299CB51F434DF700733426 /* ListingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTest.swift; sourceTree = "<group>"; };
 		EE306DA91FC733F90012DC43 /* ThingDetailInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingDetailInteractorTest.swift; sourceTree = "<group>"; };
+		EE35A3802011013B001FCB38 /* PreviewDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewDataMock.swift; sourceTree = "<group>"; };
+		EE3B85C0200E574900B5A6B4 /* ArticleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTest.swift; sourceTree = "<group>"; };
+		EE3B85C2200E5A6C00B5A6B4 /* CommentTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTest.swift; sourceTree = "<group>"; };
+		EE3B85C4200E5B2400B5A6B4 /* CommentDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDataMock.swift; sourceTree = "<group>"; };
+		EE3B85C6200E64FA00B5A6B4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		EE4B97181F4936BB00FAEECA /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		EE4B971A1F4936EC00FAEECA /* ImageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		EE4B971E1F4937AD00FAEECA /* PreviewImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImages.swift; sourceTree = "<group>"; };
@@ -290,7 +300,9 @@
 		EE0B962F1FD05A7E00E38284 /* ModelMocks */ = {
 			isa = PBXGroup;
 			children = (
+				EE3B85C4200E5B2400B5A6B4 /* CommentDataMock.swift */,
 				EE0B96301FD05A8400E38284 /* LinkDataMock.swift */,
+				EE35A3802011013B001FCB38 /* PreviewDataMock.swift */,
 			);
 			path = ModelMocks;
 			sourceTree = "<group>";
@@ -325,13 +337,15 @@
 		EE299CB31F434DF700733426 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EE0B962F1FD05A7E00E38284 /* ModelMocks */,
+				EE3B85C0200E574900B5A6B4 /* ArticleTest.swift */,
+				EE3B85C2200E5A6C00B5A6B4 /* CommentTest.swift */,
+				EE7E74821F4AFEA700C9B623 /* ImageTest.swift */,
 				EE299CB41F434DF700733426 /* LinkTest.swift */,
 				EE299CB51F434DF700733426 /* ListingTest.swift */,
-				EE7E74821F4AFEA700C9B623 /* ImageTest.swift */,
-				EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */,
 				EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */,
 				EE59ECEB1F7803BD00229774 /* PostHintTest.swift */,
+				EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */,
+				EE0B962F1FD05A7E00E38284 /* ModelMocks */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -602,6 +616,7 @@
 		EED6456A1F40A09500BA46B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EE3B85C6200E64FA00B5A6B4 /* Comment.swift */,
 				EED5793C1F48163A006AA6C7 /* Created.swift */,
 				EE4B97181F4936BB00FAEECA /* Image.swift */,
 				EE4B971A1F4936EC00FAEECA /* ImageInfo.swift */,
@@ -894,6 +909,7 @@
 				EE25AF7E1FD989EB003A3C32 /* ServiceFactory.swift in Sources */,
 				EEA21B361FCC59AB00089504 /* RedditAnyKeys.swift in Sources */,
 				EE25AF781FD97F9D003A3C32 /* Endpoint.swift in Sources */,
+				EE3B85C7200E64FA00B5A6B4 /* Comment.swift in Sources */,
 				EE25AF801FD98C34003A3C32 /* SubredditInteractor.swift in Sources */,
 				EE25AF751FD97ED8003A3C32 /* AFNetworkAdapter.swift in Sources */,
 				EED6457D1F40A09500BA46B2 /* Listing.swift in Sources */,
@@ -930,12 +946,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5A9EC71FC5D71300A812D8 /* SubredditInteractorTest.swift in Sources */,
+				EE3B85C3200E5A6C00B5A6B4 /* CommentTest.swift in Sources */,
 				EE25AF881FD99DF3003A3C32 /* SubredditEndpointTest.swift in Sources */,
 				EE5A9ED21FC5DD4100A812D8 /* SubredditInteractorMock.swift in Sources */,
 				EEF69CC61FD5983200AF1F46 /* RedditRequestTest.swift in Sources */,
 				EED4698E1F3CCA08006759D1 /* RedditTests.swift in Sources */,
 				EE5A9ED61FC5DF3F00A812D8 /* SubredditViewControllerMock.swift in Sources */,
 				EE5D1E571F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift in Sources */,
+				EE3B85C5200E5B2400B5A6B4 /* CommentDataMock.swift in Sources */,
 				EE5A9EC91FC5D7AC00A812D8 /* SubredditViewControllerTest.swift in Sources */,
 				EEC08A2F1FB0CA3000429763 /* ListingViewModelTest.swift in Sources */,
 				EE7E74831F4AFEA700C9B623 /* ImageTest.swift in Sources */,
@@ -949,6 +967,8 @@
 				EE5A9ECF1FC5DD1E00A812D8 /* SubredditServiceMock.swift in Sources */,
 				EE299CB91F434DF700733426 /* ListingTest.swift in Sources */,
 				EE5D1E5D1F83F50D00EAA5FD /* LinkCellViewModelTest.swift in Sources */,
+				EE35A3812011013B001FCB38 /* PreviewDataMock.swift in Sources */,
+				EE3B85C1200E574A00B5A6B4 /* ArticleTest.swift in Sources */,
 				EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,

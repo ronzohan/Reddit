@@ -32,6 +32,7 @@ struct LinkDataMock {
     static let numComments = 12
     static let over18 = true
     static let permalink = "www.google.com"
+    static let preview = PreviewDataMock.previewData
     static let saved = true
     static let score = true
     static let selftext = ""
@@ -63,6 +64,7 @@ struct LinkDataMock {
         "num_comments": numComments,
         "over_18": over18,
         "permalink": permalink,
+        "preview": preview,
         "saved": saved,
         "score": score,
         "selftext": selftext,

@@ -58,12 +58,12 @@ class UrlLinkTableViewCellTest: XCTestCase {
             return
         }
 
-        var link = Link()
-        link.title = "A 19 year old Sofia Vergara"
-        link.subredditNamePrefixed = "r/pics"
-        link.createdUTC = 1_506_946_298
-        link.domain = "i.imgur.com"
-        link.preview.images = [image]
+        guard var link: Link = DictionaryHelper.model(for: LinkDataMock.linkData) else {
+            XCTFail("Failed to parse link")
+            return
+        }
+
+        link.preview?.images = [image]
 
         let viewModel = LinkCellViewModel(link: link)
 

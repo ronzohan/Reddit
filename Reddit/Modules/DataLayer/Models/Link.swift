@@ -28,7 +28,7 @@ struct Link: Votable, Created, Thing {
     var over18: Bool = false
     var permalink: String = ""
     var postHint: PostHint = .link
-    var preview: PreviewImage = PreviewImage()
+    var preview: PreviewImage?
     var saved: Bool = false
     var score: Int = 0
     var selftext: String = ""
@@ -125,7 +125,7 @@ extension Link: Decodable {
             postHint = .link
         }
         
-        let preview = try container.decodeIfPresent(PreviewImage.self, forKey: .preview) ?? PreviewImage()
+        let preview = try container.decodeIfPresent(PreviewImage.self, forKey: .preview)
         let saved = try container.decode(Bool.self, forKey: .saved)
         let score = try container.decode(Int.self, forKey: .score)
         let selftext = try container.decode(String.self, forKey: .selftext)

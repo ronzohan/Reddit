@@ -17,6 +17,6 @@ enum ThingKeys: String, CodingKey {
 }
 
 protocol Thing {
-    var id: String { get set }
-    var name: String { get set }
+    var id: String { get }
+    var name: String { get }
 }

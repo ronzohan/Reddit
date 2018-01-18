@@ -8,25 +8,21 @@
 
 import Foundation
 
-struct Image {
-    var source: ImageInfo = ImageInfo()
-    var resolutions: [ImageInfo] = []
-    var id: String = ""
-}
-
-extension Image: Decodable {
-    enum ImageKeys: String, CodingKey {
+struct Image: Codable {
+    let source: ImageInfo
+    let resolutions: [ImageInfo]
+    let id: String
+    
+    enum CodingKeys: String, CodingKey {
         case source
         case resolutions
         case id
     }
-
+    
     init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: ImageKeys.self)
-        let source = try container.decode(ImageInfo.self, forKey: .source)
-        let resolutions = try container.decode([ImageInfo].self, forKey: .resolutions)
-        let id = try container.decode(String.self, forKey: .id)
-        
-        self.init(source: source, resolutions: resolutions, id: id)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        source = try container.decode(ImageInfo.self, forKey: CodingKeys.source)
+        resolutions = try container.decode([ImageInfo].self, forKey: .resolutions)
+        id = try container.decode(String.self, forKey: .id)
     }
 }

@@ -10,17 +10,44 @@ import XCTest
 @testable import Reddit
 
 class LinkCellViewModelTest: XCTestCase {
-    lazy var link: Link = Link()
+    var link: Link!
     lazy var viewModel = LinkCellViewModel(link: link)
 
+    var image: Image!
+    
+    lazy var imageInfoJSON: [String: Any] = [
+        "url": "google.com",
+        "height": 100,
+        "width": 200
+    ]
+    
+    lazy var imageJSON: [String: Any] = [
+        "source": self.imageInfoJSON,
+        "resolutions": [self.imageInfoJSON],
+        "id": "123qwe"
+    ]
+    
     override func setUp() {
         super.setUp()
+        
+        var linkData: [String: Any] = LinkDataMock.linkData
+        linkData["preview"] = [
+            "images": [imageJSON],
+            "enabled": true
+        ]
 
-        link = Link()
+        link = DictionaryHelper.model(for: linkData)
         link.title = "A 19 year old Sofia Vergara"
         link.subredditNamePrefixed = "r/pics"
         link.createdUTC = 1_506_946_298
         link.domain = "i.imgur.com"
+
+        guard let previewImage = link.preview?.images[0] else {
+            XCTFail("Preview image is nil")
+            return
+        }
+
+        image = previewImage
     }
 
     func testMetaInfo() {
@@ -36,7 +63,6 @@ class LinkCellViewModelTest: XCTestCase {
             viewModel.meta,
             "r/pics • \(expectedIntervalString) • i.imgur"
         )
-        XCTAssertNil(viewModel.imageUrl)
     }
 
     func testMetaDateIsGreaterThanCurrentDate() {
@@ -51,78 +77,69 @@ class LinkCellViewModelTest: XCTestCase {
     }
 
     // MARK: - Image Url
-    
+
     func testRetrievingOfImageUrl() {
-        let imageInfo = ImageInfo(url: "google.com", 
-                                  width: 200, 
-                                  height: 100)
-
-        let image = Image(source: imageInfo, 
-                          resolutions: [imageInfo], 
-                          id: "")
-
-        link.preview.images = [image]
+        link.preview?.images = [image]
 
         XCTAssertNotNil(viewModel.imageUrl)
     }
 
     func testRetrievingOfImageUrlWithEmptyResolutions() {
-        var image = Image()
-        image.resolutions = []
-
-        link.preview.images = [image]
+        let imageJSON: [String: Any] = [
+            "source": imageInfoJSON,
+            "resolutions": [],
+            "id": "123qwe"
+        ]
+        
+        image = DictionaryHelper.model(for: imageJSON)
+        link.preview?.images = [image]
 
         XCTAssertNil(viewModel.imageUrl)
     }
     
     
     // MARK: - Cell Height
-    func testCellHeightForWidth() {
+    func testCellHeightForWidthWithSameFrameWidth() {
         // Given
         let frameWidth: Double = 250
-        
-        var image = Image()
-        var imageInfo = ImageInfo()
-        imageInfo.height = 100
-        imageInfo.width = frameWidth
-        imageInfo.url = "google.com"
-        image.resolutions = [imageInfo]
-        
-        link.preview.images = [image] 
 
         // When
         let cellHeight = viewModel.cellHeight(for: frameWidth)
         
-        // Then
-        // Width should be this value
-        
-        XCTAssertEqual(cellHeight, imageInfo.height)
+        // Then height should be this value
+        let expectedHeight = image.resolutions[0].height * (frameWidth / image.resolutions[0].width)
+        XCTAssertEqual(expectedHeight, cellHeight)
     }
     
     func testCellHeightForWidthWithManyImages() {
         // Given
         let frameWidth: Double = 210
+        let imageInfo2Height: Double = 150
+        let imageInfo2Width: Double = 200
+
+        imageJSON["resolutions"] = [
+            [
+                "url": "google.com",
+                "width": 200,
+                "height": 100
+            ],
+            [
+                "url": "google.com",
+                "width": imageInfo2Width,
+                "height": imageInfo2Height
+            ]
+        ]
+
+        image = DictionaryHelper.model(for: imageJSON)
         
-        var image = Image()
-        var imageInfo = ImageInfo()
-        imageInfo.height = 100
-        imageInfo.width = 200
-        imageInfo.url = "google.com"
-        
-        var imageInfo2 = ImageInfo()
-        imageInfo2.height = 200
-        imageInfo2.width = 150
-        
-        image.resolutions = [imageInfo, imageInfo2]
-        
-        link.preview.images = [image] 
-        link.preview.enabled = true
+        link.preview?.images = [image] 
+        link.preview?.enabled = true
         
         // When
         let cellHeight = viewModel.cellHeight(for: frameWidth)
         
         // Then
-        let expectedCellHeight = imageInfo2.height * (frameWidth / imageInfo2.width)
+        let expectedCellHeight = imageInfo2Height * (frameWidth / imageInfo2Width)
         XCTAssertEqual(expectedCellHeight, 
                        cellHeight)
     }
@@ -130,24 +147,16 @@ class LinkCellViewModelTest: XCTestCase {
     func testCellHeightForWidthWithPreviewDisabled() {
         // Given
         let frameWidth: Double = 200
-        
-        var image = Image()
-        var imageInfo = ImageInfo()
-        imageInfo.height = 100
-        imageInfo.width = 200
-        imageInfo.url = "google.com"
-        
-        image.resolutions = [imageInfo]
-        
-        link.preview.images = [image] 
-        link.preview.enabled = false
+
+        link.preview?.images = [image] 
+        link.preview?.enabled = false
         
         // When
         let cellHeight = viewModel.cellHeight(for: frameWidth)
 
         // Then
         XCTAssertEqual(cellHeight, 
-                       viewModel.minimumCellHeight)
+                       LinkCellViewModel.minimumCellHeight)
     }
     
     func testCellHeightWithNoPreviewImage() {
@@ -159,7 +168,7 @@ class LinkCellViewModelTest: XCTestCase {
         
         // Then
         XCTAssertEqual(cellHeight, 
-                       viewModel.minimumCellHeight)
+                       LinkCellViewModel.minimumCellHeight)
     }
     
     // MARK: - Posthint

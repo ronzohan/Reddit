@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2637030BD0BB4B634FDA3A39 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEAA89A6974654BF8341007 /* BuddyBuildSDK.framework */; };
+		2BF6C4205ED11C452D4727B6 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F378069A08D95A02A0609730 /* AssetsLibrary.framework */; };
+		34558AD8953DBBC3C4633693 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472C65A8961505DC54A0A524 /* CoreText.framework */; };
+		51C172943AC6A38199D707FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251679B075BB9B297CC54DEE /* QuartzCore.framework */; };
+		527F09F4ED5A4398A745E916 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 376393EFC9A0DC7B6FF6AEB7 /* CoreMedia.framework */; };
+		556C44DCF771776F523D81A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03977BF7B5F894E4F1D32612 /* SystemConfiguration.framework */; };
+		617DEA6C543387B78781239B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2B1902362757C0624F7375 /* AVFoundation.framework */; };
+		A5E001464D3EBE5B6C3992F7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF79175AD9828A77B67ED25 /* CoreTelephony.framework */; };
+		C836645023074141E9A8316D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B75C5E861ECC3FED50AAE7A /* CoreVideo.framework */; };
 		EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */; };
 		EE04AD0F1F4B326800DAD0C6 /* SubredditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD0E1F4B326800DAD0C6 /* SubredditSection.swift */; };
 		EE0B96311FD05A8400E38284 /* LinkDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B96301FD05A8400E38284 /* LinkDataMock.swift */; };
@@ -151,6 +160,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03977BF7B5F894E4F1D32612 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		251679B075BB9B297CC54DEE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		376393EFC9A0DC7B6FF6AEB7 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		472C65A8961505DC54A0A524 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5B75C5E861ECC3FED50AAE7A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		8C2B1902362757C0624F7375 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9BEAA89A6974654BF8341007 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		BFF79175AD9828A77B67ED25 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C80A899709A4ACFFB98A5024 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
 		EE04AD0E1F4B326800DAD0C6 /* SubredditSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubredditSection.swift; sourceTree = "<group>"; };
 		EE0B96301FD05A8400E38284 /* LinkDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkDataMock.swift; sourceTree = "<group>"; };
@@ -255,6 +273,7 @@
 		EEF9356A1FD85476003A5B6E /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		EEF9356C1FD85631003A5B6E /* RedditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditRequest.swift; sourceTree = "<group>"; };
 		EEFFF11C1FC4899F004D1113 /* SubredditComponent+ThingDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubredditComponent+ThingDetail.swift"; sourceTree = "<group>"; };
+		F378069A08D95A02A0609730 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +288,15 @@
 				EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */,
 				EED6458B1F40A3AC00BA46B2 /* AlamofireImage.framework in Frameworks */,
 				EE7662A81F5C3FB1006987BC /* RxCocoa.framework in Frameworks */,
+				2637030BD0BB4B634FDA3A39 /* BuddyBuildSDK.framework in Frameworks */,
+				2BF6C4205ED11C452D4727B6 /* AssetsLibrary.framework in Frameworks */,
+				34558AD8953DBBC3C4633693 /* CoreText.framework in Frameworks */,
+				A5E001464D3EBE5B6C3992F7 /* CoreTelephony.framework in Frameworks */,
+				556C44DCF771776F523D81A9 /* SystemConfiguration.framework in Frameworks */,
+				51C172943AC6A38199D707FF /* QuartzCore.framework in Frameworks */,
+				617DEA6C543387B78781239B /* AVFoundation.framework in Frameworks */,
+				527F09F4ED5A4398A745E916 /* CoreMedia.framework in Frameworks */,
+				C836645023074141E9A8316D /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +559,7 @@
 				EED469971F3CCA08006759D1 /* RedditUITests */,
 				EED469761F3CCA08006759D1 /* Products */,
 				EED46A081F3CCB72006759D1 /* Frameworks */,
+				C80A899709A4ACFFB98A5024 /* Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -588,6 +617,15 @@
 				EE7662A41F5C3FB1006987BC /* RxCocoa.framework */,
 				EE7662A51F5C3FB1006987BC /* RxSwift.framework */,
 				EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */,
+				9BEAA89A6974654BF8341007 /* BuddyBuildSDK.framework */,
+				F378069A08D95A02A0609730 /* AssetsLibrary.framework */,
+				472C65A8961505DC54A0A524 /* CoreText.framework */,
+				BFF79175AD9828A77B67ED25 /* CoreTelephony.framework */,
+				03977BF7B5F894E4F1D32612 /* SystemConfiguration.framework */,
+				251679B075BB9B297CC54DEE /* QuartzCore.framework */,
+				8C2B1902362757C0624F7375 /* AVFoundation.framework */,
+				376393EFC9A0DC7B6FF6AEB7 /* CoreMedia.framework */,
+				5B75C5E861ECC3FED50AAE7A /* CoreVideo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1130,12 +1168,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Reddit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-expression-type-checking=200";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.Reddit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1148,12 +1188,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Reddit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ronzohan.Reddit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

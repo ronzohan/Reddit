@@ -10,50 +10,49 @@
 import Foundation
 
 struct Link: Votable, Created, Thing, Codable {
-    var author: String = ""
-    var authorFlairCSSClass: String?
-    var authorFlairText: String?
-    var clicked: Bool = false
-    var domain: String = ""
-    var distinguished: Bool? = false
-    var edited: Float = 0
-    var hidden: Bool = false
-    var isSelf: Bool = false
-    var linkFlairCSSClass: String?
-    var linkFlairText: String?
-    var locked: Bool = false
+    let author: String
+    let authorFlairCSSClass: String?
+    let authorFlairText: String?
+    let clicked: Bool
+    let domain: String
+    let distinguished: Bool?
+    let edited: Float
+    let hidden: Bool
+    let isSelf: Bool
+    let linkFlairCSSClass: String?
+    let linkFlairText: String?
+    let locked: Bool
     // TODO: var media
     // TODO: var mediaEmbed
-    var numComments: Int = 0
-    var over18: Bool = false
-    var permalink: String = ""
-    var postHint: PostHint = .link
-    var preview: PreviewImage?
-    var saved: Bool = false
-    var score: Int = 0
-    var selftext: String = ""
-    var selftextHTML: String?
-    var stickied: Bool = false
-    var subreddit: String = ""
-    var subredditID: String = ""
-    var title: String = ""
-    var subredditNamePrefixed: String = ""
-    var thumbnail: String?
-    var thumbnailHeight: Float? = 0
-    var url: String = ""
+    let numComments: Int
+    let over18: Bool
+    let permalink: String
+    let postHint: PostHint
+    let preview: PreviewImage?
+    let saved: Bool
+    let score: Int
+    let selftext: String
+    let selftextHTML: String?
+    let stickied: Bool
+    let subreddit: String
+    let subredditID: String
+    let title: String
+    let subredditNamePrefixed: String
+    let thumbnail: String?
+    let thumbnailHeight: Float?
+    let url: String
 
     // Thing
-    var id: String = ""
-    var name: String = ""
-
+    let id: String
+    let name: String
     // Votable
-    var downs: Int = 0
-    var likes: Bool?
-    var ups: Int = 0
+    let downs: Int
+    let likes: Bool?
+    let ups: Int
 
     // Created
-    var created: UInt64 = 0
-    var createdUTC: UInt64 = 0
+    let created: UInt64
+    let createdUTC: UInt64
     
     enum CodingKeys: String, CodingKey {
         case author
@@ -86,8 +85,6 @@ struct Link: Votable, Created, Thing, Codable {
         case title
         case url
     }
-    
-    init() {}
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -137,44 +134,6 @@ struct Link: Votable, Created, Thing, Codable {
         title = try container.decode(String.self, forKey: .title)
         url = try container.decode(String.self, forKey: .url)
         ups = try votableContainer.decode(Int.self, forKey: VotableKeys.ups)
-        
-        /*self.init(author: author, 
-                  authorFlairCSSClass: authorFlairCSSClass, 
-                  authorFlairText: authorFlairText, 
-                  clicked: clicked, 
-                  domain: domain, 
-                  distinguished: distinguished, 
-                  edited: edited, 
-                  hidden: hidden, 
-                  isSelf: isSelf, 
-                  linkFlairCSSClass: linkFlairCSSClass, 
-                  linkFlairText: linkFlairText, 
-                  locked: locked, 
-                  numComments: numComments, 
-                  over18: over18, 
-                  permalink: permalink, 
-                  postHint: postHint, 
-                  preview: preview, 
-                  saved: saved, 
-                  score: score, 
-                  selftext: selftext, 
-                  selftextHTML: selftextHTML, 
-                  stickied: stickied, 
-                  subreddit: subreddit, 
-                  subredditID: subredditID, 
-                  title: title, 
-                  subredditNamePrefixed: subredditNamePrefixed, 
-                  thumbnail: thumbnail, 
-                  thumbnailHeight: thumbnailHeight, 
-                  url: url, 
-                  id: id, 
-                  name: name, 
-                  downs: downs, 
-                  likes: likes, 
-                  ups: ups, 
-                  created: created, 
-                  createdUTC: createdUTC)*/
-        
     }
 }
 

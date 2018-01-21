@@ -15,6 +15,7 @@ class SubredditInteractorTest: XCTestCase {
     var sut: SubredditInteractor!
     var subredditViewController: SubredditViewControllerMock!
     var subredditService: SubredditServiceMock!
+    var link: Link!
     var disposeBag: DisposeBag! 
     
     override func setUp() {
@@ -25,6 +26,8 @@ class SubredditInteractorTest: XCTestCase {
         sut = SubredditInteractor(presenter: subredditViewController, 
                                   service: subredditService, 
                                   subreddit: "")
+        
+        link = DictionaryHelper.model(for: LinkDataMock.linkData)
     }
     
     // MARK: - Load Next Page Test
@@ -32,9 +35,9 @@ class SubredditInteractorTest: XCTestCase {
         // Given
         let sections: [SubredditSection] = [
             SubredditSection.linkRows(links: [
-                Link(),
-                Link(),
-                Link()
+                link,
+                link,
+                link
             ])
         ]
         let indexPath = IndexPath(row: 0, section: 0)
@@ -52,9 +55,9 @@ class SubredditInteractorTest: XCTestCase {
         // Given
         let sections: [SubredditSection] = [
             SubredditSection.linkRows(links: [
-                Link(),
-                Link(),
-                Link()
+                link,
+                link,
+                link
             ])
         ]
 
@@ -86,7 +89,7 @@ class SubredditInteractorTest: XCTestCase {
     func testLoadNextListingPage() {
         // Given
         var listing = Listing()
-        let links = [Link(), Link(), Link()]
+        let links: [Link] = [link, link, link]
         listing.children = links
         
         subredditService.listing = listing
@@ -108,7 +111,7 @@ class SubredditInteractorTest: XCTestCase {
     func testGetListing() {
         // Given
         var listing = Listing()
-        listing.children = [Link(), Link(), Link()]
+        listing.children = [link, link, link]
 
         subredditService.listing = listing
         sut.subreddit = "Dota 2"
@@ -138,7 +141,7 @@ class SubredditInteractorTest: XCTestCase {
     func testLoadListingPage() {
         // Given
         var listing = Listing()
-        listing.children = [Link(), Link(), Link()]
+        listing.children = [link, link, link]
         
         // When
         sut.loadListingPage()

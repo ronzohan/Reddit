@@ -9,6 +9,7 @@
 import Foundation
 
 class DictionaryHelper {
+    // TODO: Make T Codable
     static func model<T>(for dictionary: [String: Any]) -> T? where T: Decodable {
         guard let data = try? JSONSerialization.data(withJSONObject: dictionary, options: []) else {
             return nil

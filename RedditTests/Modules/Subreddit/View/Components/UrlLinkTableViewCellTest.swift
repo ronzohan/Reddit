@@ -53,17 +53,16 @@ class UrlLinkTableViewCellTest: XCTestCase {
         ]
 
         // When i try to parse the json into an Image
-        guard let image: Image = DictionaryHelper.model(for: imageJSON) else {
-            XCTFail("Cannot make image data")
+        var linkData = LinkDataMock.linkData
+        linkData[Link.CodingKeys.preview.rawValue] = [
+            PreviewImage.CodingKeys.images.rawValue: [imageJSON],
+            PreviewImage.CodingKeys.enabled.rawValue: true
+        ]
+
+        guard let link: Link = DictionaryHelper.model(for: linkData) else {
+            XCTFail("Failed to create link")
             return
         }
-
-        guard var link: Link = DictionaryHelper.model(for: LinkDataMock.linkData) else {
-            XCTFail("Failed to parse link")
-            return
-        }
-
-        link.preview?.images = [image]
 
         let viewModel = LinkCellViewModel(link: link)
 

@@ -19,11 +19,10 @@ class BaseLinkTableViewCellTest: XCTestCase {
     }
 
     func testConfigureCell() {
-        var link = Link()
-        link.title = "A 19 year old Sofia Vergara"
-        link.subredditNamePrefixed = "r/pics"
-        link.createdUTC = 1_506_946_298
-        link.domain = "i.imgur.com"
+        guard let link: Link = DictionaryHelper.model(for: LinkDataMock.linkData) else {
+            XCTFail("Cannot load link")
+            return
+        }
 
         let viewModel = LinkCellViewModel(link: link)
 
@@ -38,7 +37,7 @@ class BaseLinkTableViewCellTest: XCTestCase {
             return
         }
 
-        XCTAssertEqual(sut.linkView.metaLabel.text, "r/pics • \(expectedIntervalString) • i.imgur")
+        XCTAssertEqual(sut.linkView.metaLabel.text, "\(link.subredditNamePrefixed) • \(expectedIntervalString) • \(link.domain.replacingOccurrences(of: ".com", with: ""))")
         XCTAssertEqual(sut.linkView.titleLabel.text, link.title)
     }
 

@@ -12,6 +12,7 @@ import XCTest
 class SubredditViewControllerTest: XCTestCase {
     var sut: SubredditViewController!
     var interactor: SubredditInteractorMock!
+    var link: Link!
     
     override func setUp() {
         super.setUp()
@@ -21,6 +22,8 @@ class SubredditViewControllerTest: XCTestCase {
         sut = SubredditViewController()
         sut.listener = interactor
         
+        link = DictionaryHelper.model(for: LinkDataMock.linkData)
+        
         XCTAssertNotNil(sut?.view)
     }
     
@@ -28,7 +31,6 @@ class SubredditViewControllerTest: XCTestCase {
     func testLinkTableCellIsConfigured() {
         // Given
         let cell = BaseLinkCellMock()
-        let link = Link()
 
         // When
         sut.configureLinkTableViewCell(cell: cell, link: link)
@@ -76,7 +78,7 @@ class SubredditViewControllerTest: XCTestCase {
     
     func testReloadListing() {
         // Given
-        let links = [Link(), Link(), Link()]
+        let links: [Link] = [link, link, link]
         let sections = [SubredditSection.linkRows(links: links)]
         interactor.sections = sections
         
@@ -91,7 +93,7 @@ class SubredditViewControllerTest: XCTestCase {
     // MARK: - Load Next Page Test
     func testLoadNextPage() {
         // Given
-        let links = [Link(), Link(), Link()]
+        let links: [Link] = [link, link, link]
         let indexPath = IndexPath(row: 2, section: 0)
         
         // When
@@ -110,8 +112,8 @@ class SubredditViewControllerTest: XCTestCase {
     func testShouldLoadNextPageWithManySection() {
         // Given
         let sections: [SubredditSection] = [
-            SubredditSection.linkRows(links: [Link()]),
-            SubredditSection.linkRows(links: [Link()]),
+            SubredditSection.linkRows(links: [link]),
+            SubredditSection.linkRows(links: [link]),
         ]
 
         interactor.sections = sections
@@ -127,14 +129,14 @@ class SubredditViewControllerTest: XCTestCase {
     
     func testUpdateListingNextPage() {
         // Given
-        let links = [Link(), Link(), Link()]
+        let links: [Link] = [link, link, link]
         let sections = [SubredditSection.linkRows(links: links)]
         interactor.sections = sections
 
         sut.reloadListing()
         
         // When
-        interactor.sections.append(SubredditSection.linkRows(links: [Link()]))
+        interactor.sections.append(SubredditSection.linkRows(links: [link]))
         sut.updateListingNextPage()
 
         // Then
@@ -168,9 +170,9 @@ class SubredditViewControllerTest: XCTestCase {
         // Given
         let sections: [SubredditSection] = [
             SubredditSection.linkRows(links: [
-                Link(),
-                Link(),
-                Link()
+                link,
+                link,
+                link
             ])
         ]
 
@@ -193,9 +195,9 @@ class SubredditViewControllerTest: XCTestCase {
         // Given
         let sections: [SubredditSection] = [
             SubredditSection.linkRows(links: [
-                Link(),
-                Link(),
-                Link()
+                link,
+                link,
+                link
                 ])
         ]
         

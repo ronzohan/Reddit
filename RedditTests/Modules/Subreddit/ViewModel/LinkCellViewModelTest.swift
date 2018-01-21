@@ -11,7 +11,7 @@ import XCTest
 
 class LinkCellViewModelTest: XCTestCase {
     var link: Link!
-    lazy var viewModel = LinkCellViewModel(link: link)
+    var viewModel: LinkCellViewModel!
 
     var image: Image!
     
@@ -27,20 +27,22 @@ class LinkCellViewModelTest: XCTestCase {
         "id": "123qwe"
     ]
     
+    var linkData: [String: Any] = LinkDataMock.linkData
+    
     override func setUp() {
         super.setUp()
-        
-        var linkData: [String: Any] = LinkDataMock.linkData
-        linkData["preview"] = [
+
+        linkData[Link.CodingKeys.preview.rawValue] = [
             "images": [imageJSON],
             "enabled": true
         ]
-
+        linkData["created_utc"] = 1_505_958_257
+        linkData[Link.CodingKeys.title.rawValue] = "[Gamersgate] Tekken 7 ($26.49/%47 OFF), Tekken 7 Deluxe Edition ($43.04/%43 OFF) New Historical Low on Tekken 7"
+        linkData[Link.CodingKeys.subredditNamePrefixed.rawValue] = "r/GameDeals"
+        linkData[Link.CodingKeys.author.rawValue] = "BigBossTheSnake"
+        linkData[Link.CodingKeys.domain.rawValue] = "loadingartist.com"
+        
         link = DictionaryHelper.model(for: linkData)
-        link.title = "A 19 year old Sofia Vergara"
-        link.subredditNamePrefixed = "r/pics"
-        link.createdUTC = 1_506_946_298
-        link.domain = "i.imgur.com"
 
         guard let previewImage = link.preview?.images[0] else {
             XCTFail("Preview image is nil")
@@ -48,6 +50,8 @@ class LinkCellViewModelTest: XCTestCase {
         }
 
         image = previewImage
+        
+        viewModel = LinkCellViewModel(link: link)
     }
 
     func testMetaInfo() {
@@ -61,26 +65,33 @@ class LinkCellViewModelTest: XCTestCase {
         XCTAssertEqual(viewModel.title, link.title)
         XCTAssertEqual(
             viewModel.meta,
-            "r/pics • \(expectedIntervalString) • i.imgur"
+            "\(link.subredditNamePrefixed) • \(expectedIntervalString) • \(link.domain.replacingOccurrences(of: ".com", with: ""))"
         )
     }
 
     func testMetaDateIsGreaterThanCurrentDate() {
+        // Given
         let currentDate = NSDate()
-
-        link.createdUTC = UInt64(currentDate.timeIntervalSince1970 + 1000)
-
+        
+        // When
+        linkData["created_utc"] = UInt64(currentDate.timeIntervalSince1970 + 1000)
+        link = DictionaryHelper.model(for: linkData)
+        
+        viewModel = LinkCellViewModel(link: link)
+        // Then 
+        // the date should not be posted
         XCTAssertEqual(
             viewModel.meta,
-            "r/pics • i.imgur"
+            "\(link.subredditNamePrefixed) • \(link.domain.replacingOccurrences(of: ".com", with: ""))"
         )
     }
 
     // MARK: - Image Url
 
     func testRetrievingOfImageUrl() {
-        link.preview?.images = [image]
-
+        // If the preview images is not nil, then the viewModels' imageUrl should
+        // also not be nil
+        XCTAssertNotNil(link.preview?.images)
         XCTAssertNotNil(viewModel.imageUrl)
     }
 
@@ -90,10 +101,14 @@ class LinkCellViewModelTest: XCTestCase {
             "resolutions": [],
             "id": "123qwe"
         ]
-        
-        image = DictionaryHelper.model(for: imageJSON)
-        link.preview?.images = [image]
 
+        linkData["preview"] = [
+            "images": [imageJSON],
+            "enabled": true
+        ]
+        
+        link = DictionaryHelper.model(for: linkData)
+        viewModel = LinkCellViewModel(link: link)
         XCTAssertNil(viewModel.imageUrl)
     }
     
@@ -117,7 +132,7 @@ class LinkCellViewModelTest: XCTestCase {
         let imageInfo2Height: Double = 150
         let imageInfo2Width: Double = 200
 
-        imageJSON["resolutions"] = [
+        imageJSON[Image.CodingKeys.resolutions.rawValue] = [
             [
                 "url": "google.com",
                 "width": 200,
@@ -130,11 +145,14 @@ class LinkCellViewModelTest: XCTestCase {
             ]
         ]
 
-        image = DictionaryHelper.model(for: imageJSON)
-        
-        link.preview?.images = [image] 
-        link.preview?.enabled = true
-        
+        linkData[Link.CodingKeys.preview.rawValue] = [
+            PreviewImage.CodingKeys.images.rawValue: [imageJSON],
+            PreviewImage.CodingKeys.enabled.rawValue: true
+        ]
+    
+        link = DictionaryHelper.model(for: linkData)
+
+        viewModel = LinkCellViewModel(link: link)
         // When
         let cellHeight = viewModel.cellHeight(for: frameWidth)
         
@@ -148,8 +166,13 @@ class LinkCellViewModelTest: XCTestCase {
         // Given
         let frameWidth: Double = 200
 
-        link.preview?.images = [image] 
-        link.preview?.enabled = false
+        linkData[Link.CodingKeys.preview.rawValue] = [
+            PreviewImage.CodingKeys.images.rawValue: [imageJSON],
+            PreviewImage.CodingKeys.enabled.rawValue: false
+        ]
+        
+        link = DictionaryHelper.model(for: linkData)
+        viewModel = LinkCellViewModel(link: link)
         
         // When
         let cellHeight = viewModel.cellHeight(for: frameWidth)
@@ -178,7 +201,9 @@ class LinkCellViewModelTest: XCTestCase {
         let postHint: PostHint = .image
         
         // When
-        link.postHint = postHint
+        linkData[Link.CodingKeys.postHint.rawValue] = postHint.rawValue
+        link = DictionaryHelper.model(for: linkData)
+        viewModel = LinkCellViewModel(link: link)
         
         // Then
         XCTAssertEqual(viewModel.postHint, link.postHint)

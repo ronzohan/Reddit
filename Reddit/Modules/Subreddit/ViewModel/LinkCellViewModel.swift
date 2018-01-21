@@ -36,11 +36,7 @@ class LinkCellViewModel {
     var imageUrl: String? {
         let url: String?
 
-        guard let preview = link.preview else {
-            return nil
-        }
-
-        guard !preview.images.isEmpty else {
+        guard let preview = link.preview, !preview.images.isEmpty else {
             return nil
         }
 

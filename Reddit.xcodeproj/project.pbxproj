@@ -16,7 +16,6 @@
 		617DEA6C543387B78781239B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2B1902362757C0624F7375 /* AVFoundation.framework */; };
 		A5E001464D3EBE5B6C3992F7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF79175AD9828A77B67ED25 /* CoreTelephony.framework */; };
 		C836645023074141E9A8316D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B75C5E861ECC3FED50AAE7A /* CoreVideo.framework */; };
-		EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */; };
 		EE04AD0F1F4B326800DAD0C6 /* SubredditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04AD0E1F4B326800DAD0C6 /* SubredditSection.swift */; };
 		EE0B96311FD05A8400E38284 /* LinkDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B96301FD05A8400E38284 /* LinkDataMock.swift */; };
 		EE18496C1FD84D9300531ED7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18496B1FD84D9300531ED7 /* Request.swift */; };
@@ -172,7 +171,6 @@
 		9BEAA89A6974654BF8341007 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		BFF79175AD9828A77B67ED25 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C80A899709A4ACFFB98A5024 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
 		EE04AD0E1F4B326800DAD0C6 /* SubredditSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubredditSection.swift; sourceTree = "<group>"; };
 		EE0B96301FD05A8400E38284 /* LinkDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkDataMock.swift; sourceTree = "<group>"; };
 		EE18496B1FD84D9300531ED7 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -376,7 +374,6 @@
 				EE7E74821F4AFEA700C9B623 /* ImageTest.swift */,
 				EE299CB41F434DF700733426 /* LinkTest.swift */,
 				EE299CB51F434DF700733426 /* ListingTest.swift */,
-				EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */,
 				EE59ECEB1F7803BD00229774 /* PostHintTest.swift */,
 				EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */,
 				EE0B962F1FD05A7E00E38284 /* ModelMocks */,
@@ -1063,7 +1060,6 @@
 				EEF69CC11FD597ED00AF1F46 /* RequestConfigTest.swift in Sources */,
 				EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */,
 				EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */,
-				EE04AD0A1F4B2C2800DAD0C6 /* ParserTest.swift in Sources */,
 				EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

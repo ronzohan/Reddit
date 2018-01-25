@@ -74,10 +74,13 @@
 		EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */; };
 		EEA21B361FCC59AB00089504 /* RedditAnyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */; };
+		EEACD4A22018CC7700FE21F1 /* VoteViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */; };
+		EEACD4A42018CCE000FE21F1 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEACD4A32018CCE000FE21F1 /* VoteView.swift */; };
 		EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */; };
 		EEB32C9B1FA229A600F414E8 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */; };
 		EEB32C9C1FA229A600F414E8 /* UrlLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */; };
 		EEB32C9E1FA22B3D00F414E8 /* BaseLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C9D1FA22B3C00F414E8 /* BaseLinkTableViewCell.swift */; };
+		EEB6A917201A2487002094F0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6A916201A2487002094F0 /* Theme.swift */; };
 		EEBE3AE71FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBE3AE61FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift */; };
 		EEC08A2F1FB0CA3000429763 /* ListingViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC08A2E1FB0CA3000429763 /* ListingViewModelTest.swift */; };
 		EEC7CB731FC1E4C40051097F /* ThingDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7CB6F1FC1E4C40051097F /* ThingDetailBuilder.swift */; };
@@ -166,7 +169,7 @@
 		472C65A8961505DC54A0A524 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		5B75C5E861ECC3FED50AAE7A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		8C2B1902362757C0624F7375 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		9BEAA89A6974654BF8341007 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		9BEAA89A6974654BF8341007 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		BFF79175AD9828A77B67ED25 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C80A899709A4ACFFB98A5024 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		EE04AD091F4B2C2800DAD0C6 /* ParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserTest.swift; sourceTree = "<group>"; };
@@ -223,10 +226,13 @@
 		EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHelper.swift; sourceTree = "<group>"; };
 		EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAnyKeys.swift; sourceTree = "<group>"; };
+		EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewTest.swift; sourceTree = "<group>"; };
+		EEACD4A32018CCE000FE21F1 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C981FA229A600F414E8 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C9D1FA22B3C00F414E8 /* BaseLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLinkTableViewCell.swift; sourceTree = "<group>"; };
+		EEB6A916201A2487002094F0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		EEBE3AE61FE18E3F00CF92FF /* SnapKit+SafeAreaLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SnapKit+SafeAreaLayout.swift"; sourceTree = "<group>"; };
 		EEC08A2E1FB0CA3000429763 /* ListingViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModelTest.swift; sourceTree = "<group>"; };
 		EEC7CB6F1FC1E4C40051097F /* ThingDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThingDetailBuilder.swift; sourceTree = "<group>"; };
@@ -492,6 +498,22 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		EEACD49F2018CBAB00FE21F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EEACD4A32018CCE000FE21F1 /* VoteView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EEACD4A02018CBC200FE21F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		EEB32C961FA2298700F414E8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,9 +530,11 @@
 			isa = PBXGroup;
 			children = (
 				EE6D84711F519A8F00508361 /* Common */,
+				EEACD49F2018CBAB00FE21F1 /* Components */,
 				EED645671F40A09500BA46B2 /* DataLayer */,
-				EED645711F40A09500BA46B2 /* Subreddit */,
 				EEC7CB7F1FC1E6850051097F /* Root */,
+				EED645711F40A09500BA46B2 /* Subreddit */,
+				EEB6A915201A2460002094F0 /* ThemeManager */,
 				EEC7CB6E1FC1E4B30051097F /* ThingDetail */,
 			);
 			path = Modules;
@@ -520,12 +544,21 @@
 			isa = PBXGroup;
 			children = (
 				EE2541541F740615007DFF61 /* Common */,
+				EEACD4A02018CBC200FE21F1 /* Components */,
 				EE2A661F1F41CA4A00A8F9BF /* DataLayer */,
-				EE5D1E4D1F83F49B00EAA5FD /* Subreddit */,
 				EED6D6F81FA233230029EF9A /* Mocks */,
+				EE5D1E4D1F83F49B00EAA5FD /* Subreddit */,
 				EE306DA81FC733CD0012DC43 /* ThingDetail */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		EEB6A915201A2460002094F0 /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				EEB6A916201A2487002094F0 /* Theme.swift */,
+			);
+			path = ThemeManager;
 			sourceTree = "<group>";
 		};
 		EEC7CB6E1FC1E4B30051097F /* ThingDetail */ = {
@@ -778,6 +811,7 @@
 				EED469731F3CCA08006759D1 /* Resources */,
 				EE3B9DA11F404E1D00A77A2C /* Embed Frameworks */,
 				EE2A66241F41CDB700A8F9BF /* ShellScript */,
+				EE6B1DAD2014EDFD00E034DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -915,6 +949,19 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		EE6B1DAD2014EDFD00E034DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "carthage-copy-frameworks";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -949,6 +996,7 @@
 				EE25AF781FD97F9D003A3C32 /* Endpoint.swift in Sources */,
 				EE3B85C7200E64FA00B5A6B4 /* Comment.swift in Sources */,
 				EE25AF801FD98C34003A3C32 /* SubredditInteractor.swift in Sources */,
+				EEB6A917201A2487002094F0 /* Theme.swift in Sources */,
 				EE25AF751FD97ED8003A3C32 /* AFNetworkAdapter.swift in Sources */,
 				EED6457D1F40A09500BA46B2 /* Listing.swift in Sources */,
 				EE1EB1031FC94528007978DB /* CardPresentationController.swift in Sources */,
@@ -960,6 +1008,7 @@
 				EEC7CB761FC1E4C40051097F /* ThingDetailViewController.swift in Sources */,
 				EEF69CBE1FD597A400AF1F46 /* RequestConfig.swift in Sources */,
 				EEE00EAD1FEF3AC600C5BE73 /* LoadingCell.swift in Sources */,
+				EEACD4A42018CCE000FE21F1 /* VoteView.swift in Sources */,
 				EE4BCB5C1FA89C7F00C7BEC5 /* UIKitExtensions.swift in Sources */,
 				EEC7CB751FC1E4C40051097F /* ThingDetailRouter.swift in Sources */,
 				EE19BA711F73FE9000F99974 /* LinkView.swift in Sources */,
@@ -1010,6 +1059,7 @@
 				EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */,
 				EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */,
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,
+				EEACD4A22018CC7700FE21F1 /* VoteViewTest.swift in Sources */,
 				EEF69CC11FD597ED00AF1F46 /* RequestConfigTest.swift in Sources */,
 				EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */,
 				EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */,

@@ -94,15 +94,6 @@ class LinkView<T: UIView>: UIView {
         return stackView
     }()
 
-    private lazy var lineView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.lightGray
-        view.heightAnchor.constraint(equalToConstant: lineViewHeight).isActive = true
-
-        return view
-    }()
-
     private lazy var mainContentView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical

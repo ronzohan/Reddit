@@ -74,7 +74,7 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
             make.leading.equalTo(view.safeArea.leading)
             make.trailing.equalTo(view.safeArea.trailing)
         }
-        tableView.backgroundColor = UIColor.lightGray
+        tableView.backgroundColor = Theme.gray
         
         title = "Home"
     }

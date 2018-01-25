@@ -47,28 +47,26 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
 
         return view
     }()
-
-    lazy var upvoteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Upvote", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-
-        return button
-    }()
-
-    lazy var downvoteButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Downvote", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-
-        return button
+    
+    lazy var voteView: VoteView = {
+        return VoteView()
     }()
 
     lazy var commentsButton: UIButton = {
         let button = UIButton()
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.setTitle("Comments", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(.black, for: .normal)
 
+        return button
+    }()
+    
+    lazy var shareButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.setTitle("Share", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        
         return button
     }()
 
@@ -77,9 +75,9 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
 
-        stackView.addArrangedSubview(self.upvoteButton)
-        stackView.addArrangedSubview(self.downvoteButton)
-        stackView.addArrangedSubview(self.commentsButton)
+        stackView.addArrangedSubview(voteView)
+        stackView.addArrangedSubview(commentsButton)
+        stackView.addArrangedSubview(shareButton)
 
         return stackView
     }()
@@ -158,7 +156,7 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
         selectionStyle = .none
 
         let offset: CGFloat = 8
-        contentView.backgroundColor = UIColor.lightGray
+        contentView.backgroundColor = Theme.gray
 
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
@@ -180,16 +178,16 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInterac
 
         containerView.addSubview(actionsStackView)
         actionsStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(linkView.snp.bottom).offset(offset)
+            make.top.equalTo(linkView.snp.bottom)
             make.leading.equalTo(linkView.snp.leading)
             make.trailing.equalTo(linkView.snp.trailing)
             make.bottom.equalTo(containerView.snp.bottom)
         }
         
-        contentView.addSubview(highlightView)
+        /*contentView.addSubview(highlightView)
         highlightView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
-        }
+        }*/
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {

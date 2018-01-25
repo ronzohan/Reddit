@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Modules/ThemeManager/ThemeManager.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Reddit.xcodeproj">
    </FileRef>
 </Workspace>

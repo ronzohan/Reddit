@@ -53,7 +53,7 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, CellInte
     lazy var commentsButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.setTitle("Comments", for: .normal)
+        button.setTitle("Comments".localizedCapitalized, for: .normal)
         button.setTitleColor(.black, for: .normal)
 
         return button
@@ -62,7 +62,7 @@ class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, CellInte
     lazy var shareButton: UIButton = {
         let button = UIButton()
         button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.setTitle("Share", for: .normal)
+        button.setTitle("Share".localizedCapitalized, for: .normal)
         button.setTitleColor(.black, for: .normal)
         
         return button

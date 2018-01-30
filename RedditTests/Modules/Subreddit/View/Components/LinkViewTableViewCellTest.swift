@@ -9,9 +9,10 @@
 import XCTest
 @testable import Reddit
 
-class LinkViewTableViewCellTest: XCTestCase {
+class LinkViewTableViewCellTest: XCTestCase  {
     var viewModel: LinkCellViewModel!
     var link: Link!
+    var sut: LinkTableViewCell!
 
     override func setUp() {
         super.setUp()
@@ -23,9 +24,10 @@ class LinkViewTableViewCellTest: XCTestCase {
         linkData[Link.CodingKeys.domain.rawValue] = "loadingartist.com"
         
         link = DictionaryHelper.model(for: LinkDataMock.linkData)
-        
 
         viewModel = LinkCellViewModel(link: link)
+        
+        sut = LinkTableViewCell()
     }
 
     func testViewModelMeta() {
@@ -38,5 +40,34 @@ class LinkViewTableViewCellTest: XCTestCase {
 
         let expectedMeta = "\(link.subredditNamePrefixed) • \(date) • \(cleanDomain)"
         XCTAssertEqual(viewModel.meta, expectedMeta)
+    }
+    
+    func testConfigureCell() {
+        guard let link: Link = DictionaryHelper.model(for: LinkDataMock.linkData) else {
+            XCTFail("Cannot load link")
+            return
+        }
+        
+        let viewModel = LinkCellViewModel(link: link)
+        
+        sut.viewModel = viewModel
+        sut.configure()
+        
+        guard let expectedIntervalString = Date.timeIntervalString(
+            fromDate: Date(timeInterval: link.createdUTC),
+            toDate: Date()
+            ) else {
+                XCTFail("No interval string found.")
+                return
+        }
+        
+        XCTAssertEqual(sut.linkView.metaLabel.text, "\(link.subredditNamePrefixed) • \(expectedIntervalString) • \(link.domain.replacingOccurrences(of: ".com", with: ""))")
+        XCTAssertEqual(sut.linkView.titleLabel.text, link.title)
+    }
+    
+    func testCellLinkContent() {
+        let cell = ImageLinkTableViewCell()
+        
+        XCTAssertTrue(type(of: cell.linkView.contentView) == type(of: UIImageView()))
     }
 }

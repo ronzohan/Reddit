@@ -8,6 +8,7 @@
 
 import RIBs
 import RxSwift
+import RxCocoa
 import UIKit
 import SnapKit
 
@@ -139,7 +140,7 @@ extension SubredditViewController: UITableViewDataSource {
     func linkCellForLink(link: Link,
                          tableView: UITableView,
                          forRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: BaseLinkTableViewCell?
+        let cell: UITableViewCell?
         
         switch link.postHint {
         case .link:
@@ -153,7 +154,7 @@ extension SubredditViewController: UITableViewDataSource {
         guard let linkCell = cell else {
             return UITableViewCell()
         }
-        
+
         configureLinkTableViewCell(cell: linkCell, link: link)
         
         return linkCell
@@ -192,11 +193,13 @@ extension SubredditViewController: UITableViewDataSource {
         tableView.insertSections(index, with: .bottom)
     }
     
-    func configureLinkTableViewCell(cell: BaseLinkTableViewCell, link: Link) {
+    func configureLinkTableViewCell(cell: UITableViewCell, link: Link) {
         let viewModel = LinkCellViewModel(link: link)
         
-        cell.viewModel = viewModel
-        cell.configure()
+        if var linkCell = cell as? ILinkCell {
+            linkCell.viewModel = viewModel
+            linkCell.configure()
+        }
     }
     
     func urlLinkTableViewCellFor(tableView: UITableView,
@@ -209,7 +212,7 @@ extension SubredditViewController: UITableViewDataSource {
     func imageLinkTableViewCellFor(tableView: UITableView,
                                    indexPath: IndexPath) -> ImageLinkTableViewCell? {
         let cell: ImageLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
-        
+
         return cell
     }
 }

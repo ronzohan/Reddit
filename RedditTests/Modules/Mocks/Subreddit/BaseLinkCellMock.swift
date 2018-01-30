@@ -9,9 +9,10 @@
 import Foundation
 @testable import Reddit
 
-class BaseLinkCellMock: BaseLinkTableViewCell {
+class BaseLinkCellMock: LinkTableViewCell {
     var didConfigure = false
     override func configure() {
         didConfigure = true
     }
 }
+

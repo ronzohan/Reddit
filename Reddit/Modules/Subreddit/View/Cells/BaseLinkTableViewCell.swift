@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BaseLinkTableViewCell: UITableViewCell, ILinkCell {
+/*class BaseLinkTableViewCell: UITableViewCell {
     var viewModel: LinkCellViewModel?
 
     func configure() {}
     
     func updateCellHeight() {}
-}
+}*/

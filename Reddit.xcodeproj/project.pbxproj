@@ -56,7 +56,6 @@
 		EE5A9ED21FC5DD4100A812D8 /* SubredditInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED11FC5DD4100A812D8 /* SubredditInteractorMock.swift */; };
 		EE5A9ED41FC5DDBB00A812D8 /* ViewControllableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */; };
 		EE5A9ED61FC5DF3F00A812D8 /* SubredditViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED51FC5DF3F00A812D8 /* SubredditViewControllerMock.swift */; };
-		EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E521F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift */; };
 		EE5D1E571F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E531F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift */; };
 		EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */; };
 		EE5D1E5D1F83F50D00EAA5FD /* LinkCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E5C1F83F50D00EAA5FD /* LinkCellViewModelTest.swift */; };
@@ -209,7 +208,6 @@
 		EE5A9ED11FC5DD4100A812D8 /* SubredditInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditInteractorMock.swift; sourceTree = "<group>"; };
 		EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllableMock.swift; sourceTree = "<group>"; };
 		EE5A9ED51FC5DF3F00A812D8 /* SubredditViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditViewControllerMock.swift; sourceTree = "<group>"; };
-		EE5D1E521F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseLinkTableViewCellTest.swift; sourceTree = "<group>"; };
 		EE5D1E531F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewTableViewCellTest.swift; sourceTree = "<group>"; };
 		EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCellTest.swift; sourceTree = "<group>"; };
 		EE5D1E5C1F83F50D00EAA5FD /* LinkCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCellViewModelTest.swift; sourceTree = "<group>"; };
@@ -460,7 +458,6 @@
 		EE5D1E511F83F49B00EAA5FD /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EE5D1E521F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift */,
 				EE5D1E531F83F49B00EAA5FD /* LinkViewTableViewCellTest.swift */,
 				EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */,
 			);
@@ -1059,7 +1056,6 @@
 				EEACD4A22018CC7700FE21F1 /* VoteViewTest.swift in Sources */,
 				EEF69CC11FD597ED00AF1F46 /* RequestConfigTest.swift in Sources */,
 				EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */,
-				EE5D1E561F83F49B00EAA5FD /* BaseLinkTableViewCellTest.swift in Sources */,
 				EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

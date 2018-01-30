@@ -20,14 +20,14 @@ protocol ILinkCell {
     func configure()
 }
 
-protocol IInteractionableCell {
+protocol CellInteractionable {
     func onMetaTapped(_: (() -> Void)?)
     func onContentTapped(_: (() -> Void)?)
     func onUpVoteTapped(_: (() -> Void)?)
     func onDownVoteTapped(_: (() -> Void)?)
 }
 
-class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, IInteractionableCell {
+class LinkTableViewCell<T: UIView>: BaseLinkTableViewCell, Contentable, CellInteractionable {
 
     typealias Content = T
     

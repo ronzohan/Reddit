@@ -63,10 +63,10 @@ class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewab
         
         containerView.addSubview(linkView)
         linkView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView.snp.top).offset(offset)
-            make.leading.equalTo(contentView.snp.leading).offset(offset)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-offset)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-offset)
+            make.top.equalTo(containerView.snp.top).offset(offset)
+            make.leading.equalTo(containerView.snp.leading).offset(offset)
+            make.trailing.equalTo(containerView.snp.trailing).offset(-offset)
+            make.bottom.equalTo(containerView.snp.bottom).offset(-offset )
         }
     }
 

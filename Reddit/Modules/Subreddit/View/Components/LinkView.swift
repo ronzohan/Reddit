@@ -53,8 +53,8 @@ class LinkView<T: UIView>: UIView {
 
         view.addSubview(metaLabel)
         metaLabel.snp.makeConstraints { (make) in
-            make.right.equalTo(view.snp.right).offset(mediumSpacing)
-            make.left.equalTo(view.snp.left).offset(mediumSpacing)
+            make.trailing.equalTo(view.snp.trailing)
+            make.leading.equalTo(view.snp.leading)
             make.top.equalTo(view.snp.top)
             make.bottom.equalTo(view.snp.bottom)
         }
@@ -85,11 +85,9 @@ class LinkView<T: UIView>: UIView {
     private lazy var titleStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(self.titleLabel)
-        stackView.layoutMargins = UIEdgeInsets(top: 0, left: mediumSpacing, bottom: 0, right: 8)
         stackView.axis = .horizontal
         stackView.alignment = .top
         stackView.spacing = mediumSpacing
-        stackView.isLayoutMarginsRelativeArrangement = true
 
         return stackView
     }()
@@ -164,7 +162,7 @@ class LinkView<T: UIView>: UIView {
             make.top.equalTo(contentView.snp.bottom)
             make.leading.equalTo(contentView.snp.leading)
             make.trailing.equalTo(contentView.snp.trailing)
-            make.bottom.equalTo(snp.bottom)
+            make.bottom.equalToSuperview()
         }
     }
 

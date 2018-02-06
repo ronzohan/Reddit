@@ -76,10 +76,10 @@ class LinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable 
 
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView.snp.top).offset(offset)
-            make.leading.equalTo(contentView.snp.leading).offset(offset)
-            make.trailing.equalTo(contentView.snp.trailing).offset(-offset)
-            make.bottom.equalTo(contentView.snp.bottom)
+            make.top.equalTo(containerView.snp.top).offset(offset)
+            make.leading.equalTo(containerView.snp.leading).offset(offset)
+            make.trailing.equalTo(containerView.snp.trailing).offset(-offset)
+            make.bottom.equalTo(containerView.snp.bottom).offset(-offset)
         }
 
         containerView.layer.cornerRadius = 10
@@ -106,4 +106,8 @@ class LinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable 
         }
         
     }
+}
+
+class ASDss: LinkTableViewCell {
+    typealias Content = UIImageView
 }

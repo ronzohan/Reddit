@@ -10,6 +10,8 @@ import Foundation
 import SnapKit
 
 class VoteView: UIView {
+    let spacingOffset: CGFloat = 8
+    
     lazy var upvoteButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "ThumbsUp"), for: .normal)
@@ -32,6 +34,7 @@ class VoteView: UIView {
         let label = UILabel()
         label.text = "10"
         label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
         label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return label
@@ -56,15 +59,15 @@ class VoteView: UIView {
         }
         
         upvoteButton.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(8)
             make.centerY.equalToSuperview()
-            make.trailing.equalTo(voteCountLabel.snp.leading).inset(-8)
+            make.trailing.equalTo(voteCountLabel.snp.leading).inset(-spacingOffset)
+            make.width.height.equalTo(20)
         }
         
         downvoteButton.snp.makeConstraints { (make) in
-            make.leading.equalTo(voteCountLabel.snp.trailing).offset(8)
-            make.trailing.equalToSuperview().inset(8)
+            make.leading.equalTo(voteCountLabel.snp.trailing).offset(spacingOffset)
             make.centerY.equalToSuperview()
+            make.width.height.equalTo(20)
         }
     }
 }

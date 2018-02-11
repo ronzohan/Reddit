@@ -14,9 +14,10 @@ protocol Contentable {
     var linkContentView: UIView { get }
 }
 
+// TODO: Remove this protocol
 protocol ILinkViewable {
     associatedtype Content: UIView
-    var linkView: LinkView<Content> { get } 
+    var linkView: ContentLinkView<Content> { get } 
 }
 
 protocol ILinkCell {
@@ -24,18 +25,16 @@ protocol ILinkCell {
     func configure()
 }
 
-class LinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable {
+class LinkTableViewCell: UITableViewCell, ILinkCell, Contentable {
 
-    typealias Content = UIView
-    
     var viewModel: LinkCellViewModel?
     
     var linkContentView: UIView {
         return containerView
     }
 
-    lazy var linkView: LinkView<Content> = {
-        let view = LinkView<Content>()
+    lazy var linkView: LinkView = {
+        let view = LinkView()
 
         return view
     }()
@@ -64,8 +63,8 @@ class LinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable 
         linkView.titleLabel.text = viewModel?.title
         linkView.titleLabel.font = UIFont(name: "Avenir-Book", size: 16)
 
-        linkView.metaLabel.text = viewModel?.meta
-        linkView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
+        linkView.infoView.metaLabel.text = viewModel?.meta
+        linkView.infoView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
     }
 
     private func setupSubviews() {
@@ -106,8 +105,4 @@ class LinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable 
         }
         
     }
-}
-
-class ASDss: LinkTableViewCell {
-    typealias Content = UIImageView
 }

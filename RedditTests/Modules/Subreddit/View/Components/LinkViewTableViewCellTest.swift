@@ -61,7 +61,7 @@ class LinkViewTableViewCellTest: XCTestCase  {
                 return
         }
         
-        XCTAssertEqual(sut.linkView.metaLabel.text, "\(link.subredditNamePrefixed) • \(expectedIntervalString) • \(link.domain.replacingOccurrences(of: ".com", with: ""))")
+        XCTAssertEqual(sut.linkView.infoView.metaLabel.text, "\(link.subredditNamePrefixed) • \(expectedIntervalString) • \(link.domain.replacingOccurrences(of: ".com", with: ""))")
         XCTAssertEqual(sut.linkView.titleLabel.text, link.title)
     }
     

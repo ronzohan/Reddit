@@ -8,17 +8,15 @@
 
 import UIKit
 
-class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable {
-    typealias Content = UIImageView
-    
+class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable {
     var viewModel: LinkCellViewModel?
     
     var linkContentView: UIView {
         return containerView
     }
     
-    lazy var linkView: LinkView<Content> = {
-        let view = LinkView<Content>()
+    lazy var linkView: ContentLinkView<UIImageView> = {
+        let view = ContentLinkView<UIImageView>()
         
         return view
     }()
@@ -60,7 +58,7 @@ class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewab
         
         containerView.layer.cornerRadius = 10
         containerView.layer.backgroundColor = UIColor.white.cgColor
-        
+
         containerView.addSubview(linkView)
         linkView.snp.makeConstraints { (make) in
             make.top.equalTo(containerView.snp.top).offset(offset)
@@ -71,8 +69,6 @@ class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewab
     }
 
     func configure() {
-        linkView.mode = .horizontal
-
         linkView.mainContentViewHeightConst?.constant = CGFloat(100)
 
         if let urlString = viewModel?.imageUrl, let url = URL(string: urlString) {
@@ -82,8 +78,8 @@ class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewab
         linkView.titleLabel.text = viewModel?.title
         linkView.titleLabel.font = UIFont(name: "Avenir-Book", size: 16)
         
-        linkView.metaLabel.text = viewModel?.meta
-        linkView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
+        linkView.infoView.metaLabel.text = viewModel?.meta
+        linkView.infoView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
     }
 
     func updateImage(withURLRequest request: URLRequest) {

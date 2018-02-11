@@ -24,8 +24,8 @@ final class ThingDetailViewController<T: UIView>: UIViewController, ThingDetailP
 
     weak var listener: ThingDetailPresentableListener?
     
-    private lazy var linkView: LinkView<T> = {
-        let view = LinkView<T>()
+    private lazy var linkView: ContentLinkView<T> = {
+        let view = ContentLinkView<T>()
         
         return view
     }()
@@ -49,7 +49,7 @@ final class ThingDetailViewController<T: UIView>: UIViewController, ThingDetailP
     
     func setupSubviews() {
         view.addSubview(linkView)
-        linkView.metaLabel.text = "Fuck you"
+        linkView.infoView.metaLabel.text = "Fuck you"
         linkView.titleLabel.text = "Fuck you too"
         linkView.backgroundColor = UIColor.red
         linkView.snp.makeConstraints { (make) in

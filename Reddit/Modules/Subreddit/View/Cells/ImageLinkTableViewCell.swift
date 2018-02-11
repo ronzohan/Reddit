@@ -9,18 +9,16 @@
 import Foundation
 import UIKit
 
-class ImageLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkViewable {
-    typealias Content = UIImageView
-    
+class ImageLinkTableViewCell: UITableViewCell, ILinkCell, Contentable {
     var viewModel: LinkCellViewModel?
     
     var linkContentView: UIView {
         return containerView
     }
     
-    lazy var linkView: LinkView<Content> = {
-        let view = LinkView<Content>()
-        
+    lazy var linkView: ContentLinkView<UIImageView> = {
+        let view = ContentLinkView<UIImageView>()
+
         return view
     }()
     
@@ -74,11 +72,11 @@ class ImageLinkTableViewCell: UITableViewCell, ILinkCell, Contentable, ILinkView
             updateImage(withURLRequest: URLRequest(url: url))
         }
         
-        //linkView.titleLabel.text = viewModel?.title
+        linkView.titleLabel.text = viewModel?.title
         linkView.titleLabel.font = UIFont(name: "Avenir-Book", size: 16)
         
-        linkView.metaLabel.text = viewModel?.meta
-        linkView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
+        linkView.infoView.metaLabel.text = viewModel?.meta
+        linkView.infoView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
         
         updateCellHeight()
     }

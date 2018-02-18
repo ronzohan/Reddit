@@ -1,17 +1,9 @@
 //
-//  LinkViewTableViewCell.swift
+//  BaseLinkTableViewCell.swift
 //  Reddit
 //
-//  Created by Ron Daryl Magno on 8/20/17.
-//  Copyright © 2017 Ron Daryl Magno. All rights reserved.
+//  Created by Ron Daryl Magno on 2/12/18.
+//  Copyright © 2018 Ron Daryl Magno. All rights reserved.
 //
 
-import UIKit
-
-/*class BaseLinkTableViewCell: UITableViewCell {
-    var viewModel: LinkCellViewModel?
-
-    func configure() {}
-    
-    func updateCellHeight() {}
-}*/
+import Foundation

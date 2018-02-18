@@ -14,12 +14,6 @@ protocol Contentable {
     var linkContentView: UIView { get }
 }
 
-// TODO: Remove this protocol
-protocol ILinkViewable {
-    associatedtype Content: UIView
-    var linkView: ContentLinkView<Content> { get } 
-}
-
 protocol ILinkCell {
     var viewModel: LinkCellViewModel? { get set }
     func configure()

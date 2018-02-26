@@ -1,5 +1,5 @@
 //
-//  LinkViewTableViewCellTest.swift
+//  TitleLinkViewTableViewCellTest.swift
 //  RedditTests
 //
 //  Created by Ron Daryl Magno on 9/21/17.
@@ -9,10 +9,9 @@
 import XCTest
 @testable import Reddit
 
-class LinkViewTableViewCellTest: XCTestCase  {
-    var viewModel: LinkCellViewModel!
+class TitleLinkViewTableViewCellTest: XCTestCase  {
     var link: Link!
-    var sut: LinkTableViewCell!
+    var sut: TitleLinkTableViewCell!
 
     override func setUp() {
         super.setUp()
@@ -24,50 +23,29 @@ class LinkViewTableViewCellTest: XCTestCase  {
         linkData[Link.CodingKeys.domain.rawValue] = "loadingartist.com"
         
         link = DictionaryHelper.model(for: LinkDataMock.linkData)
-
-        viewModel = LinkCellViewModel(link: link)
         
-        sut = LinkTableViewCell()
-    }
-
-    func testViewModelMeta() {
-        let cleanDomain = link.domain.replacingOccurrences(of: ".com", with: "")
-
-        guard let date = Date.timeIntervalString(fromDate: Date(timeInterval: link.createdUTC), toDate: Date()) else {
-            XCTFail("No Date Found.")
-            return
-        }
-
-        let expectedMeta = "\(link.subredditNamePrefixed) • \(date) • \(cleanDomain)"
-        XCTAssertEqual(viewModel.meta, expectedMeta)
+        sut = TitleLinkTableViewCell()
     }
     
     func testConfigureCell() {
+        // Given
         guard let link: Link = DictionaryHelper.model(for: LinkDataMock.linkData) else {
             XCTFail("Cannot load link")
             return
         }
         
-        let viewModel = LinkCellViewModel(link: link)
+        // When
+        LinkViewPresenter.update(titleLinkView: sut.linkView, with: link)
         
-        sut.viewModel = viewModel
-        sut.configure()
-        
-        guard let expectedIntervalString = Date.timeIntervalString(
-            fromDate: Date(timeInterval: link.createdUTC),
-            toDate: Date()
-            ) else {
-                XCTFail("No interval string found.")
-                return
+        // Then
+        let createdDate = Date(timeInterval: link.createdUTC)
+        guard let expectedIntervalString = Date.timeIntervalString(fromDate: createdDate, 
+                                                                   toDate: Date()) else {
+                                                                    XCTFail("No interval string found.")
+                                                                    return
         }
         
         XCTAssertEqual(sut.linkView.infoView.metaLabel.text, "\(link.subredditNamePrefixed) • \(expectedIntervalString) • \(link.domain.replacingOccurrences(of: ".com", with: ""))")
         XCTAssertEqual(sut.linkView.titleLabel.text, link.title)
-    }
-    
-    func testCellLinkContent() {
-        let cell = ImageLinkTableViewCell()
-        
-        XCTAssertTrue(type(of: cell.linkView.contentView) == type(of: UIImageView()))
     }
 }

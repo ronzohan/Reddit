@@ -18,8 +18,8 @@ class SubredditViewControllerMock: SubredditPresentable {
         didReloadListing = true
     }
     
-    var didUpdateListingNextPage = false
-    func updateListingNextPage() {
-        didUpdateListingNextPage = true
+    var didAddListingNextPage = false
+    func addListingNextPage() {
+        didAddListingNextPage = true
     }
 }

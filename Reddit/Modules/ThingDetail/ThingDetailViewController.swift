@@ -18,17 +18,13 @@ protocol ThingDetailPresentableListener: class {
     func getThingDetail()
 }
 
-final class ThingDetailViewController<T: UIView>: UIViewController, ThingDetailPresentable, ThingDetailViewControllable {
+final class ThingDetailViewController: UIViewController, ThingDetailPresentable, ThingDetailViewControllable {
     /// The UIKit view representation of this view.
     public final var uiviewController: UIViewController { return self }
 
     weak var listener: ThingDetailPresentableListener?
-    
-    private lazy var linkView: ContentLinkView<T> = {
-        let view = ContentLinkView<T>()
-        
-        return view
-    }()
+
+    private var linkView: LinkView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,15 +44,15 @@ final class ThingDetailViewController<T: UIView>: UIViewController, ThingDetailP
     }
     
     func setupSubviews() {
-        view.addSubview(linkView)
-        linkView.infoView.metaLabel.text = "Fuck you"
-        linkView.titleLabel.text = "Fuck you too"
-        linkView.backgroundColor = UIColor.red
-        linkView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeArea.top)
-            make.left.equalTo(view.safeArea.left)
-            make.right.equalTo(view.safeArea.right)
-        }
+//        view.addSubview(linkView)
+//        linkView.infoView.metaLabel.text = "Fuck you"
+//        linkView.titleLabel.text = "Fuck you too"
+//        linkView.backgroundColor = UIColor.red
+//        linkView.snp.makeConstraints { (make) in
+//            make.top.equalTo(view.safeArea.top)
+//            make.left.equalTo(view.safeArea.left)
+//            make.right.equalTo(view.safeArea.right)
+//        }
     }
 
     func setThingDetail(title: String) {

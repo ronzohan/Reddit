@@ -38,7 +38,7 @@ final class ThingDetailBuilder: Builder<ThingDetailDependency>, ThingDetailBuild
 
     func build(withListener listener: ThingDetailListener, thingId: String) -> ThingDetailRouting {
         let component = ThingDetailComponent(dependency: dependency, thingId: thingId)
-        let viewController = ThingDetailViewController<UIImageView>()
+        let viewController = ThingDetailViewController()
         let interactor = ThingDetailInteractor(presenter: viewController, thingId: component.thingId)
         interactor.listener = listener
         return ThingDetailRouter(interactor: interactor, viewController: viewController)

@@ -1,22 +1,21 @@
 //
-//  ImageLinkTableViewCell.swift
+//  LinkTableViewCell.swift
 //  Reddit
 //
-//  Created by Ron Daryl Magno on 9/24/17.
-//  Copyright © 2017 Ron Daryl Magno. All rights reserved.
+//  Created by Ron Daryl Magno on 2/26/18.
+//  Copyright © 2018 Ron Daryl Magno. All rights reserved.
 //
 
 import Foundation
-import UIKit
 
-class ImageLinkTableViewCell: UITableViewCell, Contentable {    
+class TitleLinkTableViewCell: UITableViewCell, Contentable {
     var linkContentView: UIView {
         return containerView
     }
     
-    lazy var linkView: ImageLinkView = {
-        let view = ImageLinkView()
-
+    lazy var linkView: TitleLinkView = {
+        let view = TitleLinkView()
+        
         return view
     }()
     
@@ -31,13 +30,7 @@ class ImageLinkTableViewCell: UITableViewCell, Contentable {
         super.init(coder: aDecoder)
         setupSubviews()
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()        
-        linkView.imageView.af_cancelImageRequest()
-        linkView.imageView.image = nil
-    }
-    
+
     private func setupSubviews() {
         selectionStyle = .none
         

@@ -22,14 +22,14 @@ protocol SubredditPresentableListener: class {
     func didSelectItem(atIndexPath: IndexPath)
 }
 
-final class SubredditViewController: UIViewController, SubredditPresentable, SubredditViewControllable {
-
+// MARK: - SubredditViewController
+final class SubredditViewController: UIViewController, SubredditViewControllable, SubredditPresentable {
+    weak var listener: SubredditPresentableListener?
+    
     /// The UIKit view representation of this view.
     public final var uiviewController: UIViewController { return self }
 
     var cardTransition = CardTransitioningDelegate()
-    
-    weak var listener: SubredditPresentableListener?
 
     let disposeBag = DisposeBag()
     
@@ -50,16 +50,21 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
 
         tableView.delegate = self
         tableView.dataSource = self
-        
+
+        activityIndicatorView.startAnimating()
+        tableView.tableFooterView = activityIndicatorView
+
+        return tableView
+    }()
+    
+    lazy var activityIndicatorView: UIActivityIndicatorView = {
         let activityView = UIActivityIndicatorView(frame: CGRect(x: 0,
                                                                  y: 0,
                                                                  width: 100,
                                                                  height: 40))
-        activityView.startAnimating()
         activityView.color = UIColor.white
-        tableView.tableFooterView = activityView
 
-        return tableView
+        return activityView
     }()
 
     // MARK: - VC Lifecycle
@@ -81,7 +86,6 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        // TODO Test this
         super.viewWillTransition(to: size, with: coordinator)
         
         coordinator.animate(alongsideTransition: { (_) in
@@ -93,15 +97,27 @@ final class SubredditViewController: UIViewController, SubredditPresentable, Sub
         }, completion: nil)
     }
 
-    // MARK: - ListingViewControllable
+    // MARK: - SubredditViewControllable
     func present(viewController: ViewControllable) {
         present(viewController.uiviewController, animated: true, completion: nil)
     }
     
     func presentWithCardAnimation(viewController: ViewControllable) {
-        viewController.uiviewController.modalPresentationStyle = .custom
-        viewController.uiviewController.transitioningDelegate = cardTransition
-        present(viewController.uiviewController, animated: true, completion: nil)
+        navigationController?.pushViewController(viewController.uiviewController, animated: true)
+    }
+    
+    // MARK: - SubredditPresentable
+    func addListingNextPage() {
+        guard let listener = listener else {
+            return
+        }
+        
+        let indexSet = IndexSet(integer: listener.sections.count - 1)
+        tableView.insertSections(indexSet, with: .bottom)
+    }
+    
+    func reloadListing() {
+        tableView.reloadData()
     }
 }
 
@@ -112,12 +128,12 @@ extension SubredditViewController: UITableViewDataSource {
     }
     
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = listener?.sections else {
+        guard let row = listener?.sections[section] else {
             return 0
         }
-
-        switch sections[section] {
-        case let .linkRows(links):
+        
+        switch row {
+        case let .linkRows(links: links):
             return links.count
         case .loadingIndicator:
             return 1
@@ -125,6 +141,7 @@ extension SubredditViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let sections = listener?.sections else {
             return UITableViewCell()
         }
@@ -146,7 +163,7 @@ extension SubredditViewController: UITableViewDataSource {
         case .link:
             cell = urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
         case .image:
-            cell = imageLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
+            cell = imageLinkTableViewCellFor(tableView: tableView, indexPath: indexPath, link: link)
         default:
             cell = urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
         }
@@ -155,7 +172,7 @@ extension SubredditViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        configureLinkTableViewCell(cell: linkCell, link: link)
+        //configureLinkTableViewCell(cell: linkCell, link: link)
         
         return linkCell
     }
@@ -172,7 +189,7 @@ extension SubredditViewController: UITableViewDataSource {
     
     func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         estimatedHeightCache[indexPath] = cell.frame.height
-
+        
         listener?.loadNextListingPage(withIndexPath: indexPath)
     }
     
@@ -180,28 +197,25 @@ extension SubredditViewController: UITableViewDataSource {
         return estimatedHeightCache[indexPath] ?? 100
     }
     
-    func reloadListing() {
-        tableView.reloadData()
-    }
-    
-    func updateListingNextPage() {
-        guard let listener = listener else {
-            return
-        }
+    @objc func shareButtonHandler() {
         
-        let index = IndexSet(integer: listener.sections.count - 1)
-        tableView.insertSections(index, with: .bottom)
     }
-    
-    func configureLinkTableViewCell(cell: UITableViewCell, link: Link) {
-        let viewModel = LinkCellViewModel(link: link)
+}
+
+// MARK: - UITableViewDelegate
+extension SubredditViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let contentView = (tableView.cellForRow(at: indexPath) as? Contentable)?.linkContentView
         
-        if var linkCell = cell as? ILinkCell {
-            linkCell.viewModel = viewModel
-            linkCell.configure()
-        }
+        let rect = CGRect(origin: CGPoint.zero, size: contentView!.frame.size)
+        
+        cardTransition.originFrame = contentView!.convert(rect, to: view)
+        listener?.didSelectItem(atIndexPath: indexPath)
     }
-    
+}
+
+// MARK: - Cell Setup
+extension SubredditViewController {
     func urlLinkTableViewCellFor(tableView: UITableView,
                                  indexPath: IndexPath) -> UrlLinkTableViewCell? {
         let cell: UrlLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
@@ -210,21 +224,26 @@ extension SubredditViewController: UITableViewDataSource {
     }
     
     func imageLinkTableViewCellFor(tableView: UITableView,
-                                   indexPath: IndexPath) -> ImageLinkTableViewCell? {
-        let cell: ImageLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
-
+                                   indexPath: IndexPath,
+                                   link: Link) -> ImageLinkTableViewCell? {
+        guard let cell: ImageLinkTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath) else {
+            return nil
+        }
+        
+        // TODO: Test this
+        // If link view's frame is still 0, the force layout
+        // NOTE: this happens when the cell is initially created
+        if cell.linkView.frame.width == 0 {
+            cell.linkView.setNeedsLayout()
+            cell.linkView.layoutIfNeeded()
+        }
+        
+        debugPrint("cell width: \(cell.linkView.frame.width)")
+        LinkViewPresenter.update(imageLinkView: cell.linkView, with: link)
         return cell
     }
-}
-
-extension SubredditViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contentView = (tableView.cellForRow(at: indexPath) as? Contentable)?.linkContentView
-        
-        let rect = CGRect(origin: CGPoint.zero, size: contentView!.frame.size)
-        
-        cardTransition.originFrame = contentView!.convert(rect, to: view)
-        
-        listener?.didSelectItem(atIndexPath: indexPath)
+    
+    func setupLinkActionHandlers(for actionsView: LinkActionsView) {
+        actionsView.shareButton.addTarget(self, action: #selector(shareButtonHandler), for: .touchUpInside)
     }
 }

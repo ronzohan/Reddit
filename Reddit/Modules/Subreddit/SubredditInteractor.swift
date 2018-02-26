@@ -17,7 +17,7 @@ protocol SubredditRouting: ViewableRouting {
 protocol SubredditPresentable: Presentable {
     weak var listener: SubredditPresentableListener? { get set }
     func reloadListing()
-    func updateListingNextPage()
+    func addListingNextPage()
 }
 
 protocol SubredditListener: class {
@@ -97,7 +97,7 @@ SubredditInteractable, SubredditPresentableListener {
                 .subscribe(onNext: { (section) in
                     self.isNextPageQueried = false
                     self.sections.append(section)
-                    self.presenter.updateListingNextPage()
+                    self.presenter.addListingNextPage()
                 })
                 .disposeOnDeactivate(interactor: self)
         }

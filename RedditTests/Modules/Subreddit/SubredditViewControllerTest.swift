@@ -28,17 +28,6 @@ class SubredditViewControllerTest: XCTestCase {
     }
     
     // MARK: - Cell Tests
-    func testLinkTableCellIsConfigured() {
-        // Given
-        let cell = BaseLinkCellMock()
-
-        // When
-        sut.configureLinkTableViewCell(cell: cell, link: link)
-
-        // Then
-        XCTAssertTrue(cell.didConfigure)
-    }
-    
     func testUrlLinkTableViewCell() {
         // Given
         let indexPath = IndexPath(row: 0, section: 0)
@@ -57,7 +46,7 @@ class SubredditViewControllerTest: XCTestCase {
         let cell: ImageLinkTableViewCell?
 
         // When
-        cell = sut.imageLinkTableViewCellFor(tableView: sut.tableView, indexPath: indexPath)
+        cell = sut.imageLinkTableViewCellFor(tableView: sut.tableView, indexPath: indexPath, link: link)
 
         // Then
         XCTAssertNotNil(cell)
@@ -137,7 +126,7 @@ class SubredditViewControllerTest: XCTestCase {
         
         // When
         interactor.sections.append(SubredditSection.linkRows(links: [link]))
-        sut.updateListingNextPage()
+        sut.addListingNextPage()
 
         // Then
         XCTAssertEqual(sut.numberOfSections(in: sut.tableView), interactor.sections.count)
@@ -148,7 +137,7 @@ class SubredditViewControllerTest: XCTestCase {
         sut.listener = nil
         
         // When
-        sut.updateListingNextPage()
+        sut.addListingNextPage()
 
         // Then
         XCTAssertEqual(sut.numberOfSections(in: sut.tableView), 0)
@@ -216,11 +205,24 @@ class SubredditViewControllerTest: XCTestCase {
     // MARK: - Title test
     func testShouldDisplayCorrectTitle() {
         // Given
+        let title = "Home"
+        
         // When
         sut.viewDidLoad()
         
         // Then
-        XCTAssertEqual(sut.title, "Home")
+        XCTAssertEqual(sut.title, title)
+    }
+    
+    func testSetupLinkCellActions() {
+        // Given
+        let imageCell = ImageLinkTableViewCell()
+        
+        // When
+        sut.setupLinkActionHandlers(for: imageCell.linkView.actionsView)
+        
+        // Then
+        XCTAssertEqual(imageCell.linkView.actionsView.shareButton.actions(forTarget: sut, forControlEvent: .touchUpInside)?.count, 1)
     }
 }
 

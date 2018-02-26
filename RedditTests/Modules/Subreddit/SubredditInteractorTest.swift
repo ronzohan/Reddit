@@ -103,7 +103,7 @@ class SubredditInteractorTest: XCTestCase {
         
         // Then
         XCTAssertEqual(sut.sections.count, 2)
-        XCTAssertTrue(subredditViewController.didUpdateListingNextPage)
+        XCTAssertTrue(subredditViewController.didAddListingNextPage)
         XCTAssertFalse(subredditViewController.didReloadListing)
     }
     
@@ -149,6 +149,6 @@ class SubredditInteractorTest: XCTestCase {
         // Then
         XCTAssertEqual(sut.sections.count, 1)
         XCTAssertTrue(subredditViewController.didReloadListing)
-        XCTAssertFalse(subredditViewController.didUpdateListingNextPage)
+        XCTAssertFalse(subredditViewController.didAddListingNextPage)
     }
 }

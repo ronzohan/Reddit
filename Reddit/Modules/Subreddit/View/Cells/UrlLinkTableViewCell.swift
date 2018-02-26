@@ -8,15 +8,13 @@
 
 import UIKit
 
-class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable {
-    var viewModel: LinkCellViewModel?
-    
+class UrlLinkTableViewCell: UITableViewCell, Contentable {
     var linkContentView: UIView {
         return containerView
     }
     
-    lazy var linkView: ContentLinkView<UIImageView> = {
-        let view = ContentLinkView<UIImageView>()
+    lazy var linkView: UrlLinkView = {
+        let view = UrlLinkView()
         
         return view
     }()
@@ -36,10 +34,10 @@ class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        linkView.contentView.af_cancelImageRequest()
-        linkView.contentView.image = nil
-
-        linkView.mainContentViewHeightConst?.constant = CGFloat(0)
+//        linkView.contentView.af_cancelImageRequest()
+//        linkView.contentView.image = nil
+//
+//        linkView.mainContentViewHeightConst?.constant = CGFloat(0)
     }
     
     private func setupSubviews() {
@@ -68,21 +66,7 @@ class UrlLinkTableViewCell: UITableViewCell, ILinkCell, Contentable {
         }
     }
 
-    func configure() {
-        linkView.mainContentViewHeightConst?.constant = CGFloat(100)
-
-        if let urlString = viewModel?.imageUrl, let url = URL(string: urlString) {
-            updateImage(withURLRequest: URLRequest(url: url))
-        }
-        
-        linkView.titleLabel.text = viewModel?.title
-        linkView.titleLabel.font = UIFont(name: "Avenir-Book", size: 16)
-        
-        linkView.infoView.metaLabel.text = viewModel?.meta
-        linkView.infoView.metaLabel.font = UIFont(name: "Avenir-Light", size: 14)
-    }
-
     func updateImage(withURLRequest request: URLRequest) {
-        linkView.contentView.af_setImage(withURLRequest: request)
+        //linkView.contentView.af_setImage(withURLRequest: request)
     }
 }

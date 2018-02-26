@@ -59,7 +59,6 @@
 		EE5A9ED61FC5DF3F00A812D8 /* SubredditViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5A9ED51FC5DF3F00A812D8 /* SubredditViewControllerMock.swift */; };
 		EE5D1E571F83F49B00EAA5FD /* LinkViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E531F83F49B00EAA5FD /* LinkViewTest.swift */; };
 		EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */; };
-		EE5D1E5D1F83F50D00EAA5FD /* LinkCellViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5D1E5C1F83F50D00EAA5FD /* LinkCellViewModelTest.swift */; };
 		EE6D84731F519A9800508361 /* Progressable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6D84721F519A9800508361 /* Progressable.swift */; };
 		EE7662A61F5C3FB1006987BC /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A31F5C3FB1006987BC /* RxBlocking.framework */; };
 		EE7662A71F5C3FB1006987BC /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A31F5C3FB1006987BC /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -216,7 +215,6 @@
 		EE5A9ED51FC5DF3F00A812D8 /* SubredditViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubredditViewControllerMock.swift; sourceTree = "<group>"; };
 		EE5D1E531F83F49B00EAA5FD /* LinkViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewTest.swift; sourceTree = "<group>"; };
 		EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCellTest.swift; sourceTree = "<group>"; };
-		EE5D1E5C1F83F50D00EAA5FD /* LinkCellViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCellViewModelTest.swift; sourceTree = "<group>"; };
 		EE6D84721F519A9800508361 /* Progressable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Progressable.swift; sourceTree = "<group>"; };
 		EE7662A31F5C3FB1006987BC /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		EE7662A41F5C3FB1006987BC /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -445,7 +443,6 @@
 				EE5A9EC81FC5D7AC00A812D8 /* SubredditViewControllerTest.swift */,
 				EEDBFC1A20445D2D0056BD1B /* Presenter */,
 				EE5D1E501F83F49B00EAA5FD /* View */,
-				EE5D1E591F83F4AA00EAA5FD /* ViewModel */,
 			);
 			path = Subreddit;
 			sourceTree = "<group>";
@@ -465,14 +462,6 @@
 				EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		EE5D1E591F83F4AA00EAA5FD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				EE5D1E5C1F83F50D00EAA5FD /* LinkCellViewModelTest.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EE6D84711F519A8F00508361 /* Common */ = {
@@ -1067,7 +1056,6 @@
 				EE5A9ECF1FC5DD1E00A812D8 /* SubredditServiceMock.swift in Sources */,
 				EE299CB91F434DF700733426 /* ListingTest.swift in Sources */,
 				EEDE30ED203DE1620085B7CA /* LinkViewPresenterTest.swift in Sources */,
-				EE5D1E5D1F83F50D00EAA5FD /* LinkCellViewModelTest.swift in Sources */,
 				EE35A3812011013B001FCB38 /* PreviewDataMock.swift in Sources */,
 				EE3B85C1200E574A00B5A6B4 /* ArticleTest.swift in Sources */,
 				EE306DAA1FC733F90012DC43 /* ThingDetailInteractorTest.swift in Sources */,

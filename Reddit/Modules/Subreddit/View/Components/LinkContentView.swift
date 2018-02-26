@@ -9,18 +9,18 @@
 import UIKit
 import AlamofireImage
 
-protocol ImageContentLinkViewable: LinkViewable {
+protocol ImageLinkViewable: LinkViewable {
     var width: Double { get }
     
     func setImage(withUrl url: String)
     func setContentHeight(height: Double)
 }
 
-protocol ImageContentLinkView: LinkView, ImageContentLinkViewable {
+protocol ImageLinkViewProtocol: LinkView, ImageLinkViewable {
     var imageView: UIImageView { get }
 }
 
-extension ImageContentLinkView {
+extension ImageLinkViewProtocol {
     func setImage(withUrl url: String) {
         guard let imageUrl = URL(string: url) else {
             return

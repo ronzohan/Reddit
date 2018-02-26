@@ -11,7 +11,7 @@ import AlamofireImage
 
 // MARK: - Image Link
 /// A Link View that can display images
-class ImageLinkView: UIView, ImageContentLinkView {
+class ImageLinkView: UIView, ImageLinkViewProtocol {
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)

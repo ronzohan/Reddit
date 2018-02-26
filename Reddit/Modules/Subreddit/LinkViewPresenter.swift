@@ -26,7 +26,7 @@ class LinkViewPresenter {
     }
     
     /// Updates the given image link view with its associated link
-    static func update(imageLinkView: ImageContentLinkViewable, with link: Link) {
+    static func update(imageLinkView: ImageLinkViewable, with link: Link) {
         guard let imageUrl = imageUrl(for: link) else {
             return
         }

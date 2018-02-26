@@ -22,7 +22,6 @@
 		EE18496C1FD84D9300531ED7 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE18496B1FD84D9300531ED7 /* Request.swift */; };
 		EE19BA421F73F88A00F99974 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; };
 		EE19BA431F73F88A00F99974 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE7662A51F5C3FB1006987BC /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE19BA711F73FE9000F99974 /* LinkContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19BA701F73FE9000F99974 /* LinkContentView.swift */; };
 		EE1EB1021FC94528007978DB /* CardPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */; };
 		EE1EB1031FC94528007978DB /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB1001FC94527007978DB /* CardPresentationController.swift */; };
 		EE1EB1041FC94528007978DB /* CardTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */; };
@@ -114,6 +113,7 @@
 		EED6458C1F40A3AC00BA46B2 /* AlamofireImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EEDBFC1C204463270056BD1B /* TitleLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBFC1B204463270056BD1B /* TitleLinkTableViewCell.swift */; };
 		EEDBFC1E204463BA0056BD1B /* TitleLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBFC1D204463BA0056BD1B /* TitleLinkView.swift */; };
+		EEDBFC20204468D80056BD1B /* ImageLinkViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDBFC1F204468D80056BD1B /* ImageLinkViewProtocol.swift */; };
 		EEDE30ED203DE1620085B7CA /* LinkViewPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDE30EC203DE1620085B7CA /* LinkViewPresenterTest.swift */; };
 		EEE00EAD1FEF3AC600C5BE73 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE00EAC1FEF3AC600C5BE73 /* LoadingCell.swift */; };
 		EEF4917C1FEE4790009F310D /* RedditDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF4917B1FEE4790009F310D /* RedditDetail.xib */; };
@@ -178,7 +178,6 @@
 		EE04AD0E1F4B326800DAD0C6 /* SubredditSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubredditSection.swift; sourceTree = "<group>"; };
 		EE0B96301FD05A8400E38284 /* LinkDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkDataMock.swift; sourceTree = "<group>"; };
 		EE18496B1FD84D9300531ED7 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		EE19BA701F73FE9000F99974 /* LinkContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkContentView.swift; sourceTree = "<group>"; };
 		EE1EB0FF1FC94527007978DB /* CardPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationAnimator.swift; sourceTree = "<group>"; };
 		EE1EB1001FC94527007978DB /* CardPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		EE1EB1011FC94527007978DB /* CardTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +271,7 @@
 		EED645851F40A3AC00BA46B2 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		EEDBFC1B204463270056BD1B /* TitleLinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEDBFC1D204463BA0056BD1B /* TitleLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLinkView.swift; sourceTree = "<group>"; };
+		EEDBFC1F204468D80056BD1B /* ImageLinkViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLinkViewProtocol.swift; sourceTree = "<group>"; };
 		EEDE30EC203DE1620085B7CA /* LinkViewPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewPresenterTest.swift; sourceTree = "<group>"; };
 		EEE00EAC1FEF3AC600C5BE73 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		EEF4917B1FEE4790009F310D /* RedditDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RedditDetail.xib; sourceTree = "<group>"; };
@@ -650,7 +650,6 @@
 		EED5793E1F481A42006AA6C7 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				EE19BA701F73FE9000F99974 /* LinkContentView.swift */,
 				EEB7F31920309A3100DFAB50 /* LinkView.swift */,
 				EEB7F3152030906200DFAB50 /* LinkActionsView.swift */,
 				EEB7F317203096E900DFAB50 /* LinkInfoView.swift */,
@@ -658,6 +657,7 @@
 				EE787F40203DD2F500544ECF /* ImageLinkView.swift */,
 				EE040820203DDA9D0047D05C /* ILinkCell.swift */,
 				EEDBFC1D204463BA0056BD1B /* TitleLinkView.swift */,
+				EEDBFC1F204468D80056BD1B /* ImageLinkViewProtocol.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1000,6 +1000,7 @@
 				EE25AF751FD97ED8003A3C32 /* AFNetworkAdapter.swift in Sources */,
 				EED6457D1F40A09500BA46B2 /* Listing.swift in Sources */,
 				EE1EB1031FC94528007978DB /* CardPresentationController.swift in Sources */,
+				EEDBFC20204468D80056BD1B /* ImageLinkViewProtocol.swift in Sources */,
 				EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */,
 				EEDBFC1C204463270056BD1B /* TitleLinkTableViewCell.swift in Sources */,
 				EEF9356D1FD85631003A5B6E /* RedditRequest.swift in Sources */,
@@ -1014,7 +1015,6 @@
 				EEACD4A42018CCE000FE21F1 /* VoteView.swift in Sources */,
 				EE4BCB5C1FA89C7F00C7BEC5 /* UIKitExtensions.swift in Sources */,
 				EEC7CB751FC1E4C40051097F /* ThingDetailRouter.swift in Sources */,
-				EE19BA711F73FE9000F99974 /* LinkContentView.swift in Sources */,
 				EE59ECE81F77FFC100229774 /* PostHint.swift in Sources */,
 				EEC7CB7D1FC1E51F0051097F /* SubredditRouter.swift in Sources */,
 				EED5793D1F48163A006AA6C7 /* Created.swift in Sources */,

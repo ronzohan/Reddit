@@ -16,7 +16,6 @@ class LinkViewPresenter {
     /// Updates the given link view with its associated link
     static func update(titleLinkView: LinkViewable, with link: Link) {
         titleLinkView.setTitle(withTitle: link.title)
-        titleLinkView.setUps(withUps: "\(link.ups)")
         
         let linkMeta = meta(for: link)
         titleLinkView.setMeta(withMeta: linkMeta)

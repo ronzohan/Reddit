@@ -71,6 +71,7 @@
 		EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */; };
 		EEA21B361FCC59AB00089504 /* RedditAnyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */; };
+		EEA39EE52045B29200F5BEBE /* UrlLinkViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39EE42045B29200F5BEBE /* UrlLinkViewMock.swift */; };
 		EEACD4A22018CC7700FE21F1 /* VoteViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */; };
 		EEACD4A42018CCE000FE21F1 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEACD4A32018CCE000FE21F1 /* VoteView.swift */; };
 		EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */; };
@@ -226,6 +227,7 @@
 		EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHelper.swift; sourceTree = "<group>"; };
 		EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAnyKeys.swift; sourceTree = "<group>"; };
+		EEA39EE42045B29200F5BEBE /* UrlLinkViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlLinkViewMock.swift; sourceTree = "<group>"; };
 		EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewTest.swift; sourceTree = "<group>"; };
 		EEACD4A32018CCE000FE21F1 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLinkTableViewCell.swift; sourceTree = "<group>"; };
@@ -729,6 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				EE25AF831FD99291003A3C32 /* EndpointMock.swift */,
+				EEA39EE42045B29200F5BEBE /* UrlLinkViewMock.swift */,
 				EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */,
 				EE5A9ECC1FC5DCF800A812D8 /* Subreddit */,
 			);
@@ -1046,6 +1049,7 @@
 				EE25AF841FD99291003A3C32 /* EndpointMock.swift in Sources */,
 				EE0B96311FD05A8400E38284 /* LinkDataMock.swift in Sources */,
 				EE59ECEC1F7803BE00229774 /* PostHintTest.swift in Sources */,
+				EEA39EE52045B29200F5BEBE /* UrlLinkViewMock.swift in Sources */,
 				EE5A9ED41FC5DDBB00A812D8 /* ViewControllableMock.swift in Sources */,
 				EE2541581F740636007DFF61 /* Date+ExtensionsTest.swift in Sources */,
 				EE25AF861FD994D9003A3C32 /* SubredditServiceTest.swift in Sources */,

@@ -27,6 +27,17 @@ class SubredditViewControllerTest: XCTestCase {
         XCTAssertNotNil(sut?.view)
     }
     
+    // MARK: - Helper Test Functions
+    func testLinkView(view: LinkView, for link: Link) {
+        XCTAssertEqual(view.titleLabel.text, link.title)
+        
+        let expectedMeta = LinkViewPresenter.meta(for: link)
+        XCTAssertEqual(view.infoView.metaLabel.text, expectedMeta)
+        
+        let expectedUps = LinkViewPresenter.upsString(for: link)
+        XCTAssertEqual(view.actionsView.voteView.voteCountLabel.text, expectedUps)
+    }
+    
     // MARK: - Cell Tests
     func testUrlLinkTableViewCell() {
         // Given
@@ -34,10 +45,17 @@ class SubredditViewControllerTest: XCTestCase {
         let cell: UrlLinkTableViewCell?
 
         // When
-        cell = sut.urlLinkTableViewCellFor(tableView: sut.tableView, indexPath: indexPath)
+        cell = sut.urlLinkTableViewCellFor(tableView: sut.tableView, indexPath: indexPath, link: link)
 
         // Then
         XCTAssertNotNil(cell)
+        
+        guard let linkView = cell?.linkView else {
+            XCTFail("No linkView found")
+            return
+        }
+
+        testLinkView(view: linkView, for: link)
     }
     
     func testImageLinkTableViewCell() {

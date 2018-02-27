@@ -220,7 +220,6 @@ extension SubredditViewController {
     func urlLinkTableViewCellFor(tableView: UITableView,
                                  indexPath: IndexPath,
                                  link: Link) -> UrlLinkTableViewCell? {
-        // TODO: Test this
         guard let cell: UrlLinkTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath) else {
             return nil
         }

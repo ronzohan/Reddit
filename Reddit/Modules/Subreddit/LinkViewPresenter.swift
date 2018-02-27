@@ -14,6 +14,7 @@ class LinkViewPresenter {
     
     // MARK: - Link View Presentation Logic
     /// Updates the given link view with its associated link
+    // TODO: Test this
     static func update(titleLinkView: LinkViewable, with link: Link) {
         titleLinkView.setTitle(withTitle: link.title)
         
@@ -39,13 +40,11 @@ class LinkViewPresenter {
         imageLinkView.setContentHeight(height: height)
     }
     
-    // TODO: Test this
+    /// Updates the url link view with its associated link
     static func update(urlLinkView: UrlLinkViewable, with link: Link) {
-        guard let imageUrl = imageUrl(for: link) else {
-            return
+        if let thumbnailUrl = link.thumbnail {
+            urlLinkView.setImage(withUrl: thumbnailUrl)
         }
-
-        urlLinkView.setImage(withUrl: imageUrl)
 
         update(titleLinkView: urlLinkView, with: link)
     }

@@ -50,6 +50,38 @@ class LinkViewPresenterTest: XCTestCase {
         
         image = previewImage
     }
+    
+    // MARK: - Link View Presentation
+    func testUrlLinkViewUpdate() {
+        // Given
+        let view = UrlLinkViewMock()
+        
+        // When
+        LinkViewPresenter.update(urlLinkView: view, with: link)
+        
+        // Then
+        XCTAssertTrue(view.didSetImage)
+        XCTAssertTrue(view.didSetMeta)
+        XCTAssertTrue(view.didSetUps)
+        XCTAssertTrue(view.didSetTitle)
+    }
+    
+    func testUrlLinkViewUpdateWithNoThumbnail() {
+        // Given
+        let view = UrlLinkViewMock()
+        
+        // When
+        linkData[Link.CodingKeys.thumbnail.rawValue] = nil
+        link = DictionaryHelper.model(for: linkData)
+
+        LinkViewPresenter.update(urlLinkView: view, with: link)
+        
+        // Then
+        XCTAssertFalse(view.didSetImage)
+        XCTAssertTrue(view.didSetMeta)
+        XCTAssertTrue(view.didSetUps)
+        XCTAssertTrue(view.didSetTitle)
+    }
 
     // MARK: - Meta
     func testMetaInfo() {

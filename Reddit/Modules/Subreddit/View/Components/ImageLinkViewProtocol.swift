@@ -8,11 +8,10 @@
 
 import Foundation
 
-protocol ImageLinkViewable: LinkViewable {
+protocol ImageLinkViewable: LinkViewable, ViewContentHeightAdjustable {
     var width: Double { get }
     
     func setImage(withUrl url: String)
-    func setContentHeight(height: Double)
 }
 
 protocol ImageLinkViewProtocol: LinkView, ImageLinkViewable {

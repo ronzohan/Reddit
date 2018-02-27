@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import SnapKit
 
 // MARK: - Url Link
-/// A Link View that can display url
-// TODO: Add a image beside content text
-class UrlLinkView: UIView, LinkView {
+/// A Link View that can display url alongside its thumbnail
+class UrlLinkView: UIView, UrlLinkViewProtocol {
+    
+    // MARK: - Properties
+    var imageSize: CGSize = CGSize(width: 80, height: 80)
+    
     // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,28 +48,48 @@ class UrlLinkView: UIView, LinkView {
         return actionsView
     }()
     
-    private lazy var mainContentView: UIStackView = {
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        return imageView
+    }()
+    
+    private lazy var mainContainerView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         
         return stackView
     }()
     
+    private lazy var contentView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(imageView)
+        stackView.axis = .horizontal
+        stackView.alignment = .top
+        
+        imageView.snp.makeConstraints({ (make) in
+            make.size.equalTo(imageSize)
+        })
+        
+        return stackView
+    }()
+    
     func setup() {
-        addSubview(mainContentView)
+        addSubview(mainContainerView)
         addSubview(actionsView)
         
-        mainContentView.addArrangedSubview(infoView)
-        mainContentView.addArrangedSubview(titleLabel)
+        mainContainerView.addArrangedSubview(infoView)
+        mainContainerView.addArrangedSubview(contentView)
 
-        mainContentView.snp.makeConstraints { (make) in
+        mainContainerView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
         }
-        
+
         actionsView.snp.makeConstraints { (make) in
-            make.top.equalTo(infoView.snp.bottom)
-            make.leading.equalTo(infoView.snp.leading)
-            make.trailing.equalTo(infoView.snp.trailing)
+            make.top.equalTo(mainContainerView.snp.bottom)
+            make.leading.equalTo(mainContainerView.snp.leading)
+            make.trailing.equalTo(mainContainerView.snp.trailing)
             make.bottom.equalToSuperview()
         }
     }

@@ -72,7 +72,7 @@ class LinkViewPresenterTest: XCTestCase {
     
     func testMetaDateIsGreaterThanCurrentDate() {
         // Given
-        let currentDate = NSDate()
+        let currentDate = Date()
         
         // When
         linkData["created_utc"] = UInt64(currentDate.timeIntervalSince1970 + 1000)

@@ -69,6 +69,7 @@ class UrlLinkView: UIView, UrlLinkViewProtocol {
         stackView.addArrangedSubview(imageView)
         stackView.axis = .horizontal
         stackView.alignment = .top
+        stackView.spacing = 8
         
         imageView.snp.makeConstraints({ (make) in
             make.size.equalTo(imageSize)

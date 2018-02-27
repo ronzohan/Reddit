@@ -33,11 +33,6 @@ class UrlLinkTableViewCell: UITableViewCell, Contentable {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-
-//        linkView.contentView.af_cancelImageRequest()
-//        linkView.contentView.image = nil
-//
-//        linkView.mainContentViewHeightConst?.constant = CGFloat(0)
     }
     
     private func setupSubviews() {

@@ -161,11 +161,12 @@ extension SubredditViewController: UITableViewDataSource {
         
         switch link.postHint {
         case .link:
-            cell = urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
+            cell = urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath, link: link)
         case .image:
             cell = imageLinkTableViewCellFor(tableView: tableView, indexPath: indexPath, link: link)
         default:
-            cell = urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath)
+            cell = UITableViewCell()
+            //cell = urlLinkTableViewCellFor(tableView: tableView, indexPath: indexPath, link: link)
         }
         
         guard let linkCell = cell else {
@@ -217,8 +218,14 @@ extension SubredditViewController: UITableViewDelegate {
 // MARK: - Cell Setup
 extension SubredditViewController {
     func urlLinkTableViewCellFor(tableView: UITableView,
-                                 indexPath: IndexPath) -> UrlLinkTableViewCell? {
-        let cell: UrlLinkTableViewCell? = tableView.dequeueReusableCell(forIndexPath: indexPath)
+                                 indexPath: IndexPath,
+                                 link: Link) -> UrlLinkTableViewCell? {
+        // TODO: Test this
+        guard let cell: UrlLinkTableViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath) else {
+            return nil
+        }
+
+        LinkViewPresenter.update(urlLinkView: cell.linkView, with: link)
         
         return cell
     }
@@ -237,8 +244,7 @@ extension SubredditViewController {
             cell.linkView.setNeedsLayout()
             cell.linkView.layoutIfNeeded()
         }
-        
-        debugPrint("cell width: \(cell.linkView.frame.width)")
+
         LinkViewPresenter.update(imageLinkView: cell.linkView, with: link)
         return cell
     }

@@ -49,10 +49,9 @@ class LinkViewPresenterTest: XCTestCase {
         }
         
         image = previewImage
-        
-        //viewModel = LinkCellViewModel(link: link)
     }
-    
+
+    // MARK: - Meta
     func testMetaInfo() {
         // Given
         let createdUTC = Date(timeInterval: link.createdUTC)

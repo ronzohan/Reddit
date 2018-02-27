@@ -50,6 +50,8 @@ class UrlLinkView: UIView, UrlLinkViewProtocol {
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         
         return imageView
     }()

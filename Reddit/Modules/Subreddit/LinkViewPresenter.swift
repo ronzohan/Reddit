@@ -26,16 +26,29 @@ class LinkViewPresenter {
     }
     
     /// Updates the given image link view with its associated link
+    // TODO: Test this
     static func update(imageLinkView: ImageLinkViewable, with link: Link) {
         guard let imageUrl = imageUrl(for: link) else {
             return
         }
+
         imageLinkView.setImage(withUrl: imageUrl)
         
         update(titleLinkView: imageLinkView, with: link)
 
         let height = contentHeight(forWidth: imageLinkView.width, link: link)
         imageLinkView.setContentHeight(height: height)
+    }
+    
+    // TODO: Test this
+    static func update(urlLinkView: UrlLinkViewable, with link: Link) {
+        guard let imageUrl = imageUrl(for: link) else {
+            return
+        }
+
+        urlLinkView.setImage(withUrl: imageUrl)
+
+        update(titleLinkView: urlLinkView, with: link)
     }
     
     /// Returns the appropriate meta data text based off the link

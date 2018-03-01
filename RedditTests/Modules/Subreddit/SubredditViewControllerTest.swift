@@ -58,6 +58,26 @@ class SubredditViewControllerTest: XCTestCase {
         testLinkView(view: linkView, for: link)
     }
     
+    func testTitleLinkTableViewCell() {
+        // Given
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell: TitleLinkTableViewCell?
+        
+        // When
+        cell = sut.titleLinkTableViewCellFor(tableView: sut.tableView, indexPath: indexPath, link: link)
+        
+        // Then
+        XCTAssertNotNil(cell)
+        
+        guard let linkView = cell?.linkView else {
+            XCTFail("No linkView found")
+            return
+        }
+        
+        testLinkView(view: linkView, for: link)
+    }
+
+    // TODO: Continue testing this
     func testImageLinkTableViewCell() {
         // Given
         let indexPath = IndexPath(row: 0, section: 0)

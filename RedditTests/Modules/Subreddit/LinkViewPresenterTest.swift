@@ -50,8 +50,8 @@ class LinkViewPresenterTest: XCTestCase {
         
         image = previewImage
     }
-    
-    // MARK: - Link View Presentation
+
+    // MARK: - Url Link
     func testUrlLinkViewUpdate() {
         // Given
         let view = UrlLinkViewMock()
@@ -78,6 +78,21 @@ class LinkViewPresenterTest: XCTestCase {
         
         // Then
         XCTAssertFalse(view.didSetImage)
+        XCTAssertTrue(view.didSetMeta)
+        XCTAssertTrue(view.didSetUps)
+        XCTAssertTrue(view.didSetTitle)
+    }
+    
+    // MARK: - Image Link
+    func testImageLinkViewUpdate() {
+        // Given
+        let view = ImageLinkViewMock()
+        
+        // When
+        LinkViewPresenter.update(imageLinkView: view, with: link)
+        
+        // Then
+        XCTAssertTrue(view.didSetImage)
         XCTAssertTrue(view.didSetMeta)
         XCTAssertTrue(view.didSetUps)
         XCTAssertTrue(view.didSetTitle)

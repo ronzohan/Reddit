@@ -12,7 +12,6 @@ import SnapKit
 // MARK: - Url Link
 /// A Link View that can display url alongside its thumbnail
 class UrlLinkView: UIView, UrlLinkViewProtocol {
-    
     // MARK: - Properties
     var imageSize: CGSize = CGSize(width: 80, height: 80)
     
@@ -48,8 +47,8 @@ class UrlLinkView: UIView, UrlLinkViewProtocol {
         return actionsView
     }()
     
-    lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
+    lazy var imageView: CaptionedImageView = {
+        let imageView = CaptionedImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         

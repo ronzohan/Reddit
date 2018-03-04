@@ -64,6 +64,7 @@ class LinkViewPresenterTest: XCTestCase {
         XCTAssertTrue(view.didSetMeta)
         XCTAssertTrue(view.didSetUps)
         XCTAssertTrue(view.didSetTitle)
+        XCTAssertTrue(view.didSetCaption)
     }
     
     func testUrlLinkViewUpdateWithNoThumbnail() {

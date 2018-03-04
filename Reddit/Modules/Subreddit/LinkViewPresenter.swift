@@ -44,8 +44,12 @@ class LinkViewPresenter {
             urlLinkView.setImage(withUrl: thumbnailUrl)
         }
 
+        urlLinkView.setCaption(link.url)
+        
         update(titleLinkView: urlLinkView, with: link)
     }
+    
+    // MARK: - Properties Setup
     
     /// Returns the appropriate meta data text based off the link
     static func meta(for link: Link) -> String {

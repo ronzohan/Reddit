@@ -29,4 +29,9 @@ class UrlLinkViewMock: UrlLinkViewable {
     func setMeta(withMeta meta: String) {
         didSetMeta = true
     }
+    
+    var didSetCaption = false
+    func setCaption(_ caption: String) {
+        didSetCaption = true
+    }
 }

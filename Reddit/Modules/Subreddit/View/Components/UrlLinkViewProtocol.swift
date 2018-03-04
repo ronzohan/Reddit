@@ -10,10 +10,11 @@ import Foundation
 
 protocol UrlLinkViewable: LinkViewable {
     func setImage(withUrl url: String)
+    func setCaption(_ caption: String)
 }
 
 protocol UrlLinkViewProtocol: LinkView, UrlLinkViewable {
-    var imageView: UIImageView { get }
+    var imageView: CaptionedImageView { get }
 }
 
 extension UrlLinkViewProtocol {
@@ -22,5 +23,9 @@ extension UrlLinkViewProtocol {
             return
         }
         imageView.af_setImage(withURL: imageUrl)
+    }
+    
+    func setCaption(_ caption: String) {
+        imageView.caption = caption
     }
 }

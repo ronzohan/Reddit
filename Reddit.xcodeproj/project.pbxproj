@@ -69,11 +69,15 @@
 		EE7E74851F4B049100C9B623 /* PreviewImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */; };
 		EE8B47ED1FB4B75100F4C0CB /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; };
 		EE8B47EE1FB4B75100F4C0CB /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE9D16852048678800D3623F /* ImageLinkViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9D16842048678800D3623F /* ImageLinkViewMock.swift */; };
 		EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */; };
 		EEA21B361FCC59AB00089504 /* RedditAnyKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */; };
 		EEA39EE52045B29200F5BEBE /* UrlLinkViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA39EE42045B29200F5BEBE /* UrlLinkViewMock.swift */; };
 		EEACD4A22018CC7700FE21F1 /* VoteViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */; };
 		EEACD4A42018CCE000FE21F1 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEACD4A32018CCE000FE21F1 /* VoteView.swift */; };
+		EEB12F9B204C5C6F00B8E82D /* CaptionedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB12F9A204C5C6F00B8E82D /* CaptionedImageView.swift */; };
+		EEB12F9F204C5CBA00B8E82D /* CaptionedImageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB12F9E204C5CBA00B8E82D /* CaptionedImageViewTest.swift */; };
+		EEB12FA1204C60DB00B8E82D /* UrlLinkViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB12FA0204C60DB00B8E82D /* UrlLinkViewTest.swift */; };
 		EEB32C9A1FA229A600F414E8 /* ImageLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */; };
 		EEB32C9C1FA229A600F414E8 /* UrlLinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */; };
 		EEB6A917201A2487002094F0 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6A916201A2487002094F0 /* Theme.swift */; };
@@ -225,11 +229,15 @@
 		EE7E74821F4AFEA700C9B623 /* ImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
 		EE7E74841F4B049100C9B623 /* PreviewImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewImageTest.swift; sourceTree = "<group>"; };
 		EE8B47EB1FB4B74200F4C0CB /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		EE9D16842048678800D3623F /* ImageLinkViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLinkViewMock.swift; sourceTree = "<group>"; };
 		EE9F4FBE1FCDCFAC006B27A6 /* DictionaryHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryHelper.swift; sourceTree = "<group>"; };
 		EEA21B351FCC59AB00089504 /* RedditAnyKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditAnyKeys.swift; sourceTree = "<group>"; };
 		EEA39EE42045B29200F5BEBE /* UrlLinkViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlLinkViewMock.swift; sourceTree = "<group>"; };
 		EEACD4A12018CC7700FE21F1 /* VoteViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewTest.swift; sourceTree = "<group>"; };
 		EEACD4A32018CCE000FE21F1 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		EEB12F9A204C5C6F00B8E82D /* CaptionedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionedImageView.swift; sourceTree = "<group>"; };
+		EEB12F9E204C5CBA00B8E82D /* CaptionedImageViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionedImageViewTest.swift; sourceTree = "<group>"; };
+		EEB12FA0204C60DB00B8E82D /* UrlLinkViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlLinkViewTest.swift; sourceTree = "<group>"; };
 		EEB32C971FA229A600F414E8 /* ImageLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB32C991FA229A600F414E8 /* UrlLinkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlLinkTableViewCell.swift; sourceTree = "<group>"; };
 		EEB6A916201A2487002094F0 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -464,6 +472,8 @@
 			children = (
 				EE5D1E531F83F49B00EAA5FD /* LinkViewTest.swift */,
 				EE5D1E541F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift */,
+				EEB12F9E204C5CBA00B8E82D /* CaptionedImageViewTest.swift */,
+				EEB12FA0204C60DB00B8E82D /* UrlLinkViewTest.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -656,6 +666,7 @@
 				EEDBFC1F204468D80056BD1B /* ImageLinkViewProtocol.swift */,
 				EEDBFC21204469180056BD1B /* UrlLinkViewProtocol.swift */,
 				EEDBFC2320446B910056BD1B /* ViewContentHeightAdjustable.swift */,
+				EEB12F9A204C5C6F00B8E82D /* CaptionedImageView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -731,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				EE25AF831FD99291003A3C32 /* EndpointMock.swift */,
+				EE9D16842048678800D3623F /* ImageLinkViewMock.swift */,
 				EEA39EE42045B29200F5BEBE /* UrlLinkViewMock.swift */,
 				EE5A9ED31FC5DDBB00A812D8 /* ViewControllableMock.swift */,
 				EE5A9ECC1FC5DCF800A812D8 /* Subreddit */,
@@ -1005,6 +1017,7 @@
 				EEB7F318203096E900DFAB50 /* LinkInfoView.swift in Sources */,
 				EEC7CB871FC1E6900051097F /* RootViewController.swift in Sources */,
 				EEF69CCB1FD59B9900AF1F46 /* SubredditService.swift in Sources */,
+				EEB12F9B204C5C6F00B8E82D /* CaptionedImageView.swift in Sources */,
 				EED6457B1F40A09500BA46B2 /* Kind.swift in Sources */,
 				EEC7CB761FC1E4C40051097F /* ThingDetailViewController.swift in Sources */,
 				EEF69CBE1FD597A400AF1F46 /* RequestConfig.swift in Sources */,
@@ -1035,6 +1048,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9D16852048678800D3623F /* ImageLinkViewMock.swift in Sources */,
 				EE5A9EC71FC5D71300A812D8 /* SubredditInteractorTest.swift in Sources */,
 				EE3B85C3200E5A6C00B5A6B4 /* CommentTest.swift in Sources */,
 				EE25AF881FD99DF3003A3C32 /* SubredditEndpointTest.swift in Sources */,
@@ -1055,6 +1069,7 @@
 				EE25AF861FD994D9003A3C32 /* SubredditServiceTest.swift in Sources */,
 				EE5A9ECF1FC5DD1E00A812D8 /* SubredditServiceMock.swift in Sources */,
 				EE299CB91F434DF700733426 /* ListingTest.swift in Sources */,
+				EEB12FA1204C60DB00B8E82D /* UrlLinkViewTest.swift in Sources */,
 				EEDE30ED203DE1620085B7CA /* LinkViewPresenterTest.swift in Sources */,
 				EE35A3812011013B001FCB38 /* PreviewDataMock.swift in Sources */,
 				EE3B85C1200E574A00B5A6B4 /* ArticleTest.swift in Sources */,
@@ -1063,6 +1078,7 @@
 				EE299CB81F434DF700733426 /* LinkTest.swift in Sources */,
 				EEACD4A22018CC7700FE21F1 /* VoteViewTest.swift in Sources */,
 				EEF69CC11FD597ED00AF1F46 /* RequestConfigTest.swift in Sources */,
+				EEB12F9F204C5CBA00B8E82D /* CaptionedImageViewTest.swift in Sources */,
 				EE9F4FBF1FCDCFAC006B27A6 /* DictionaryHelper.swift in Sources */,
 				EE5D1E581F83F49B00EAA5FD /* UrlLinkTableViewCellTest.swift in Sources */,
 			);

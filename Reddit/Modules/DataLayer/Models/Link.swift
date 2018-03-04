@@ -27,7 +27,7 @@ struct Link: Votable, Created, Thing, Codable {
     let numComments: Int
     let over18: Bool
     let permalink: String
-    let postHint: PostHint
+    let postHint: PostHint?
     let preview: PreviewImage?
     let saved: Bool
     let score: Int
@@ -113,11 +113,11 @@ struct Link: Votable, Created, Thing, Codable {
         numComments = try container.decode(Int.self, forKey: .numComments)
         over18 = try container.decode(Bool.self, forKey: .over18)
         permalink = try container.decode(String.self, forKey: .permalink)
-        
-        if let hint = try? container.decode(String.self, forKey: .postHint) {
-            postHint = PostHint(rawValue: hint) ?? .link
+
+        if let hint = try container.decodeIfPresent(String.self, forKey: .postHint) {
+            postHint = PostHint(rawValue: hint)
         } else {
-            postHint = .link
+            postHint = nil
         }
         
         preview = try container.decodeIfPresent(PreviewImage.self, forKey: .preview)

@@ -14,7 +14,6 @@ class LinkViewPresenter {
     
     // MARK: - Link View Presentation Logic
     /// Updates the given link view with its associated link
-    // TODO: Test this
     static func update(titleLinkView: LinkViewable, with link: Link) {
         titleLinkView.setTitle(withTitle: link.title)
         
@@ -26,7 +25,6 @@ class LinkViewPresenter {
     }
     
     /// Updates the given image link view with its associated link
-    // TODO: Test this
     static func update(imageLinkView: ImageLinkViewable, with link: Link) {
         guard let imageUrl = imageUrl(for: link) else {
             return
@@ -108,18 +106,17 @@ class LinkViewPresenter {
             return "\(link.ups / 10000)k"
         }
          
-        // TODO: Test This
         switch link.ups {
         case let ups where ups > 100000:
             return "\(link.ups / 10000)k" 
-        case let ups where ups > 10000:
-            return "\(link.ups / 1000)k" 
+        case let ups where ups >= 1000:
+            return "\(link.ups / 1000)k"
         default:
             return "\(link.ups)"
         }
     }
     
-    static func postHint(for link: Link) -> PostHint {
+    static func postHint(for link: Link) -> PostHint? {
         return link.postHint
     }
 } 

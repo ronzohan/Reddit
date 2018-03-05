@@ -266,18 +266,16 @@ class LinkViewPresenterTest: XCTestCase {
     // MARK: - Ups
     func upsString(forUps ups: Int, expectedUpsString: String) {
         // Given
-        linkData[VotableKeys.ups.rawValue] = ups
-        
-        link = DictionaryHelper.model(for: linkData)
-        
         // When
-        let upsString = LinkViewPresenter.upsString(for: link)
+        let upsString = LinkViewPresenter.upsString(forUps: ups)
         
         // Then
         XCTAssertEqual(upsString, expectedUpsString)
     }
     
     func testUpsString() {
+        upsString(forUps: 900000, expectedUpsString: "900k")
+        upsString(forUps: 100001, expectedUpsString: "100k")
         upsString(forUps: 100000, expectedUpsString: "100k")
         upsString(forUps: 10000, expectedUpsString: "10k")
         upsString(forUps: 1000, expectedUpsString: "1k")

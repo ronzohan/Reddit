@@ -28,13 +28,13 @@ class SubredditViewControllerTest: XCTestCase {
     }
     
     // MARK: - Helper Test Functions
-    func testLinkView(view: LinkView, for link: Link) {
+    func checkValuesOnLinkView(view: LinkView, for link: Link) {
         XCTAssertEqual(view.titleLabel.text, link.title)
         
         let expectedMeta = LinkViewPresenter.meta(for: link)
         XCTAssertEqual(view.infoView.metaLabel.text, expectedMeta)
         
-        let expectedUps = LinkViewPresenter.upsString(for: link)
+        let expectedUps = LinkViewPresenter.upsString(forUps: link.ups)
         XCTAssertEqual(view.actionsView.voteView.voteCountLabel.text, expectedUps)
     }
     
@@ -55,7 +55,7 @@ class SubredditViewControllerTest: XCTestCase {
             return
         }
 
-        testLinkView(view: linkView, for: link)
+        checkValuesOnLinkView(view: linkView, for: link)
     }
     
     func testTitleLinkTableViewCell() {
@@ -74,7 +74,7 @@ class SubredditViewControllerTest: XCTestCase {
             return
         }
         
-        testLinkView(view: linkView, for: link)
+        checkValuesOnLinkView(view: linkView, for: link)
     }
 
     // TODO: Continue testing this

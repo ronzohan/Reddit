@@ -20,7 +20,7 @@ class LinkViewPresenter {
         let linkMeta = meta(for: link)
         titleLinkView.setMeta(withMeta: linkMeta)
         
-        let ups = upsString(for: link)
+        let ups = upsString(forUps: link.ups)
         titleLinkView.setUps(withUps: ups)
     }
     
@@ -104,19 +104,19 @@ class LinkViewPresenter {
         
         return previewHeight
     }
-    
-    static func upsString(for link: Link) -> String {
-        if link.ups > 100000 {
-            return "\(link.ups / 10000)k"
-        }
-         
-        switch link.ups {
+
+    /// Formats the number of ups to a shorthand notation of it
+    ///
+    /// - Parameter ups: Number of ups
+    /// - Returns: Formatted shorthand notation of ups string
+    static func upsString(forUps ups: Int) -> String {         
+        switch ups {
         case let ups where ups > 100000:
-            return "\(link.ups / 10000)k" 
+            return "\(ups / 1000)k" 
         case let ups where ups >= 1000:
-            return "\(link.ups / 1000)k"
+            return "\(ups / 1000)k"
         default:
-            return "\(link.ups)"
+            return "\(ups)"
         }
     }
     
